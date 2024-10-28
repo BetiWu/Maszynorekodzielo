@@ -1,0 +1,82 @@
+body {
+    background-size: cover;
+    background-position: center;
+    font-family: 'Roboto', sans-serif; /* Ustaw czcionkę Roboto na całej stronie */
+    text-align: center;
+    padding: 20px;
+    color: #f5f5f5; /* Jasny tekst dla lepszej czytelności */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+        url('./image2.jpg');
+    line-height: 1.6; /* Zwiększenie odstępu między liniami dla lepszej czytelności */
+}
+
+h1 {
+    color: #ffffff; /* Czysty biały kolor nagłówka */
+    font-family: 'Lato', sans-serif; /* Ciemniejsza czcionka sans-serif */
+    font-size: 2em; /* Ustalenie bardziej stonowanego rozmiaru nagłówka */
+    margin-bottom: 10px; 
+    text-transform: none; /* Usuń "Caps Lock" */
+    opacity: 0.9;
+}
+
+h2 {
+    color: #ffd700; /* Złoty kolor nagłówków */
+    font-size: 1.5em; /* Rozmiar dla nagłówków drugiego poziomu */
+    margin-bottom: 8px; 
+    text-transform: none; /* Usuń "Caps Lock" */
+    font-weight: normal; /* Normalna grubość tekstu */
+}
+
+.photo {
+    margin: 20px auto;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    animation: fade-in 1s;
+}
+
+p {
+    color: #eeeeee; /* Subtelniejszy kolor tekstu */
+    line-height: 1.6; /* Zwiększenie odstępu między liniami */
+    margin: 10px 0; 
+    font-size: 1em; 
+    text-align: justify; /* Justuje tekst dla lepszej czytelności */
+}
+
+a {
+    color: #ffd700; /* Kolor linków */
+    text-decoration: none; 
+    font-weight: normal; /* Normalna grubość tekstu */
+    margin-top: 20px; 
+    display: inline-block; 
+    transition: color 0.3s, transform 0.3s; 
+}
+
+a:hover {
+    color: #ffcc00; /* Kolor linku na hover */
+    transform: scale(1.05); /* Efekt powiększenia */
+}
+
+section {
+    margin: 20px auto; 
+    padding: 20px; 
+    max-width: 800px; 
+    background-color: rgba(255, 255, 255, 0.15); /* Lekko przezroczyste tło */
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Cień dla głębi */
+    transition: transform 0.3s; /* Animacje dla sekcji */
+}
+
+section:hover {
+    transform: translateY(-5px); /* Subtelne przesunięcie przy najechaniu */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

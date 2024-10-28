@@ -1,0 +1,163 @@
+body {
+font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow: hidden; /* Ukryj przewijanie */
+}
+
+.background {
+    position: fixed; /* Zmienione na fixed, aby tło nie przesuwało się przy przewijaniu */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Szerokość widoku 100% */
+    height: 100vh; /* Wysokość widoku 100% */
+    background-image: url('tlo.jpg'); /* Podstaw tło obrazem */
+    background-size: cover; /* Obraz dostosowany proporcjonalnie do tła */
+    background-position: center; /* Wyśrodkowanie obrazu */
+    animation: zoom 8s infinite alternate; /* Animacja zoom z czasem 8 sekund */
+    z-index: -1; /* Tło za innymi elementami */
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: scale(1.3) rotateX(15deg) rotateY(20deg);
+    }
+    50% {
+        transform: scale(1.3) rotateX(15deg) rotateY(-20deg);
+    }
+    75% {
+        transform: scale(1.3) rotateX(15deg) rotateY(20deg);
+    }
+    100% {
+        transform: scale(1) rotateX(0deg) rotateY(0deg);
+    }
+}
+
+@keyframes shine {
+    0% {
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.1), 0 0 5px rgba(255, 255, 255, 0.2), 0 0 7px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 5px rgba(255, 255, 255, 0.6), 0 0 7px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.1), 0 0 5px rgba(255, 255, 255, 0.2), 0 0 7px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.shining {
+    animation: shine 2s infinite; /* Możesz również wydłużyć czas trwania animacji */
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ustawić start w kontenerze */
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding-top: 100px; /* Dodanie paddingu tylko u góry */
+    text-shadow: 
+        1px 1px 0 rgba(0, 0, 0, 0.5), /* Cień 1 */
+        2px 2px 0 rgba(0, 0, 0, 0.4), /* Cień 2 */
+        3px 3px 0 rgba(0, 0, 0, 0.3), /* Cień 3 */
+        4px 4px 0 rgba(0, 0, 0, 0.2), /* Cień 4 */
+        5px 5px 0 rgba(0, 0, 0, 0.1); /* Cień 5 */
+}
+
+#main-title {
+    cursor: pointer;
+    font-size: 5em;
+    transition: font-size 0.3s ease;
+    z-index: 1;
+    color: white;
+	}
+
+
+
+.hover-text {
+    display: none; /* Ukrycie domyślne */
+    color: white; /* Biały kolor dla tekstu "Kliknij" */
+    font-size: 2em; /* Mniejszy rozmiar tekstu "Kliknij" */
+    margin-top: -40px; /* Ustawienie negatywnej wartości, aby tekst był wyżej */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    transition: background-color 0.3s, color 0.3s; /* Dodanie efektu przejścia */
+}
+
+#main-title:hover + .hover-text {
+    display: block; /* Pokaż tekst "Kliknij" */
+}
+
+#main-title:hover + .hover-text:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Przezroczyste białe tło */
+    color: black; /* Zmiana koloru tekstu na czarny */
+}
+
+#options {
+    margin-top: -60px;
+    opacity: 0;
+    visibility: hidden; /* Ukryty początkowo */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden {
+    display: none; /* Ukrycie elementu */
+}
+
+#options.show {
+    opacity: 1;
+    visibility: visible; 
+}
+
+#options ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; 
+}
+
+#options li {
+    margin: 10px 0;
+}
+
+#options a {
+    text-decoration: none;
+    color: white; 
+    font-size: 3em; 
+    color: #FFFFFF; /* Domyślny kolor tekstu */
+    transition: color 0.3s, background-color 0.3s; /* Dodaj przejrzystość dla koloru i tła */
+    padding: 10px; /* Dodaj trochę przestrzeni */
+    border-radius: 5px; /* Zaokrąglenie krawędzi */
+}
+
+/* Hover effect */
+#options a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Jasne tło przy najeździe */
+    color: #FFFF00; /* Zmiana koloru tekstu na czarny */
+	border-radius: 10px;
+}
+
+.footer {
+    position: absolute; 
+    bottom: -10px;  /* Ustaw odległość od dołu, aby przenieść stopkę niżej */
+    left: 50%; 
+    transform: translateX(-50%);
+    color: white; 
+    font-size: 1.5em; 
+    text-align: center; 
+    opacity: 1; 
+    padding: 10px; 
+    background-color: transparent; 
+    z-index: 1; 
+    text-shadow: 
+        1px 1px 0 rgba(0, 0, 0, 0.5), /* Cień 1 */
+        2px 2px 0 rgba(0, 0, 0, 0.4), /* Cień 2 */
+        3px 3px 0 rgba(0, 0, 0, 0.3), /* Cień 3 */
+        4px 4px 0 rgba(0, 0, 0, 0.2), /* Cień 4 */
+        5px 5px 0 rgba(0, 0, 0, 0.1); /* Cień 5 */
+}

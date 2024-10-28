@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkty</title>
+    <link rel="stylesheet" href="produkty.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navigation-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="produkty.html" class="nav-link"><b>Produkty</b></a>
+            <a href="omaszynie.html" class="nav-link">Ciekawostki</a>
+            <a href="omnie.html" class="nav-link">O mnie</a>
+            <a href="kontakt.html" class="nav-link">Kontakt</a>
+        </nav>
+        <div class="title-container">
+            <h1 class="title">Produkty</h1>
+        </div>
+    </div>
+    <div class="sidebar-container">
+        <div class="sidebar">
+            <ul class="category-list">
+                <li class="category-item" onclick="toggleSubcategories('subcat1', this)">Boże Narodzenie
+                    <ul id="subcat1" class="subcategory-list" style="display: none;">
+                        <li class="subcategory-item" onclick="displayProducts('subcat1-1'); event.stopPropagation();">Choinki</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat1-2'); event.stopPropagation();">Ozdoby</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat1-3'); event.stopPropagation();">Prezentowanie</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat1-4'); event.stopPropagation();">Światełka</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat1-5'); event.stopPropagation();">Dekoracje</li>
+                    </ul>
+                </li>
+                <!-- Dalsze kategorie -->
+                <li class="category-item" onclick="toggleSubcategories('subcat2', this)">Ślub
+                    <ul id="subcat2" class="subcategory-list" style="display: none;">
+                        <li class="subcategory-item" onclick="displayProducts('subcat2-1'); event.stopPropagation();">Zaproszenia</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat2-2'); event.stopPropagation();">Dekoracje</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat2-3'); event.stopPropagation();">Upominki</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat2-4'); event.stopPropagation();">Fotobudka</li>
+                        <li class="subcategory-item" onclick="displayProducts('subcat2-5'); event.stopPropagation();">Kwiaty</li>
+                    </ul>
+                </li>
+                <!-- Tutaj możesz dodać kolejne kategorie -->
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div id="product-display" class="product-display">
+            <!-- Tutaj będą dynamicznie dodawane produkty -->
+        </div>
+    </div>
+    <script src="produkty.js"></script>
+</body>
+
+</html>

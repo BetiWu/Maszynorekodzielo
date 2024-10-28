@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koszyk</title>
+    <link rel="stylesheet" href="produkty.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navigation-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="produkty.html" class="nav-link">Produkty</a>
+            <a href="koszyk.html" class="nav-link"><b>Koszyk</b></a>
+            <a href="omnie.html" class="nav-link">O mnie</a>
+            <a href="kontakt.html" class="nav-link">Kontakt</a>
+        </nav>
+
+        <div class="cart">
+            <h2>Twój Koszyk</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <div id="shipping-cost" style="color: yellow; font-weight: bold;">przesyłka <b>TYLKO</b> 9,99 zł</div>
+            <br>
+            <div id="total-price">Łącznie do zapłaty: <span id="total-amount">0,00</span> zł</div>
+            <button id="clear-cart" style="margin-top: 10px;">Wyczyść koszyk</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const shippingCost = 9.99;
+
+        function displayCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            let total = 0;
+
+            // Jeśli koszyk jest pusty
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Koszyk jest pusty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    
+                    // Ustalanie etykiety i placeholdera na podstawie kategorii
+                    let label, placeholder;
+                    if (item.category === 'subcat1-1') {
+                        label = 'Wzór imię:';
+                        placeholder = 'np. Choinka-Marek';
+                    } else {
+                        label = 'Personalizacja:';
+                        placeholder = '';
+                    }
+
+                    itemElement.innerHTML = `
+                        ${index + 1}. ${item.name} - ${item.price.toFixed(2)} zł
+                        <div>
+                            <label for="customText-${index}">${label}</label>
+                            <input type="text" id="customText-${index}" placeholder="${placeholder}" onfocus="this.placeholder=''" onblur="this.placeholder='${placeholder}'" />
+                        </div>
+                        <br>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                    total += item.price; // Zliczanie całkowitej wartości produktów w koszyku
+                });
+            }
+
+            // Aktualizacja łącznej kwoty
+            const totalAmountElement = document.getElementById('total-amount');
+            totalAmountElement.innerText = (total + shippingCost).toFixed(2);
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.removeItem('cart'); // Usuwamy koszyk z localStorage
+            displayCart(); // Aktualizujemy wyświetlanie koszyka
+        }
+
+        // Obsługa przycisku czyszczenia koszyka
+        document.getElementById('clear-cart').addEventListener('click', clearCart);
+
+        // Wyświetl koszyk przy załadowaniu strony
+        document.addEventListener('DOMContentLoaded', displayCart);
+    </script>
+    
+</body>
+
+</html>

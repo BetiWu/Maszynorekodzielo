@@ -1,0 +1,291 @@
+body {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('./ja.jpg'); 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    margin: 0; 
+    text-shadow: 1px 1px 2px black; 
+}
+
+h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
+    font-family: 'Lora', serif; 
+}
+
+.title-container {
+    display: flex; /* Użycie flexboxa */
+    justify-content: center; /* Wyśrodkowanie elementów w poziomie */
+    margin: 0px 0; /* Odstępy od góry i dołu tytułu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.container {
+    display: flex; 
+    flex-direction: column; /* Zmiana na kolumnową, aby uniknąć problemów z float */
+    align-items: center; /* Wyśrodkowanie zawartości kontenera */
+    padding: 5px; 
+    color: white; 
+    font-size: 22px; 
+}
+
+.sidebar-container {
+    width: 25%; 
+    float: left; 
+    margin-left: 20px; 
+}
+
+.sidebar {
+    background-color: rgba(128, 128, 128, 0.5); 
+    border-radius: 8px; 
+    padding: 5px; 
+}
+
+.content {
+	
+    width: 70%; 
+    float: left; 
+    margin-left: 10px; 
+    background-color: rgba(128, 128, 128, 0.5); 
+    border-radius: 8px; 
+    padding: 20px; 
+}
+
+
+
+.product-display {
+    display: grid; /* Użycie grid do układu produktów */
+    grid-template-columns: repeat(4, 1fr); /* 4 kolumny */
+    gap: 10px; /* Odstęp między produktami */
+}
+
+.product {
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 5px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Wyśrodkowanie zawartości w poziomie */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    padding: 5px; 
+    min-height: 250px; /* Ustawienie minimalnej wysokości dla kafelków */
+}
+
+.product img {
+    width: 100%; /* Szerokość na 100% szerokości kafelka */
+   /*ight: 300px; /* Możesz dostosować wysokość tutaj (400px lub inna wartość) */
+    object-fit: cover; /* Utrzymanie proporcji zawartości */
+    border-radius: 5px; /* Opcjonalnie, zaokrąglenie rogów */
+}
+
+.product h2, .product p {
+    margin: 0; /* Usunięcie domyślnych marginesów */
+    text-align: center; /* Wyśrodkowanie tekstu w nagłówkach i opisach */
+    color: white; /* Zapewnienie, że tekst będzie dobrze widoczny */
+}
+
+button {
+    background-color: #ffeb3b; 
+    border: none; 
+    color: black; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: yellow; 
+}
+
+/* Animacja fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+}
+
+/* Dostosowanie nawigacji */
+.navigation-container {
+    display: flex; 
+    width: 100%; 
+    align-items: center; 
+    padding: 20px 0; 
+    justify-content: space-between; 
+}
+
+.nav-link {
+    text-decoration: none; 
+    color: white; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+}
+
+.nav-link:hover {
+    color: yellow; 
+}
+
+/* Dostosowanie listy kategorii */
+.category-list {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.category-item {
+    cursor: pointer; 
+    padding: 5px; 
+    border-radius: 4px; 
+    color: white; 
+    font-size: 25px; 
+}
+
+.category-item:hover {
+    color: #ffeb3b; 
+}
+
+.subcategory-list {
+    list-style-type: none; 
+    padding-left: 25px; 
+    padding: 10px; 
+    display: none; 
+}
+
+.subcategory-item {
+    cursor: pointer; 
+    color: white; 
+}
+
+.subcategory-item:hover {
+    color: yellow; 
+}
+
+.category-item:hover {
+    color: #ffeb3b; 
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content {
+    /*max-width: 900px; */
+    padding: 50px;
+
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    position: relative; 
+}
+
+.modal-image {
+    max-width: 100%; 
+    max-height: 400px; 
+    object-fit: contain; 
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1100; /* Upewnij się, że `z-index` jest wyżej niż 1000 */
+}
+
+.carousel-navigation {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie nawigacji */
+    margin-top: 10px;
+    width: 100%; /* Szerokość na 100% kontenera */
+}
+
+.carousel-navigation button {
+    background-color: #ffeb3b;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.cart {
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.5); /* Ustaw tło koszyka, aby było zgodne z innymi sekcjami */
+    border-radius: 8px; /* Zaokrąglone rogi */
+    margin: 20px 0; /* Odstępy z góry i dołu */
+    color: white; /* Kolor tekstu */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Cień dla koszyka */
+}
+
+.cart h2 {
+    font-size: 24px; /* Rozmiar czcionki nagłówka */
+    margin-bottom: 15px; /* Odstęp poniżej nagłówka */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.cart-items {
+    margin-bottom: 15px; /* Odstęp poniżej listy produktów */
+}
+
+.cart-items div {
+    padding: 10px; /* Odstępy dla każdej pozycji w koszyku */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Linia oddzielająca produkty */
+}
+
+#total-price {
+    font-weight: bold; /* Wyróżnienie tekstu */
+    margin: 10px 0; /* Odstępy powyżej i poniżej */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+#shipping-cost {
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+button {
+    background-color: #ffeb3b; /* Kolor tła dla przycisku */
+    border: none; /* Usunięcie ramki */
+    color: black; /* Kolor tekstu */
+    padding: 10px 15px; /* Odstępy wewnętrzne */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+    width: 100%; /* Szerokość przycisku na 100% */
+}
+
+button:hover {
+    background-color: yellow; /* Zmiana koloru przycisku przy najechaniu */
+}
+
+
+
+
+/* Resety, aby uniknąć problemów z box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box; 
+}
+
+
+
+
+
+html, body {
+    margin: 0; 
+    padding: 0; 
+}

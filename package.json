@@ -1,0 +1,14 @@
+{
+  "name": "my-express-server",
+  "version": "1.0.0",
+  "description": "Serwer lokalny z wykorzystaniem Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Twoje Imię",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
