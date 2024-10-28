@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koszyk</title>
     <link rel="stylesheet" href="produkty.css">
+<style>
+   
+</style>
+
 </head>
 
 <body>
@@ -29,6 +33,7 @@
     </div>
 
     <script>
+        // Pobierz koszyk z localStorage lub zainicjuj jako pustą tablicę
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const shippingCost = 9.99;
 
@@ -45,21 +50,17 @@
                 cart.forEach((item, index) => {
                     const itemElement = document.createElement('div');
                     
-                    // Ustalanie etykiety i placeholdera na podstawie kategorii
-                    let label, placeholder;
-                    if (item.category === 'subcat1-1') {
-                        label = 'Wzór imię:';
-                        placeholder = 'np. Choinka-Marek';
-                    } else {
-                        label = 'Personalizacja:';
-                        placeholder = '';
-                    }
+                    // Ustal etykietę i placeholder do personalizacji
+                    const label = 'Personalizacja:';
+                    const placeholder = 'np. Wzór: choinka, Imię: Kamil';
 
                     itemElement.innerHTML = `
-                        ${index + 1}. ${item.name} - ${item.price.toFixed(2)} zł
                         <div>
-                            <label for="customText-${index}">${label}</label>
-                            <input type="text" id="customText-${index}" placeholder="${placeholder}" onfocus="this.placeholder=''" onblur="this.placeholder='${placeholder}'" />
+                            ${index + 1}. ${item.name} - ${item.price.toFixed(2)} zł
+                            <div>
+                                <label for="customText-${index}">${label}</label>
+                                <input type="text" id="customText-${index}" placeholder="${placeholder}" onfocus="this.placeholder=''" onblur="this.placeholder='${placeholder}'" />
+                            </div>
                         </div>
                         <br>
                     `;

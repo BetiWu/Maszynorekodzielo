@@ -127,6 +127,10 @@ let currentImages;
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const shippingCost = 9.99;
 
+
+
+
+
 function openImage(product) {
     currentImages = product.imgSrc; // Wybierz tablicę obrazów z produktu
     currentIndex = 0; // Zaczynamy od pierwszego obrazka
@@ -197,7 +201,7 @@ function displayProducts(subcategoryId) {
 }
 
 // Funkcja do dodawania produktów do koszyka
-function addToCart(productName, price) {
+function addToCart(productName, price, category) {
     const productPrice = getPrice(price); // Pobierz cenę w formacie liczbowym
     const quantity = parseInt(prompt(`Ile sztuk ${productName} chcesz dodać do koszyka?`));
 
@@ -207,12 +211,16 @@ function addToCart(productName, price) {
     }
 
     for (let i = 0; i < quantity; i++) {
-        cart.push({ name: productName, price: productPrice }); // Dodaj produkt do koszyka
+        cart.push({ 
+            name: productName, 
+            price: productPrice, 
+            category: category // Dodaj kategorię
+        }); 
     }
 
     localStorage.setItem('cart', JSON.stringify(cart)); // Zapisz do localStorage
-    updateCart(); // Aktualizuje wyświetlane elementy koszyka
-    updateCartCount(); // Aktualizuj licznik koszyka
+    updateCart(); // Zaktualizuj wyświetlane elementy koszyka
+    updateCartCount(); // Zaktualizuj licznik koszyka
     alert(`${quantity} sztuk ${productName} zostało dodanych do koszyka!`); // Komunikat informujący o dodaniu do koszyka
 }
 
