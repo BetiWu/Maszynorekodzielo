@@ -214,7 +214,7 @@ button:hover {
     display: flex;
     justify-content: center; /* Wyśrodkowanie nawigacji */
     margin-top: 10px;
-    width: 100%; /* Szerokość na 100% kontenera */
+    width: 20%; /* Szerokość na 100% kontenera */
 }
 
 .carousel-navigation button {
