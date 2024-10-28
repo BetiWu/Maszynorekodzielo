@@ -129,8 +129,6 @@ const shippingCost = 9.99;
 
 
 
-
-
 function openImage(product) {
     currentImages = product.imgSrc; // Wybierz tablicę obrazów z produktu
     currentIndex = 0; // Zaczynamy od pierwszego obrazka

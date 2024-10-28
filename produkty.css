@@ -16,6 +16,8 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
     font-family: 'Lora', serif; 
 }
 
+
+
 .title-container {
     display: flex; /* Użycie flexboxa */
     justify-content: center; /* Wyśrodkowanie elementów w poziomie */
@@ -78,7 +80,15 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
    /*ight: 300px; /* Możesz dostosować wysokość tutaj (400px lub inna wartość) */
     object-fit: cover; /* Utrzymanie proporcji zawartości */
     border-radius: 5px; /* Opcjonalnie, zaokrąglenie rogów */
+	cursor: pointer;
+	
+	
 }
+
+.product img:hover {
+    transform: scale(1.05); /* Powiększenie obrazu o 5% po najechaniu */
+}
+
 
 .product h2, .product p {
     margin: 0; /* Usunięcie domyślnych marginesów */
@@ -87,7 +97,7 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 }
 
 button {
-    background-color: #ffeb3b; 
+    background-color: rgba(255, 235, 59, 0.8);
     border: none; 
     color: black; 
     padding: 10px 15px; 
@@ -198,7 +208,6 @@ button:hover {
     object-fit: contain; 
 }
 
-
 .close {
     position: absolute;
     top: 10px;
@@ -218,20 +227,27 @@ button:hover {
 }
 
 .carousel-navigation button {
-    background-color: #ffeb3b;
+    background-color: rgba(255, 235, 59, 0.7);
     border: none;
     padding: 10px;
     cursor: pointer;
     margin: 0 5px;
 }
 
+.carousel-navigation button:hover {
+    background-color: yellow; 
+}
+
+
 .cart {
+	width: 50%; /* Ustaw szerokość na 80% kontenera rodzica, możesz dostosować do swoich potrzeb */
     padding: 20px;
     background-color: rgba(128, 128, 128, 0.5); /* Ustaw tło koszyka, aby było zgodne z innymi sekcjami */
     border-radius: 8px; /* Zaokrąglone rogi */
     margin: 20px 0; /* Odstępy z góry i dołu */
     color: white; /* Kolor tekstu */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Cień dla koszyka */
+	text-align: center; /* Wyśrodkowanie tekstu */
 }
 
 .cart h2 {
@@ -247,7 +263,22 @@ button:hover {
 .cart-items div {
     padding: 10px; /* Odstępy dla każdej pozycji w koszyku */
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Linia oddzielająca produkty */
+    margin-bottom: 0; /* Usuń dole margines */
 }
+
+.cart-items div:last-child {
+    border-bottom: none; /* Usuń linię oddzielającą dla ostatniego elementu w koszyku */
+}
+
+.cart input[type="text"] {
+    width: 300px; /* Ustawia szerokość na 150px, możesz dostosować do swoich potrzeb */
+    padding: 5px; /* Mniejsze padding, aby pole było bardziej kompaktowe */
+    font-size: 14px; /* Opcjonalnie, zmniejsza czcionkę placeholdera */
+    border: 1px solid #ccc; /* Dogodne obramowanie */
+    border-radius: 4px; /* Zaokrąglone rogi */
+    margin-left: 10px; /* Odstęp od etykiety */
+}
+
 
 #total-price {
     font-weight: bold; /* Wyróżnienie tekstu */
@@ -255,25 +286,121 @@ button:hover {
     text-align: center; /* Wyśrodkowanie tekstu */
 }
 
+@keyframes pulse {
+          
+            100% {
+                opacity: 2;
+				transform: scale(1.2);
+            }
+        }
+
+
 #shipping-cost {
     text-align: center; /* Wyśrodkowanie tekstu */
+	color:rgba(255, 0, 0, 0.9);
+	animation: pulse 3s infinite; 
+	  text-shadow: 
+        1px 1px 0px white, /* Białe obramowanie, prawy dolny */
+       -1px -1px 0px white, /* Białe obramowanie, lewy górny */
+        1px -1px 0px white, /* Białe obramowanie, prawy górny */
+       -1px 1px 0px white; /* Białe obramowanie, lewy dolny */
+	
 }
 
-button {
-    background-color: #ffeb3b; /* Kolor tła dla przycisku */
-    border: none; /* Usunięcie ramki */
-    color: black; /* Kolor tekstu */
-    padding: 10px 15px; /* Odstępy wewnętrzne */
+input[type="text"] {
+    width: 100%; /* Ustaw szerokość na 100% kontenera */
+    padding: 10px; /* Dodaj padding dla lepszego komfortu użytkowania */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Ustaw kolor obramowania */
+    border-radius: 8px; /* Zaokrąglij rogi */
+    background-color: rgba(255, 255, 255, 0.1); /* Ustaw półprzezroczyste tło dla lepszej widoczności */
+    color: white; /* Ustaw kolor tekstu, aby był czytelny */
+    margin-top: 5px; /* Opcjonalny odstęp górny */
+}
+
+/* Opcjonalnie, możesz także stylizować placeholder */
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.8); /* Ustaw kolor placeholdera */
+    color: rgba(255, 255, 255, 0.8); /* Ustaw kolor placeholdera */
+    opacity: 1; /* Aby nie był przezroczysty w niektórych przeglądarkach */
+	 flex: 1;
+}
+
+.order-form {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: rgba(249, 249, 249, 0.5);
+			text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.9); /* Cień tekstu */
+        }
+        
+        .order-form h3 {
+            margin-bottom: 15px;
+        }
+
+        .order-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+       .order-form input[type="text"], 
+.order-form input[type="email"], 
+.order-form textarea {
+    width: 100%; /* Dostosowanie szerokości do 100% */
+    padding: 10px; /* Wewnętrzny margines */
+    margin-bottom: 15px; /* Odstęp na dole */
+    border: 1px solid #ccc; /* Ramka */
     border-radius: 5px; /* Zaokrąglone rogi */
-    cursor: pointer; /* Zmiana kursora na wskaźnik */
-    width: 100%; /* Szerokość przycisku na 100% */
-}
-
-button:hover {
-    background-color: yellow; /* Zmiana koloru przycisku przy najechaniu */
+    background-color: rgba(249, 249, 249, 0.8); /* Ustawienie koloru tła z przezroczystością */
+    box-sizing: border-box; /* Obliczanie szerokości i wysokości, w tym padding */
 }
 
 
+.order-form input[type="text"]:focus,
+.order-form input[type="email"]:focus,
+.order-form textarea:focus {
+    border-color: #007BFF; /* Kolor ramki podczas fokusu */
+    outline: none; /* Usuń domyślną ramkę focusa */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Cień podczas fokusu */
+}
+
+        .order-form button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        .order-form button:hover {
+            background-color: #218838;
+        }
+
+.payment-info {
+    color: black; /* Ustawienie koloru szarego */
+	  text-shadow: 
+        1px 1px 0px white, /* Białe obramowanie, prawy dolny */
+       -1px -1px 0px white, /* Białe obramowanie, lewy górny */
+        1px -1px 0px white, /* Białe obramowanie, prawy górny */
+       -1px 1px 0px white; /* Białe obramowanie, lewy dolny */
+}
+
+.custom-textarea {
+    width: 100%; /* Dostosowanie szerokości do 100% */
+    padding: 8px; /* Wewnętrzny margines */
+    box-sizing: border-box; /* Obliczanie szerokości i wysokości, w tym padding */
+    margin-top: 5px; /* Odstęp z góry */
+    margin-bottom: 15px; /* Odstęp na dole */
+    border: 1px solid #ccc; /* Ramka */
+    border-radius: 4px; /* Zaokrąglone rogi */
+}
+
+/* Możesz użyć dodatkowych stylów dla przyległych etykiet */
+.order-form label {
+    display: block; /* Sprawia, że etykiety zajmują całą szerokość */
+    margin-top: 10px; /* Odstęp od góry */
+}
 
 
 /* Resety, aby uniknąć problemów z box-sizing */

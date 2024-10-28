@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koszyk</title>
     <link rel="stylesheet" href="produkty.css">
-<style>
-   
-</style>
-
 </head>
 
 <body>
@@ -23,70 +19,34 @@
         </nav>
 
         <div class="cart">
+            <div id="shipping-cost">Przesyłka TYLKO 9.99 zł </div>
             <h2>Twój Koszyk</h2>
             <div id="cart-items" class="cart-items"></div>
-            <div id="shipping-cost" style="color: yellow; font-weight: bold;">przesyłka <b>TYLKO</b> 9,99 zł</div>
-            <br>
-            <div id="total-price">Łącznie do zapłaty: <span id="total-amount">0,00</span> zł</div>
-            <button id="clear-cart" style="margin-top: 10px;">Wyczyść koszyk</button>
+
+            <div id="total-price">Do zapłaty, łącznie z przesyłką: <span id="total-amount">0,00</span> zł</div>
+            
+            <button id="order-button">Wypełnij formularz zamówienia</button>
+            
+            <!-- Stylizowany formularz zamówienia -->
+            <div id="order-form" class="order-form" style="display: none;">
+                <h3>Formularz zamówienia</h3>
+				<p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
+                <label for="name">Imię i nazwisko:</label>
+                <input type="text" id="name" required />
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required />
+                
+                <label for="address">Adres:</label>
+                <input type="text" id="address" required />
+                <label for="comments">Komentarz:</label>
+				<textarea id="comments" rows="4" placeholder="Dodaj komentarz (opcjonalnie)" class="custom-textarea"></textarea>
+                <button id="submit-order">Wyślij zamówienie</button>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Pobierz koszyk z localStorage lub zainicjuj jako pustą tablicę
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const shippingCost = 9.99;
-
-        function displayCart() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
-
-            let total = 0;
-
-            // Jeśli koszyk jest pusty
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p>Koszyk jest pusty.</p>';
-            } else {
-                cart.forEach((item, index) => {
-                    const itemElement = document.createElement('div');
-                    
-                    // Ustal etykietę i placeholder do personalizacji
-                    const label = 'Personalizacja:';
-                    const placeholder = 'np. Wzór: choinka, Imię: Kamil';
-
-                    itemElement.innerHTML = `
-                        <div>
-                            ${index + 1}. ${item.name} - ${item.price.toFixed(2)} zł
-                            <div>
-                                <label for="customText-${index}">${label}</label>
-                                <input type="text" id="customText-${index}" placeholder="${placeholder}" onfocus="this.placeholder=''" onblur="this.placeholder='${placeholder}'" />
-                            </div>
-                        </div>
-                        <br>
-                    `;
-                    cartItemsContainer.appendChild(itemElement);
-                    total += item.price; // Zliczanie całkowitej wartości produktów w koszyku
-                });
-            }
-
-            // Aktualizacja łącznej kwoty
-            const totalAmountElement = document.getElementById('total-amount');
-            totalAmountElement.innerText = (total + shippingCost).toFixed(2);
-        }
-
-        function clearCart() {
-            cart = [];
-            localStorage.removeItem('cart'); // Usuwamy koszyk z localStorage
-            displayCart(); // Aktualizujemy wyświetlanie koszyka
-        }
-
-        // Obsługa przycisku czyszczenia koszyka
-        document.getElementById('clear-cart').addEventListener('click', clearCart);
-
-        // Wyświetl koszyk przy załadowaniu strony
-        document.addEventListener('DOMContentLoaded', displayCart);
-    </script>
-    
+    <script src="koszyk.js"></script> <!-- Link do pliku JS -->
 </body>
 
 </html>
