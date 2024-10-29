@@ -4,10 +4,10 @@ const shippingCost = 9.99;
 // Funkcja do wyświetlania zawartości koszyka
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = ''; 
-    let total = 0; 
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
     const orderButtonContainer = document.getElementById('order-button-container');
-    orderButtonContainer.innerHTML = ''; 
+    orderButtonContainer.innerHTML = '';
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
@@ -43,9 +43,8 @@ function displayCart() {
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
-        fillFormButton.onclick = function() {
+        fillFormButton.onclick = function () {
             const orderForm = document.getElementById('order-form');
-            // Toggle visibility of the order form
             orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none';
         };
         orderButtonContainer.appendChild(fillFormButton);
@@ -59,19 +58,20 @@ function removeItem(index) {
 }
 
 // Obsługuje wysyłanie formularza zamówienia
-document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+document.getElementById('order-form').addEventListener('submit', function (event) {
+    event.preventDefault();
 
     // Uaktualnij wartości ukrytych pól przed wysłaniem formularza
     const hiddenCartContent = document.getElementById('cartContent');
     const totalAmountField = document.getElementById('totalAmount');
 
-    hiddenCartContent.value = JSON.stringify(cart);
+    // Tworzenie opisu koszyka
+    hiddenCartContent.value = cart.map((item, index) => `${item.name} - ${item.price.toFixed(2).replace('.', ',')} zł`).join(', ');
     totalAmountField.value = (cart.reduce((acc, item) => acc + item.price, 0) + shippingCost).toFixed(2).replace('.', ',');
 
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
-        return; 
+        return;
     }
 
     const formData = new FormData(this);
@@ -79,7 +79,7 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     // Zbieranie personalizacji
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
-        formData.append(`customText-${index}`, customText); 
+        formData.append(`customText-${index}`, customText);
     });
 
     // Logowanie zawartości FormData przed wysłaniem
@@ -88,35 +88,31 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         console.log(`${key}: ${value}`);
     }
 
-    // Sprawdzenie, czy cartContent i totalAmount są dodane
-    console.log('Cart Content (przed wysłaniem):', hiddenCartContent.value);
-    console.log('Total Amount (przed wysłaniem):', totalAmountField.value);
-
     // Wysyłanie formularza do Netlify
     fetch(this.action, {
         method: 'POST',
         body: formData,
     })
-    .then(response => {
-        console.log('Odpowiedź serwera:', response);
-        if (response.ok) {
-            alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset(); 
-            this.style.display = 'none'; 
-            cart = [];
-            localStorage.removeItem('cart');
-            displayCart();
-        } else {
-            return response.text().then(text => {
-                console.error('Błąd odpowiedzi:', text);
-                alert('Wystąpił błąd podczas składania zamówienia: ' + text);
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Błąd podczas wysyłania formularza:', error);
-        alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
-    });
+        .then(response => {
+            console.log('Odpowiedź serwera:', response);
+            if (response.ok) {
+                alert('Zamówienie zostało złożone pomyślnie!');
+                this.reset();
+                this.style.display = 'none';
+                cart = [];
+                localStorage.removeItem('cart');
+                displayCart();
+            } else {
+                return response.text().then(text => {
+                    console.error('Błąd odpowiedzi:', text);
+                    alert('Wystąpił błąd podczas składania zamówienia: ' + text);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Błąd podczas wysyłania formularza:', error);
+            alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
+        });
 });
 
 // Po załadowaniu strony
