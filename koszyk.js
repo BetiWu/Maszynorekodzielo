@@ -40,9 +40,6 @@ function displayCart() {
         document.getElementById('total-amount').innerText = totalAmount;
         document.getElementById('total-price').style.display = 'block';
 
-        const hiddenCart = document.getElementById('cartContent');
-        hiddenCart.value = JSON.stringify(cart); // Zapisuje koszyk w ukrytym polu
-        
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
@@ -64,12 +61,15 @@ function removeItem(index) {
 document.getElementById('order-form').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
+    // Uaktualnij wartości ukrytych pól przed wysłaniem formularza
+    document.getElementById('cartContent').value = JSON.stringify(cart);
+    document.getElementById('totalAmount').value = cart.reduce((acc, item) => acc + item.price, 0) + shippingCost;
+
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
         return; 
     }
 
-    const total = cart.reduce((acc, item) => acc + item.price, 0) + shippingCost;
     const formData = new FormData(this);
 
     // Zbieranie personalizacji
@@ -81,18 +81,10 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     // Logowanie zawartości koszyka przed dodaniem do FormData
     console.log('Zawartość koszyka przed dodaniem do FormData:', JSON.stringify(cart));
 
-    // Dodaj dane z ukrytych pól do formData
-    formData.append('cartContent', JSON.stringify(cart));
-    console.log('Zawartość FormData po dodaniu cartContent:', [...formData]);
-
-    formData.append('totalAmount', total.toFixed(2)); 
-
     // Logowanie danych formularza przed wysłaniem
-    const jsonFormData = {};
     formData.forEach((value, key) => {
-        jsonFormData[key] = value;
+        console.log(`${key}: ${value}`); // Logowanie zawartości FormData
     });
-    console.log('Dane formularza przed wysłaniem:', jsonFormData);
 
     // Wysyłanie formularza do Netlify
     fetch(this.action, {
