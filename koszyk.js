@@ -6,10 +6,6 @@ function updateHiddenFields() {
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     document.getElementById('cartContent').value = JSON.stringify(cart);
     document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2);
-    console.log('Zaktualizowane ukryte pola:', {
-        cartContent: document.getElementById('cartContent').value,
-        totalAmount: document.getElementById('totalAmount').value
-    });
 }
 
 // Funkcja do wyświetlania zawartości koszyka
@@ -65,7 +61,6 @@ function displayCart() {
 }
 
 function removeItem(index) {
-    console.log(`Usuwanie przedmiotu o indeksie ${index}`);
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
@@ -80,60 +75,41 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         return; 
     }
 
-    // Użycie URLSearchParams dla poprawnego formatu
-    const formData = new URLSearchParams();
-
-    // Dodaj dane formularza
-    for (const [key, value] of new FormData(this).entries()) {
-        formData.append(key, value);
-    }
-
+    const formData = new URLSearchParams(new FormData(this));
+    
     // Dodaj personalizacje
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         formData.append(`customText-${index}`, customText);
-        console.log(`Dodano personalizację do formularza: customText-${index}: ${customText}`);
     });
 
-    // Aktualizowane pola
     updateHiddenFields();
 
-    formData.append('cartContent', document.getElementById('cartContent').value);
-    formData.append('totalAmount', document.getElementById('totalAmount').value);
-    console.log('Dodano dane koszyka do formularza:', {
-        cartContent: document.getElementById('cartContent').value,
-        totalAmount: document.getElementById('totalAmount').value
-    });
-
     console.log('Dane formularza przed wysłaniem:');
-    for (const [key, value] of formData.entries()) {
+    formData.forEach((value, key) => {
         console.log(`${key}: ${value}`);
-    }
+    });
 
     fetch(this.action, {
         method: 'POST',
-        body: formData, // Używamy nowego formatu URLSearchParams
-        mode: 'cors'
+        body: formData,
+        headers: {
+            'Accept': 'application/json', // Dodaj nagłówek akceptacji, aby uzyskać odpowiedź w JSON
+        }
     })
     .then(response => {
-        console.log('Odpowiedź serwera:', response);
         if (!response.ok) {
-            return response.text().then(text => {
-                throw new Error(`Błąd serwera: ${response.status} ${response.statusText}. Treść: ${text}`);
-            });
+            return response.json().then(err => { throw new Error(err.message) });
         }
-        return response.json(); // Zmieniamy na JSON tylko, jeśli oczekujemy JSON
+        return response.json();
     })
     .then(data => {
-        console.log('Otrzymano odpowiedź od serwera:', data);
-        if (data.success) {
+        if (data.data && data.data.submit) { // Dostosowane do struktury Netlify Forms
             alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset(); // Resetuje formularz
-            this.style.display = 'none'; 
-            cart = []; // Czyści koszyk
-            localStorage.removeItem('cart'); // Usuwa koszyk z localStorage
-            displayCart(); // Odświeża wyświetlanie koszyka
-            console.log('Koszyk po złożeniu zamówienia został zresetowany.');
+            this.reset();
+            cart = [];
+            localStorage.removeItem('cart');
+            displayCart();
         } else {
             alert('Wystąpił błąd podczas składania zamówienia.');
         }
@@ -147,5 +123,4 @@ document.getElementById('order-form').addEventListener('submit', function(event)
 // Po załadowaniu strony
 document.addEventListener('DOMContentLoaded', () => {
     displayCart();
-    console.log('Koszyk został załadowany: ', cart);
 }); 
