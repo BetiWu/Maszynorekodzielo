@@ -60,25 +60,32 @@ function removeItem(index) {
 
 // Obsługuje wysyłanie formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Zatrzymuje domyślne działanie formularza
+
     // Potwierdzenie użytkownika o wysyłce formularza
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
         return; // Nie kontynuuj, jeśli użytkownik odrzuci
     }
 
-    // Zbieranie personalizacji
-    const personalizedTexts = cart.map((_, index) => {
-        return document.getElementById(`customText-${index}`)?.value || '';
-    });
-
     // Zbieranie danych formularza
     const formData = new FormData(this);
-    formData.append('personalizations', JSON.stringify(personalizedTexts));
 
-    // Po złożeniu zamówienia
+    // Zbieranie personalizacji
+    cart.forEach((item, index) => {
+        const customText = document.getElementById(`customText-${index}`)?.value || '';
+        formData.append(`customText-${index}`, customText); // Dodanie personalizacji do formData
+    });
+
+    // Debugowanie: logowanie danych formularza przed wysłaniem
+    console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
+
+    // Po złożeniu zamówienia, możesz wysłać formData do Netlify (jeżeli używasz Netlify?)
+    // Do tego skryptu może być konieczne użycie fetch, ale zazwyczaj Netlify to obsługuje automatycznie
     this.reset(); // Resetuje formularz
     this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-    
+
+    // Resetowanie koszyka
     cart = [];
     localStorage.removeItem('cart');
     displayCart();
