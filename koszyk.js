@@ -10,17 +10,16 @@ function displayCart() {
     orderButtonContainer.innerHTML = ''; // Czyści kontener z przyciskami
 
     if (cart.length === 0) {
-        // Wyświetlenie komunikatu, gdy koszyk jest pusty
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
-        document.getElementById('total-price').style.display = 'none'; // Ukrywa całkowitą kwotę
+        document.getElementById('total-price').style.display = 'none';
 
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Dodaj produkty';
         fillFormButton.onclick = function () {
-            window.location.href = 'produkty.html'; // Przenosi do strony z produktami
+            window.location.href = 'produkty.html';
         };
-        orderButtonContainer.appendChild(fillFormButton); // Dodaje przycisk do kontenera
+        orderButtonContainer.appendChild(fillFormButton);
     } else {
         cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
@@ -33,14 +32,13 @@ function displayCart() {
                     <button type="button" onclick="removeItem(${index})">Usuń</button>
                 </div>
             `;
-
-            cartItemsContainer.appendChild(itemElement); // Dodaje element do DOM
-            total += item.price; // Aktualizuje całkowity koszt produktów
+            cartItemsContainer.appendChild(itemElement);
+            total += item.price;
         });
 
         const totalAmount = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
-        document.getElementById('total-amount').innerText = totalAmount; // Ustawia kwotę w formacie z przecinkiem
-        document.getElementById('total-price').style.display = 'block'; // Wyświetla całkowitą kwotę
+        document.getElementById('total-amount').innerText = totalAmount;
+        document.getElementById('total-price').style.display = 'block';
 
         // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
@@ -48,44 +46,43 @@ function displayCart() {
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
         fillFormButton.onclick = function() {
             const orderForm = document.getElementById('order-form');
-            orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełącza widoczność formularza
+            orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none';
         };
-        orderButtonContainer.appendChild(fillFormButton); // Dodaje przycisk do kontenera
+        orderButtonContainer.appendChild(fillFormButton);
     }
 }
 
-// Funkcja do usuwania produktu z koszyka
 function removeItem(index) {
-    cart.splice(index, 1); // Usuwa produkt z koszyka
-    localStorage.setItem('cart', JSON.stringify(cart)); // Aktualizuje localStorage
-    displayCart(); // Odświeżamy wyświetlanie koszyka
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
 }
 
-// Obsługa wysyłania formularza zamówienia
+// Obsługuje wysyłanie formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault();  // Zatrzymujemy domyślne działanie formularza
+    // Potwierdzenie użytkownika o wysyłce formularza
+    const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
+    if (!confirmed) {
+        return; // Nie kontynuuj, jeśli użytkownik odrzuci
+    }
 
-    // Zbieramy dane z formularza jako obiekt
-    const formData = new FormData(event.target);
-    
-    // Dodaj dane dotyczące personalizacji do formData
+    // Zbieranie personalizacji
     const personalizedTexts = cart.map((_, index) => {
         return document.getElementById(`customText-${index}`)?.value || '';
     });
+
+    // Zbieranie danych formularza
+    const formData = new FormData(this);
     formData.append('personalizations', JSON.stringify(personalizedTexts));
 
-    // Upewnij się, że formularz ma data-netlify="true" i nie używasz atrybutu action.
-    // Automatycznie formularz będzie wysyłany przez Netlify Forms.
-
-    // Resetujemy formularz i ukrywamy go
+    // Po złożeniu zamówienia
     this.reset(); // Resetuje formularz
     this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-
-    // Czyścimy koszyk po wysłaniu
+    
     cart = [];
     localStorage.removeItem('cart');
-    displayCart(); // Odświeżamy wyświetlanie koszyka
+    displayCart();
 });
 
-// Naładowanie koszyka po załadowaniu strony
+// Po załadowaniu strony
 document.addEventListener('DOMContentLoaded', displayCart);
