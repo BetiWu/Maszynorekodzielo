@@ -63,6 +63,11 @@ function removeItem(index) {
 document.getElementById('order-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Zapobiegaj domyślnej akcji formularza
 
+    // Wypełnij ukryte pola
+    document.getElementById('order-details').value = JSON.stringify(cart); // Przechowuje szczegóły zamówienia
+    const totalAmount = (cart.reduce((total, item) => total + item.price, 0) + shippingCost).toFixed(2).replace('.', ',') + ' zł';
+    document.getElementById('total-amount-hidden').value = totalAmount; // Ustawia ukrytą całkowitą kwotę
+
     // Wyświetlanie wiadomości potwierdzającej
     alert("Twoje zamówienie zostało złożone, potwierdzenie przyjdzie na podany przez Ciebie adres email.");
 
