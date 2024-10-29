@@ -4,10 +4,10 @@ const shippingCost = 9.99;
 // Funkcja do wyświetlania zawartości koszyka
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = ''; // Czyści kontener na produkty w koszyku
-    let total = 0; // Zmienna do przechowywania kosztu produktów
+    cartItemsContainer.innerHTML = ''; 
+    let total = 0; 
     const orderButtonContainer = document.getElementById('order-button-container');
-    orderButtonContainer.innerHTML = ''; // Czyści kontener z przyciskami
+    orderButtonContainer.innerHTML = ''; 
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
@@ -39,11 +39,10 @@ function displayCart() {
         const totalAmount = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
         document.getElementById('total-amount').innerText = totalAmount;
         document.getElementById('total-price').style.display = 'block';
+
+        const hiddenCart = document.getElementById('cartContent');
+        hiddenCart.value = JSON.stringify(cart); // Zapisuje koszyk w ukrytym polu
         
-        // Ustawienie wartości w ukrytych polach formularza
-        document.getElementById('cartContent').value = JSON.stringify(cart);
-        
-        // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
@@ -63,32 +62,33 @@ function removeItem(index) {
 
 // Obsługuje wysyłanie formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Zatrzymuje domyślne działanie formularza
+    event.preventDefault(); 
 
-    // Potwierdzenie użytkownika o wysyłce formularza
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
-        return; // Nie kontynuuj, jeśli użytkownik odrzuci
+        return; 
     }
 
-    // Obliczanie całkowitej wartości zamówienia
     const total = cart.reduce((acc, item) => acc + item.price, 0) + shippingCost;
-
-    // Zbieranie danych formularza
     const formData = new FormData(this);
 
     // Zbieranie personalizacji
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
-        formData.append(`customText-${index}`, customText); // Dodanie personalizacji do formData
+        formData.append(`customText-${index}`, customText); 
     });
 
     // Dodaj dane z ukrytych pól do formData
     formData.append('cartContent', JSON.stringify(cart));
-    formData.append('totalAmount', total.toFixed(2)); // Upewnij się, że wysyłasz liczbę, nie kwotę w formacie tekstowym
-    
-    // Sprawdzenie poprawności danych przed wysłaniem
-    console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
+    formData.append('totalAmount', total.toFixed(2)); 
+
+    // Logowanie danych formularza przed wysłaniem
+    const jsonFormData = {};
+    formData.forEach((value, key) => {
+        jsonFormData[key] = value;
+    });
+    console.log('Dane formularza przed wysłaniem:', jsonFormData);
+    console.log('Zawartość koszyka przed wysłaniem:', JSON.stringify(cart));
 
     // Wysyłanie formularza do Netlify
     fetch(this.action, {
@@ -96,18 +96,19 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         body: formData,
     })
     .then(response => {
+        console.log('Odpowiedź serwera:', response);
         if (response.ok) {
-            // Po złożeniu zamówienia, resetujemy formularz i ukrywamy go
             alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset(); // Resetuje formularz
-            this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-            
-            // Resetowanie koszyka
+            this.reset(); 
+            this.style.display = 'none'; 
             cart = [];
             localStorage.removeItem('cart');
             displayCart();
         } else {
-            alert('Wystąpił błąd podczas składania zamówienia.');
+            return response.text().then(text => {
+                console.error('Błąd odpowiedzi:', text);
+                alert('Wystąpił błąd podczas składania zamówienia: ' + text);
+            });
         }
     })
     .catch(error => {
