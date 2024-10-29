@@ -5,7 +5,6 @@ const shippingCost = 9.99;
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = ''; // Czyści kontener na produkty w koszyku
-
     let total = 0; // Zmienna do przechowywania kosztu produktów
     const orderButtonContainer = document.getElementById('order-button-container');
     orderButtonContainer.innerHTML = ''; // Czyści kontener z przyciskami
@@ -64,19 +63,21 @@ function removeItem(index) {
 
 // Obsługa wysyłania formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    // Zatrzymujemy domyślne działanie formularza (musisz to zrobić, żeby móc najpierw wyświetlić alert)
-    event.preventDefault();  
-
-    // Wyświetlenie komunikatu po wysłaniu danych do Netlify
-    alert('Zamówienie zostało złożone!'); // Może to być pokazane potem, jeśli chcesz
+    event.preventDefault();  // Zatrzymujemy domyślne działanie formularza
 
     // Zbieramy dane z formularza jako obiekt
     const formData = new FormData(event.target);
-    // Możesz tu dodać dodatkowe dane z koszyka (np. personalizacja)
+    
+    // Dodaj dane dotyczące personalizacji do formData
     const personalizedTexts = cart.map((_, index) => {
         return document.getElementById(`customText-${index}`)?.value || '';
     });
     formData.append('personalizations', JSON.stringify(personalizedTexts));
+
+    // Może być do debugowania
+    for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+    }
 
     // Czyścimy koszyk po wysłaniu
     cart = [];
@@ -87,10 +88,8 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     setTimeout(() => {
         this.reset(); // Resetuje formularz
         this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-    }, 1000); // Odczekaj 1 sekundę przed ukryciem formularza (możesz zmienić czas)
-
-    // Możesz opcjonalnie wysłać dane do serwera, jeśli masz taką obsługę 
-    // np. za pomocą Fetch API, ale w przypadku Netlify nie jest to potrzebne.
+        alert('Zamówienie zostało złożone!'); // Komunikat po złożeniu zamówienia
+    }, 1000); // Odczekaj 1 sekundę przed ukryciem formularza
 });
 
 // Naładowanie koszyka po załadowaniu strony
