@@ -42,7 +42,8 @@ function displayCart() {
         
         // Ustawienie wartości w ukrytych polach formularza
         document.getElementById('cartContent').value = JSON.stringify(cart);
-        
+        document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2); // Wysyłamy jako liczba
+
         // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
@@ -71,9 +72,6 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         return; // Nie kontynuuj, jeśli użytkownik odrzuci
     }
 
-    // Obliczanie całkowitej wartości zamówienia
-    const total = cart.reduce((acc, item) => acc + item.price, 0) + shippingCost;
-
     // Zbieranie danych formularza
     const formData = new FormData(this);
 
@@ -83,10 +81,6 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         formData.append(`customText-${index}`, customText); // Dodanie personalizacji do formData
     });
 
-    // Dodaj dane z ukrytych pól do formData
-    formData.append('cartContent', JSON.stringify(cart));
-    formData.append('totalAmount', total.toFixed(2)); // Upewnij się, że wysyłasz liczbę, nie kwotę w formacie tekstowym
-    
     // Sprawdzenie poprawności danych przed wysłaniem
     console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
 
