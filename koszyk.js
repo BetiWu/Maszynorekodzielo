@@ -45,6 +45,7 @@ function displayCart() {
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
         fillFormButton.onclick = function() {
             const orderForm = document.getElementById('order-form');
+            // Toggle visibility of the order form
             orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none';
         };
         orderButtonContainer.appendChild(fillFormButton);
@@ -57,11 +58,6 @@ function removeItem(index) {
     displayCart();
 }
 
-// Funkcja do formatowania zawartości koszyka jako tekstu
-function formatCartContentAsText(cart) {
-    return cart.map(item => `${item.name} - ${item.price.toFixed(2).replace('.', ',')} zł`).join(', ');
-}
-
 // Obsługuje wysyłanie formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
     event.preventDefault(); 
@@ -70,8 +66,7 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     const hiddenCartContent = document.getElementById('cartContent');
     const totalAmountField = document.getElementById('totalAmount');
 
-    // Ustawienia zawartości koszyka i kwoty
-    hiddenCartContent.value = formatCartContentAsText(cart); // Zmieniamy na tekstowy format
+    hiddenCartContent.value = JSON.stringify(cart);
     totalAmountField.value = (cart.reduce((acc, item) => acc + item.price, 0) + shippingCost).toFixed(2).replace('.', ',');
 
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
