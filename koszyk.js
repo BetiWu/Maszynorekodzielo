@@ -97,27 +97,35 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         totalAmount: document.getElementById('totalAmount').value
     });
 
-    // Logowanie całej zawartości formData
     console.log('Dane formularza przed wysłaniem:');
     for (const [key, value] of formData.entries()) {
         console.log(`${key}: ${value}`);
     }
 
-    fetch(this.action, {
+    fetch(this.action, { // Użycie this.action, które wskazuje na atrybut action formularza
         method: 'POST',
         body: formData,
         mode: 'cors'
     })
-    .then(response => response.json()) // Oczekiwanie na odpowiedź JSON
+    .then(response => {
+        // Sprawdzamy, czy odpowiedź jest poprawna
+        console.log('Odpowiedź serwera:', response);
+        if (!response.ok) {
+            return response.text().then(text => {
+                throw new Error(`Błąd serwera: ${response.status} ${response.statusText}. Treść: ${text}`);
+            });
+        }
+        return response.json(); // Tylko jeśli odpowiedź jest ok
+    })
     .then(data => {
         console.log('Otrzymano odpowiedź od serwera:', data);
         if (data.success) {
             alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset();
+            this.reset(); // Resetuje formularz
             this.style.display = 'none'; 
-            cart = [];
-            localStorage.removeItem('cart');
-            displayCart();
+            cart = []; // Czyści koszyk
+            localStorage.removeItem('cart'); // Usuwa koszyk z localStorage
+            displayCart(); // Odświeża wyświetlanie koszyka
             console.log('Koszyk po złożeniu zamówienia został zresetowany.');
         } else {
             alert('Wystąpił błąd podczas składania zamówienia.');
