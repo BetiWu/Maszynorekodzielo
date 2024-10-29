@@ -15,10 +15,10 @@ function updateHiddenFields() {
 // Funkcja do wyświetlania zawartości koszyka
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = ''; // Czyści kontener na produkty w koszyku
-    let total = 0; // Zmienna do przechowywania kosztu produktów
+    cartItemsContainer.innerHTML = ''; 
+    let total = 0; 
     const orderButtonContainer = document.getElementById('order-button-container');
-    orderButtonContainer.innerHTML = ''; // Czyści kontener z przyciskami
+    orderButtonContainer.innerHTML = ''; 
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
@@ -51,10 +51,8 @@ function displayCart() {
         document.getElementById('total-amount').innerText = totalAmount;
         document.getElementById('total-price').style.display = 'block';
 
-        // Ustawienie wartości w ukrytych polach formularza
         updateHiddenFields();
 
-        // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
@@ -75,28 +73,23 @@ function removeItem(index) {
 
 // Obsługuje wysyłanie formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Zatrzymuje domyślne działanie formularza
+    event.preventDefault(); 
 
-    // Sedycja potwierdzenia użytkownika o wysyłce formularza
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
-        return; // Nie kontynuuj, jeśli użytkownik odrzuci
+        return; 
     }
 
-    // Zbieranie danych formularza
     const formData = new FormData(this);
 
-    // Zbieranie personalizacji
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         formData.append(`customText-${index}`, customText);
         console.log(`Dodano personalizację do formularza: customText-${index}: ${customText}`);
     });
 
-    // Uaktualnij ukryte pola przed wysyłką
     updateHiddenFields();
 
-    // Dodanie wartości ukrytych pól do FormData
     formData.append('cartContent', document.getElementById('cartContent').value);
     formData.append('totalAmount', document.getElementById('totalAmount').value);
     console.log('Dodano dane koszyka do formularza:', {
@@ -104,29 +97,30 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         totalAmount: document.getElementById('totalAmount').value
     });
 
-    // Sprawdzenie poprawności danych przed wysłaniem
-    console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
+    // Logowanie całej zawartości formData
+    console.log('Dane formularza przed wysłaniem:');
+    for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+    }
 
-    // Wysyłanie formularza do Netlify
     fetch(this.action, {
         method: 'POST',
         body: formData,
-        mode: 'cors' // Upewnij się, że CORS jest wydany
+        mode: 'cors'
     })
-    .then(response => {
-        if (response.ok) {
+    .then(response => response.json()) // Oczekiwanie na odpowiedź JSON
+    .then(data => {
+        console.log('Otrzymano odpowiedź od serwera:', data);
+        if (data.success) {
             alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset(); // Resetuje formularz
-            this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-            
-            // Resetowanie koszyka
+            this.reset();
+            this.style.display = 'none'; 
             cart = [];
             localStorage.removeItem('cart');
             displayCart();
             console.log('Koszyk po złożeniu zamówienia został zresetowany.');
         } else {
             alert('Wystąpił błąd podczas składania zamówienia.');
-            console.log('Błąd podczas składania zamówienia:', response);
         }
     })
     .catch(error => {
