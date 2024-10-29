@@ -30,7 +30,7 @@ function displayCart() {
                 <div>
                     <label for="customText-${index}">Personalizacja:</label>
                     <input type="text" name="customText-${index}" id="customText-${index}" placeholder="np. Wzór: choinka, Imię: Kamil" />
-                    <button onclick="removeItem(${index})">Usuń</button>
+                    <button type="button" onclick="removeItem(${index})">Usuń</button>
                 </div>
             `;
 
@@ -74,22 +74,17 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     });
     formData.append('personalizations', JSON.stringify(personalizedTexts));
 
-    // Może być do debugowania
-    for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-    }
+    // Upewnij się, że formularz ma data-netlify="true" i nie używasz atrybutu action.
+    // Automatycznie formularz będzie wysyłany przez Netlify Forms.
+
+    // Resetujemy formularz i ukrywamy go
+    this.reset(); // Resetuje formularz
+    this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
 
     // Czyścimy koszyk po wysłaniu
     cart = [];
     localStorage.removeItem('cart');
     displayCart(); // Odświeżamy wyświetlanie koszyka
-
-    // Resetujemy formularz i ukrywamy go po chwili
-    setTimeout(() => {
-        this.reset(); // Resetuje formularz
-        this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-        alert('Zamówienie zostało złożone!'); // Komunikat po złożeniu zamówienia
-    }, 1000); // Odczekaj 1 sekundę przed ukryciem formularza
 });
 
 // Naładowanie koszyka po załadowaniu strony
