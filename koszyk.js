@@ -64,11 +64,18 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     event.preventDefault(); // Zapobiegaj domyślnej akcji formularza
 
     // Wypełnij ukryte pola
-    document.getElementById('order-details').value = JSON.stringify(cart); // Przechowuje szczegóły zamówienia
+    const details = cart.map((item, index) => ({
+        name: item.name,
+        price: item.price,
+        customization: document.getElementById(`customText-${index}`).value // Pobierz personalizację
+    }));
+
+    document.getElementById('order-details').value = JSON.stringify(details); // Przechowuje szczegóły zamówienia
     const totalAmount = (cart.reduce((total, item) => total + item.price, 0) + shippingCost).toFixed(2).replace('.', ',') + ' zł';
     document.getElementById('total-amount-hidden').value = totalAmount; // Ustawia ukrytą całkowitą kwotę
 
-    // Wyświetlanie wiadomości potwierdzającej
+    // Można tutaj dodać kod do wysyłania danych na serwer np. Netlify
+    // alert (ten alert można pominąć lub zmienić)
     alert("Twoje zamówienie zostało złożone, potwierdzenie przyjdzie na podany przez Ciebie adres email.");
 
     // Czyszczenie koszyka i formularza
