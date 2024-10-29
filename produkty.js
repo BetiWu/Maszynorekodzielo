@@ -212,14 +212,14 @@ function addToCart(productName, price, category) {
         cart.push({ 
             name: productName, 
             price: productPrice, 
-            category: category // Dodaj kategorię
+            category: category
         }); 
     }
 
     localStorage.setItem('cart', JSON.stringify(cart)); // Zapisz do localStorage
     updateCart(); // Zaktualizuj wyświetlane elementy koszyka
     updateCartCount(); // Zaktualizuj licznik koszyka
-    alert(`${quantity} sztuk ${productName} zostało dodanych do koszyka!`); // Komunikat informujący o dodaniu do koszyka
+    alert(`${quantity} sztuk ${productName} zostało dodanych do koszyka!`);
 }
 
 // Funkcja do aktualizacji koszyka
