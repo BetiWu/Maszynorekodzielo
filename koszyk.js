@@ -66,7 +66,11 @@ document.getElementById('order-form').addEventListener('submit', function (event
     const totalAmountField = document.getElementById('totalAmount');
 
     // Tworzenie opisu koszyka
-    hiddenCartContent.value = cart.map((item, index) => `${item.name} - ${item.price.toFixed(2).replace('.', ',')} zł`).join(', ');
+    hiddenCartContent.value = cart.map((item, index) => {
+        const customText = document.getElementById(`customText-${index}`)?.value || '';
+        return `${item.name} - ${item.price.toFixed(2).replace('.', ',')} zł${customText ? ` (Personalizacja: ${customText})` : ''}`;
+    }).join(', ');
+
     totalAmountField.value = (cart.reduce((acc, item) => acc + item.price, 0) + shippingCost).toFixed(2).replace('.', ',');
 
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
@@ -109,8 +113,6 @@ document.getElementById('order-form').addEventListener('submit', function (event
                 });
             }
         })
-		
-		
         .catch(error => {
             console.error('Błąd podczas wysyłania formularza:', error);
             alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
