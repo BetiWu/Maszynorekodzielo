@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koszyk</title>
     <link rel="stylesheet" href="produkty.css">
 </head>
+
 <body>
     <div class="container">
         <nav class="navigation-container">
@@ -24,10 +26,14 @@
             <div id="total-price" style="display: none;">
                 Do zapłaty, łącznie z przesyłką: <span id="total-amount">0,00</span> zł
             </div>
-            <div id="order-button-container"></div>
+            <div id="order-button-container"></div> <!-- Kontener na przycisk zamówienia -->
 
-            <form id="order-form" style="display: none;" action="https://maszynorekodzielo.netlify.app" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="order-form" />
+            <form id="order-form" style="display: none;" class="order-form" action="https://maszynorekodzielo.netlify.app/.netlify/functions/emails" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="order-form" /> <!-- Ważne dla Netlify -->
+                
+                <input type="hidden" name="cartContent" id="cartContent" />
+                <input type="hidden" name="totalAmount" id="totalAmount" />
+
                 <h3>Formularz zamówienia</h3>
                 <p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
 
@@ -44,13 +50,11 @@
                 <textarea id="comments" name="comments" class="custom-textarea"></textarea>
 
                 <button type="submit">Złóż zamówienie</button>
-
-                <input type="hidden" id="cartContent" name="cartContent" value="">
-                <input type="hidden" id="totalAmount" name="totalAmount" value="">
-            </form>
+            </form> <!-- Poprawiona tag zamykający -->
         </div>
     </div>
 
     <script src="koszyk.js"></script>
 </body>
+
 </html>

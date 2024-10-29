@@ -1,20 +1,13 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const shippingCost = 9.99;
 
-// Funkcja do aktualizacji ukrytych pól formularza
-function updateHiddenFields() {
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    document.getElementById('cartContent').value = JSON.stringify(cart);
-    document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2);
-}
-
 // Funkcja do wyświetlania zawartości koszyka
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = ''; 
-    let total = 0; 
+    cartItemsContainer.innerHTML = ''; // Czyści kontener na produkty w koszyku
+    let total = 0; // Zmienna do przechowywania kosztu produktów
     const orderButtonContainer = document.getElementById('order-button-container');
-    orderButtonContainer.innerHTML = ''; 
+    orderButtonContainer.innerHTML = ''; // Czyści kontener z przyciskami
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
@@ -47,8 +40,11 @@ function displayCart() {
         document.getElementById('total-amount').innerText = totalAmount;
         document.getElementById('total-price').style.display = 'block';
 
-        updateHiddenFields();
+        // Ustawienie wartości w ukrytych polach formularza
+        document.getElementById('cartContent').value = JSON.stringify(cart);
+        document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2); // Wysyłamy jako liczba
 
+        // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Wypełnij formularz zamówienia';
@@ -68,45 +64,50 @@ function removeItem(index) {
 
 // Obsługuje wysyłanie formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+    event.preventDefault(); // Zatrzymuje domyślne działanie formularza
 
+    // Potwierdzenie użytkownika o wysyłce formularza
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
-        return; 
+        return; // Nie kontynuuj, jeśli użytkownik odrzuci
     }
 
-    const formData = new URLSearchParams(new FormData(this));
+    // Logowanie wartości formularza przed ich wysyłką
+    const formData = new FormData(this);
+    console.log('Dane formularza przed wysyłką:', Array.from(formData.entries()));
     
-    // Dodaj personalizacje
+    // Tworzenie obiektu z danymi formularza
+    const orderData = {};
+    formData.forEach((value, key) => {
+        orderData[key] = value;
+    });
+
+    // Zbieranie personalizacji
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
-        formData.append(`customText-${index}`, customText);
+        orderData[`customText-${index}`] = customText; // Dodanie personalizacji do orderData
     });
 
-    updateHiddenFields();
+    // Dodanie informacji o koszcie i formacie waluty
+    orderData.shippingCost = shippingCost; // Możesz również dodać dawcę kosztu wysyłki
 
-    console.log('Dane formularza przed wysłaniem:');
-    formData.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
-    });
+    console.log('Dane formularza po przetworzeniu:', orderData);
 
-    fetch(this.action, {
+    // Wysyłanie formularza do funkcji Netlify
+    fetch('https://maszynorekodzielo.netlify.app/.netlify/functions/emails', {
         method: 'POST',
-        body: formData,
         headers: {
-            'Accept': 'application/json', // Dodaj nagłówek akceptacji, aby uzyskać odpowiedź w JSON
-        }
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
     })
     .then(response => {
-        if (!response.ok) {
-            return response.json().then(err => { throw new Error(err.message) });
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.data && data.data.submit) { // Dostosowane do struktury Netlify Forms
+        if (response.ok) {
             alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset();
+            this.reset(); // Resetuje formularz
+            this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
+
+            // Resetowanie koszyka
             cart = [];
             localStorage.removeItem('cart');
             displayCart();
@@ -121,6 +122,4 @@ document.getElementById('order-form').addEventListener('submit', function(event)
 });
 
 // Po załadowaniu strony
-document.addEventListener('DOMContentLoaded', () => {
-    displayCart();
-}); 
+document.addEventListener('DOMContentLoaded', displayCart);
