@@ -2,9 +2,14 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const shippingCost = 9.99;
 
 // Funkcja do aktualizacji ukrytych pól formularza
-function updateHiddenFields(total) {
+function updateHiddenFields() {
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
     document.getElementById('cartContent').value = JSON.stringify(cart);
     document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2);
+    console.log('Zaktualizowane ukryte pola:', {
+        cartContent: document.getElementById('cartContent').value,
+        totalAmount: document.getElementById('totalAmount').value
+    });
 }
 
 // Funkcja do wyświetlania zawartości koszyka
@@ -47,7 +52,7 @@ function displayCart() {
         document.getElementById('total-price').style.display = 'block';
 
         // Ustawienie wartości w ukrytych polach formularza
-        updateHiddenFields(total);
+        updateHiddenFields();
 
         // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
@@ -62,61 +67,68 @@ function displayCart() {
 }
 
 function removeItem(index) {
+    console.log(`Usuwanie przedmiotu o indeksie ${index}`);
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
 }
 
 // Obsługuje wysyłanie formularza zamówienia
-function handleFormSubmission(event) {
+document.getElementById('order-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Zatrzymuje domyślne działanie formularza
 
-    // Potwierdzenie użytkownika o wysyłce formularza
+    // Sedycja potwierdzenia użytkownika o wysyłce formularza
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
         return; // Nie kontynuuj, jeśli użytkownik odrzuci
     }
 
     // Zbieranie danych formularza
-    const formData = new FormData(event.target);
+    const formData = new FormData(this);
 
     // Zbieranie personalizacji
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
-        formData.append(`customText-${index}`, customText); // Dodanie personalizacji do formData
+        formData.append(`customText-${index}`, customText);
+        console.log(`Dodano personalizację do formularza: customText-${index}: ${customText}`);
     });
 
-    // Ustawienie wartości w ukrytych polach formularza
-    updateHiddenFields(total);
+    // Uaktualnij ukryte pola przed wysyłką
+    updateHiddenFields();
 
     // Sprawdzenie poprawności danych przed wysłaniem
     console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
 
     // Wysyłanie formularza do Netlify
-    fetch(event.target.action, {
+    fetch(this.action, {
         method: 'POST',
         body: formData,
+        mode: 'cors' // Upewnij się, że CORS jest wydany
     })
     .then(response => {
         if (response.ok) {
             alert('Zamówienie zostało złożone pomyślnie!');
-            event.target.reset(); // Resetuje formularz
-            event.target.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
+            this.reset(); // Resetuje formularz
+            this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
             
             // Resetowanie koszyka
             cart = [];
             localStorage.removeItem('cart');
             displayCart();
+            console.log('Koszyk po złożeniu zamówienia został zresetowany.');
         } else {
             alert('Wystąpił błąd podczas składania zamówienia.');
+            console.log('Błąd podczas składania zamówienia:', response);
         }
     })
     .catch(error => {
         console.error('Błąd podczas wysyłania formularza:', error);
         alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
     });
-}
+});
 
-// Nasłuchiwanie zdarzeń
-document.getElementById('order-form').addEventListener('submit', handleFormSubmission);
-document.addEventListener('DOMContentLoaded', displayCart);
+// Po załadowaniu strony
+document.addEventListener('DOMContentLoaded', () => {
+    displayCart();
+    console.log('Koszyk został załadowany: ', cart);
+});
