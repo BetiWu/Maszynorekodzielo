@@ -64,7 +64,7 @@ function removeItem(index) {
 
 // Obsługa wysyłania formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Zapobiega domyślnej akcji formularza
+    
     alert('Zamówienie zostało złożone!'); // Zamiast przesyłania do Netlify
     cart = [];
     localStorage.removeItem('cart');
