@@ -39,6 +39,10 @@ function displayCart() {
         const totalAmount = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
         document.getElementById('total-amount').innerText = totalAmount;
         document.getElementById('total-price').style.display = 'block';
+        
+        // Ustawienie wartości w ukrytych polach formularza
+        document.getElementById('cartContent').value = JSON.stringify(cart);
+        document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2); // Wysyłamy jako liczba
 
         // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
