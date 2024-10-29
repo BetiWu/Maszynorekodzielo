@@ -11,6 +11,12 @@ function displayCart() {
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty.</p>'; // Wiadomość o pustym koszyku
         document.getElementById('total-price').style.display = 'none'; // Ukrywa całkowitą kwotę
+        
+        // Pokaż przycisk do dodawania produktów
+        document.getElementById('order-button').innerText = 'Dodaj produkty';
+        document.getElementById('order-button').onclick = function() {
+            window.location.href = 'produkty.html'; // Przenosi do strony z produktami
+        };
     } else {
         cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
@@ -36,6 +42,13 @@ function displayCart() {
         
         // Pokazuje całkowitą kwotę
         document.getElementById('total-price').style.display = 'block'; // Wyświetla całkowitą kwotę
+        
+        // Pokaż przycisk do wypełnienia formularza
+        document.getElementById('order-button').innerText = 'Wypełnij formularz zamówienia';
+        document.getElementById('order-button').onclick = function() {
+            const orderForm = document.getElementById('order-form');
+            orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełączanie widoczności formularza
+        };
     }
 }
 
@@ -45,12 +58,6 @@ function removeItem(index) {
     localStorage.setItem('cart', JSON.stringify(cart)); // Aktualizuje localStorage
     displayCart(); // Odświeżamy wyświetlanie koszyka
 }
-
-// Przycisk do pokazania/zwiń formularz zamówienia
-document.getElementById('order-button').addEventListener('click', function() {
-    const orderForm = document.getElementById('order-form');
-    orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełączanie widoczności formularza
-});
 
 // Obsługa wysyłania formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
