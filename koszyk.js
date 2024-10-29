@@ -80,14 +80,22 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         return; 
     }
 
-    const formData = new FormData(this);
+    // Użycie URLSearchParams dla poprawnego formatu
+    const formData = new URLSearchParams();
 
+    // Dodaj dane formularza
+    for (const [key, value] of new FormData(this).entries()) {
+        formData.append(key, value);
+    }
+
+    // Dodaj personalizacje
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         formData.append(`customText-${index}`, customText);
         console.log(`Dodano personalizację do formularza: customText-${index}: ${customText}`);
     });
 
+    // Aktualizowane pola
     updateHiddenFields();
 
     formData.append('cartContent', document.getElementById('cartContent').value);
@@ -102,20 +110,19 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         console.log(`${key}: ${value}`);
     }
 
-    fetch(this.action, { // Użycie this.action, które wskazuje na atrybut action formularza
+    fetch(this.action, {
         method: 'POST',
-        body: formData,
+        body: formData, // Używamy nowego formatu URLSearchParams
         mode: 'cors'
     })
     .then(response => {
-        // Sprawdzamy, czy odpowiedź jest poprawna
         console.log('Odpowiedź serwera:', response);
         if (!response.ok) {
             return response.text().then(text => {
                 throw new Error(`Błąd serwera: ${response.status} ${response.statusText}. Treść: ${text}`);
             });
         }
-        return response.json(); // Tylko jeśli odpowiedź jest ok
+        return response.json(); // Zmieniamy na JSON tylko, jeśli oczekujemy JSON
     })
     .then(data => {
         console.log('Otrzymano odpowiedź od serwera:', data);
@@ -141,4 +148,4 @@ document.getElementById('order-form').addEventListener('submit', function(event)
 document.addEventListener('DOMContentLoaded', () => {
     displayCart();
     console.log('Koszyk został załadowany: ', cart);
-});
+}); 
