@@ -14,7 +14,7 @@ function displayCart() {
         // Wyświetlenie komunikatu, gdy koszyk jest pusty
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
         document.getElementById('total-price').style.display = 'none'; // Ukrywa całkowitą kwotę
-        
+
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
         fillFormButton.innerText = 'Dodaj produkty';
@@ -30,7 +30,7 @@ function displayCart() {
                 <span>${index + 1}. ${item.name} - ${item.price.toFixed(2).replace('.', ',')} zł</span>
                 <div>
                     <label for="customText-${index}">Personalizacja:</label>
-                    <input type="text" id="customText-${index}" placeholder="np. Wzór: choinka, Imię: Kamil" />
+                    <input type="text" name="customText-${index}" id="customText-${index}" placeholder="np. Wzór: choinka, Imię: Kamil" />
                     <button onclick="removeItem(${index})">Usuń</button>
                 </div>
             `;
@@ -62,35 +62,35 @@ function removeItem(index) {
     displayCart(); // Odświeżamy wyświetlanie koszyka
 }
 
-
+// Obsługa wysyłania formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
-    // Nie blokujemy domyślnego zachowania formularza
-    // event.preventDefault();  //Usuń ten wiersz, aby zezwolić na wysyłkę
+    // Zatrzymujemy domyślne działanie formularza (musisz to zrobić, żeby móc najpierw wyświetlić alert)
+    event.preventDefault();  
 
-    // Po wysłaniu danych do Netlify, wyświetl alert
-    alert('Zamówienie zostało złożone!'); // Zamiast przesyłania do Netlify
-    
-    // Czyścimy koszyk, jeśli to konieczne
+    // Wyświetlenie komunikatu po wysłaniu danych do Netlify
+    alert('Zamówienie zostało złożone!'); // Może to być pokazane potem, jeśli chcesz
+
+    // Zbieramy dane z formularza jako obiekt
+    const formData = new FormData(event.target);
+    // Możesz tu dodać dodatkowe dane z koszyka (np. personalizacja)
+    const personalizedTexts = cart.map((_, index) => {
+        return document.getElementById(`customText-${index}`)?.value || '';
+    });
+    formData.append('personalizations', JSON.stringify(personalizedTexts));
+
+    // Czyścimy koszyk po wysłaniu
     cart = [];
     localStorage.removeItem('cart');
     displayCart(); // Odświeżamy wyświetlanie koszyka
-    
+
     // Resetujemy formularz i ukrywamy go po chwili
     setTimeout(() => {
         this.reset(); // Resetuje formularz
         this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
     }, 1000); // Odczekaj 1 sekundę przed ukryciem formularza (możesz zmienić czas)
-});
 
-// Obsługa wysyłania formularza zamówienia
-document.getElementById('order-form').addEventListener('submit', function(event) {
-    
-    alert('Zamówienie zostało złożone!'); // Zamiast przesyłania do Netlify
-    cart = [];
-    localStorage.removeItem('cart');
-    displayCart(); // Odświeżamy wyświetlanie koszyka
-    this.reset(); // Resetuje formularz
-    this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
+    // Możesz opcjonalnie wysłać dane do serwera, jeśli masz taką obsługę 
+    // np. za pomocą Fetch API, ale w przypadku Netlify nie jest to potrzebne.
 });
 
 // Naładowanie koszyka po załadowaniu strony
