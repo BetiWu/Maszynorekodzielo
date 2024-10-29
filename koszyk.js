@@ -63,9 +63,11 @@ document.getElementById('order-form').addEventListener('submit', function(event)
 
     // Uaktualnij wartości ukrytych pól przed wysłaniem formularza
     const hiddenCartContent = document.getElementById('cartContent');
+    const totalAmountField = document.getElementById('totalAmount');
+
     hiddenCartContent.value = JSON.stringify(cart);
-    document.getElementById('totalAmount').value = (cart.reduce((acc, item) => acc + item.price, 0) + shippingCost).toFixed(2).replace('.', ',');
-    
+    totalAmountField.value = (cart.reduce((acc, item) => acc + item.price, 0) + shippingCost).toFixed(2).replace('.', ',');
+
     const confirmed = confirm("Czy na pewno chcesz złożyć zamówienie?");
     if (!confirmed) {
         return; 
@@ -78,10 +80,6 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         formData.append(`customText-${index}`, customText); 
     });
-
-    // Logowanie zawartości koszyka przed dodaniem do FormData
-    console.log('Zawartość koszyka przed dodaniem do FormData:', JSON.stringify(cart));
-    console.log('cartContent:', hiddenCartContent.value); // Logowanie ukrytego pola
 
     // Logowanie danych formularza przed wysłaniem
     formData.forEach((value, key) => {

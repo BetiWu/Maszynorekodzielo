@@ -28,31 +28,31 @@
             </div>
             <div id="order-button-container"></div> <!-- Kontener na przycisk zamówienia -->
 
-            <form id="order-form" style="display: none;" class="order-form" action="https://maszynorekodzielo.netlify.app" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="order-form" /> <!-- Ważne dla Netlify -->
-                <h3>Formularz zamówienia</h3>
-                <p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
+           <form id="order-form" style="display: none;" class="order-form" action="https://maszynorekodzielo.netlify.app" method="POST" data-netlify="true"> 
+    <input type="hidden" name="form-name" value="order-form" /> <!-- Ważne dla Netlify -->
 
-				<input type="hidden" id="cartContent" name="cartContent" />
-				<input type="hidden" id="totalAmount" name="totalAmount" />
-				
-                <label for="name">Imię i nazwisko:</label>
-                <input type="text" id="name" name="name" required />
+    <h3>Formularz zamówienia</h3>
+    <p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required />
+    <!-- Ukryte pola do przesyłania danych koszyka -->
+    <input type="hidden" id="cartContent" name="cartContent" />
+    <input type="hidden" id="totalAmount" name="totalAmount" />
 
-                <label for="address">Adres:</label>
-                <input type="text" id="address" name="address" required />
+    <label for="name">Imię i nazwisko:</label>
+    <input type="text" id="name" name="name" required />
 
-                <label for="comments">Komentarz:</label>
-                <textarea id="comments" name="comments" class="custom-textarea"></textarea>
-                
-          
-                
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required />
 
-                <button type="submit">Złóż zamówienie</button>
-            </form>
+    <label for="address">Adres:</label>
+    <input type="text" id="address" name="address" required />
+
+    <label for="comments">Komentarz:</label>
+    <textarea id="comments" name="comments" class="custom-textarea"></textarea>
+
+    <button type="submit">Złóż zamówienie</button>
+</form>
+
         </div>
     </div>
     <script src="koszyk.js"></script>
