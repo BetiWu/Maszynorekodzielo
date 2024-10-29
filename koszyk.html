@@ -19,34 +19,37 @@
         </nav>
 
 
-        <div class="cart">
-            <div id="shipping-cost">Przesyłka TYLKO 9.99 zł </div>
-            <h2>Twój Koszyk</h2>
-            <div id="cart-items" class="cart-items"></div>
+<div class="cart">
+    <div id="shipping-cost">Przesyłka TYLKO 9.99 zł </div>
+    <h2>Twój Koszyk</h2>
+    <div id="cart-items" class="cart-items"></div>
 
-            <div id="total-price">Do zapłaty, łącznie z przesyłką: <span id="total-amount">0,00</span> zł</div>
+    <div id="total-price">Do zapłaty, łącznie z przesyłką: <span id="total-amount">0,00</span> zł</div>
+    
+    <button id="order-button">Wypełnij formularz zamówienia</button>
+    
+    <!-- Stylizowany formularz zamówienia -->
+    <form name="order" method="POST" data-netlify="true">
+        <div id="order-form" class="order-form" style="display: none;">
+            <h3>Formularz zamówienia</h3>
+            <p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
             
-            <button id="order-button">Wypełnij formularz zamówienia</button>
+            <label for="name">Imię i nazwisko:</label>
+            <input type="text" id="name" name="name" required />
             
-            <!-- Stylizowany formularz zamówienia -->
-			<form name="order" method="POST" data-netlify="true">
-            <div id="order-form" class="order-form" style="display: none;">
-                <h3>Formularz zamówienia</h3>
-				<p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
-                <label for="name">Imię i nazwisko:</label>
-                <input type="text" id="name" required />
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" required />
-                
-                <label for="address">Adres:</label>
-                <input type="text" id="address" required />
-                <label for="comments">Komentarz:</label>
-				<textarea id="comments" rows="4" placeholder="Dodaj komentarz (opcjonalnie)" class="custom-textarea"></textarea>
-                <button id="submit-order">Wyślij zamówienie</button>
-            </div>
-			</form>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required />
+            
+            <label for="address">Adres:</label>
+            <input type="text" id="address" name="address" required />
+            
+            <label for="comments">Komentarz:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Dodaj komentarz (opcjonalnie)" class="custom-textarea"></textarea>
+            
+            <button type="submit" id="submit-order">Wyślij zamówienie</button>
         </div>
+    </form>
+</div>
     </div>
 
     <script src="koszyk.js"></script> <!-- Link do pliku JS -->
