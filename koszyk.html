@@ -27,10 +27,9 @@
                 Do zapłaty, łącznie z przesyłką: <span id="total-amount">0,00</span> zł
             </div>
 
-            <button id="order-button" type="button">Wypełnij formularz zamówienia</button>
+            <div id="order-button-container"></div> <!-- Kontener na przycisk zamówienia -->
 
-            <!-- Stylizowany formularz zamówienia -->
-            <form name="order" method="POST" data-netlify="true" id="order-form" style="display: none;">
+            <form id="order-form" style="display: none;" class="order-form">
                 <h3>Formularz zamówienia</h3>
                 <p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
 
@@ -44,12 +43,11 @@
                 <input type="text" id="address" name="address" required />
 
                 <label for="comments">Komentarz:</label>
-                <textarea id="comments" name="comments" rows="4" placeholder="Dodaj komentarz (opcjonalnie)"></textarea>
+                <textarea id="comments" name="comments"></textarea>
 
-                <input type="hidden" id="order-details" name="order-details"> <!-- Ukryte pole do szczegółów zamówienia -->
-                <input type="hidden" id="total-amount-hidden" name="total-amount-hidden"> <!-- Ukryte pole do całkowitej kwoty -->
-
-                <button type="submit">Wyślij zamówienie</button> <!-- Przycisk do wysyłania zamówienia -->
+                <!-- Przycisk do wysyłania formularza -->
+                <button type="submit">Złóż zamówienie</button>
+                <button type="button" onclick="document.getElementById('order-form').style.display='none';">Anuluj</button>
             </form>
         </div>
     </div>

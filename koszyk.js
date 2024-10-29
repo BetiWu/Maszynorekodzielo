@@ -7,10 +7,21 @@ function displayCart() {
     cartItemsContainer.innerHTML = ''; // Czyści kontener na produkty w koszyku
 
     let total = 0; // Zmienna do przechowywania kosztu produktów
+    const orderButtonContainer = document.getElementById('order-button-container');
+    orderButtonContainer.innerHTML = ''; // Czyści kontener z przyciskami
 
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Koszyk jest pusty.</p>'; // Wiadomość o pustym koszyku
+        // Wyświetlenie komunikatu, gdy koszyk jest pusty
+        cartItemsContainer.innerHTML = '<p>Koszyk jest pusty</p>';
         document.getElementById('total-price').style.display = 'none'; // Ukrywa całkowitą kwotę
+        
+        const fillFormButton = document.createElement('button');
+        fillFormButton.id = 'fill-form-button';
+        fillFormButton.innerText = 'Dodaj produkty';
+        fillFormButton.onclick = function () {
+            window.location.href = 'produkty.html'; // Przenosi do strony z produktami
+        };
+        orderButtonContainer.appendChild(fillFormButton); // Dodaje przycisk do kontenera
     } else {
         cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
@@ -32,12 +43,15 @@ function displayCart() {
         document.getElementById('total-amount').innerText = totalAmount; // Ustawia kwotę w formacie z przecinkiem
         document.getElementById('total-price').style.display = 'block'; // Wyświetla całkowitą kwotę
 
-        // Ustawienia przycisku zamówienia
-        const orderButton = document.getElementById('order-button');
-        orderButton.onclick = function() {
+        // Przygotowanie przycisku do wypełnienia formularza zamówienia
+        const fillFormButton = document.createElement('button');
+        fillFormButton.id = 'fill-form-button';
+        fillFormButton.innerText = 'Wypełnij formularz zamówienia';
+        fillFormButton.onclick = function() {
             const orderForm = document.getElementById('order-form');
-            orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełączanie widoczności formularza
+            orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełącza widoczność formularza
         };
+        orderButtonContainer.appendChild(fillFormButton); // Dodaje przycisk do kontenera
     }
 }
 
@@ -51,28 +65,12 @@ function removeItem(index) {
 // Obsługa wysyłania formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Zapobiega domyślnej akcji formularza
-
-    const details = cart.map((item, index) => ({
-        name: item.name,
-        price: item.price,
-        customization: document.getElementById(`customText-${index}`)?.value || '' // Pobiera personalizację, jeśli istnieje
-    }));
-
-    // Przypisz szczegóły zamówienia do ukrytego pola
-    document.getElementById('order-details').value = JSON.stringify(details);
-    
-    // Przypisz całkowitą kwotę do ukrytego pola
-    const totalAmount = (cart.reduce((total, item) => total + item.price, 0) + shippingCost).toFixed(2).replace('.', ',') + ' zł';
-    document.getElementById('total-amount-hidden').value = totalAmount;
-
-    // Informujący komunikat o wysłaniu formularza
-    alert("Twoje zamówienie zostało złożone!");
-
-    // Czyszczenie koszyka
+    alert('Zamówienie zostało złożone!'); // Zamiast przesyłania do Netlify
     cart = [];
     localStorage.removeItem('cart');
     displayCart(); // Odświeżamy wyświetlanie koszyka
     this.reset(); // Resetuje formularz
+    this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
 });
 
 // Naładowanie koszyka po załadowaniu strony
