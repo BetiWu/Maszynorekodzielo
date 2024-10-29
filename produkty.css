@@ -416,3 +416,13 @@ html, body {
     margin: 0; 
     padding: 0; 
 }
+
+@media (max-width: 768px) {
+    .sidebar-container, .content {
+        width: 100%;
+        float: none;
+    }
+    .product-display {
+        grid-template-columns: repeat(2, 1fr); /* Na mniejszych ekranach 2 kolumny */
+    }
+}
