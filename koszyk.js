@@ -91,6 +91,41 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     displayCart(); // Odświeżamy wyświetlanie koszyka
 });
 
+
+
+document.getElementById('order-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    console.log('Formularz został wysłany');
+
+    const data = {
+        // Twoje dane
+    };
+    
+    console.log('Dane do wysłania:', data);
+    
+    try {
+        const response = await fetch('/your-api-endpoint', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        
+        console.log('Odpowiedź serwera:', response);
+        
+        if (!response.ok) {
+            throw new Error('Błąd sieciowy: ' + response.status);
+        }
+
+        const result = await response.json();
+        console.log('Wynik:', result);
+    } catch (error) {
+        console.error('Wystąpił błąd:', error);
+    }
+});
+
+
+
 // Wyświetlanie koszyka po załadowaniu strony
 document.addEventListener('DOMContentLoaded', function() {
     displayCart(); // Wyświetl koszyk
