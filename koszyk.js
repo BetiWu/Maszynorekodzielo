@@ -109,6 +109,8 @@ document.getElementById('order-form').addEventListener('submit', function (event
                 });
             }
         })
+		
+		
         .catch(error => {
             console.error('Błąd podczas wysyłania formularza:', error);
             alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
