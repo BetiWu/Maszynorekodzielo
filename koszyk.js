@@ -4,19 +4,22 @@ const shippingCost = 9.99;
 // Funkcja do wyświetlania zawartości koszyka
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
+    if (!cartItemsContainer) return; // Sprawdzenie, czy kontener koszyka istnieje
     cartItemsContainer.innerHTML = ''; // Czyści kontener na produkty w koszyku
 
     let total = 0; // Zmienna do przechowywania kosztu produktów
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty.</p>'; // Wiadomość o pustym koszyku
-        document.getElementById('total-price').style.display = 'none'; // Ukrywa całkowitą kwotę
-        
+        const totalPriceElement = document.getElementById('total-price');
+        if (totalPriceElement) totalPriceElement.style.display = 'none'; // Ukrywa całkowitą kwotę
+
         // Pokaż przycisk do dodawania produktów
-        document.getElementById('order-button').innerText = 'Dodaj produkty';
-        document.getElementById('order-button').onclick = function() {
-            window.location.href = 'produkty.html'; // Przenosi do strony z produktami
-        };
+        const orderButton = document.getElementById('order-button');
+        if (orderButton) {
+            orderButton.innerText = 'Dodaj produkty';
+            orderButton.onclick = () => window.location.href = 'produkty.html'; // Przenosi do strony z produktami
+        }
     } else {
         cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
@@ -37,18 +40,26 @@ function displayCart() {
 
         // Ustawianie całkowitej kwoty do zapłaty (suma produktów + koszt przesyłki)
         const totalAmountElement = document.getElementById('total-amount');
-        const totalWithShipping = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
-        totalAmountElement.innerText = totalWithShipping; // Ustawia kwotę z przesyłką w formacie z przecinkiem
-        
-        // Pokazuje całkowitą kwotę
-        document.getElementById('total-price').style.display = 'block'; // Wyświetla całkowitą kwotę
-        
-        // Pokaż przycisk do wypełnienia formularza
-        document.getElementById('order-button').innerText = 'Wypełnij formularz zamówienia';
-        document.getElementById('order-button').onclick = function() {
-            const orderForm = document.getElementById('order-form');
-            orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełączanie widoczności formularza
-        };
+        if (totalAmountElement) {
+            const totalWithShipping = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
+            totalAmountElement.innerText = totalWithShipping; // Ustawia kwotę z przesyłką w formacie z przecinkiem
+
+            // Pokazuje całkowitą kwotę
+            const totalPriceElement = document.getElementById('total-price');
+            if (totalPriceElement) totalPriceElement.style.display = 'block'; // Wyświetla całkowitą kwotę
+
+            // Pokaż przycisk do wypełnienia formularza
+            const orderButton = document.getElementById('order-button');
+            if (orderButton) {
+                orderButton.innerText = 'Wypełnij formularz zamówienia';
+                orderButton.onclick = function() {
+                    const orderForm = document.getElementById('order-form');
+                    if (orderForm) {
+                        orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none'; // Przełączanie widoczności formularza
+                    }
+                };
+           }
+        }
     }
 }
 
@@ -60,22 +71,28 @@ function removeItem(index) {
 }
 
 // Obsługa wysyłania formularza zamówienia
-document.getElementById('order-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Zapobiegaj domyślnej akcji formularza
+document.getElementById('order-form')?.addEventListener('submit', function(event) {
+    event.preventDefault(); // Zapobiega domyślnej akcji formularza
 
     // Wypełnij ukryte pola
     const details = cart.map((item, index) => ({
         name: item.name,
         price: item.price,
-        customization: document.getElementById(`customText-${index}`).value // Pobierz personalizację
+        customization: document.getElementById(`customText-${index}`)?.value || '' // Pobierz personalizację, jeśli istnieje
     }));
 
-    document.getElementById('order-details').value = JSON.stringify(details); // Przechowuje szczegóły zamówienia
+    const orderDetailsElement = document.getElementById('order-details');
+    if (orderDetailsElement) {
+        orderDetailsElement.value = JSON.stringify(details); // Przechowuje szczegóły zamówienia
+    }
+    
     const totalAmount = (cart.reduce((total, item) => total + item.price, 0) + shippingCost).toFixed(2).replace('.', ',') + ' zł';
-    document.getElementById('total-amount-hidden').value = totalAmount; // Ustawia ukrytą całkowitą kwotę
+    const totalAmountHidden = document.getElementById('total-amount-hidden');
+    if (totalAmountHidden) {
+        totalAmountHidden.value = totalAmount; // Ustawia ukrytą całkowitą kwotę
+    }
 
     // Można tutaj dodać kod do wysyłania danych na serwer np. Netlify
-    // alert (ten alert można pominąć lub zmienić)
     alert("Twoje zamówienie zostało złożone, potwierdzenie przyjdzie na podany przez Ciebie adres email.");
 
     // Czyszczenie koszyka i formularza
@@ -90,41 +107,6 @@ document.getElementById('order-form').addEventListener('submit', function(event)
 
     displayCart(); // Odświeżamy wyświetlanie koszyka
 });
-
-
-
-document.getElementById('order-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    
-    console.log('Formularz został wysłany');
-
-    const data = {
-        // Twoje dane
-    };
-    
-    console.log('Dane do wysłania:', data);
-    
-    try {
-        const response = await fetch('/your-api-endpoint', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        
-        console.log('Odpowiedź serwera:', response);
-        
-        if (!response.ok) {
-            throw new Error('Błąd sieciowy: ' + response.status);
-        }
-
-        const result = await response.json();
-        console.log('Wynik:', result);
-    } catch (error) {
-        console.error('Wystąpił błąd:', error);
-    }
-});
-
-
 
 // Wyświetlanie koszyka po załadowaniu strony
 document.addEventListener('DOMContentLoaded', function() {

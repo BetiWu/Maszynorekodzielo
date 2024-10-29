@@ -30,7 +30,8 @@
             <button id="order-button">Wypełnij formularz zamówienia</button>
 
             <!-- Stylizowany formularz zamówienia -->
-            <form name="order" method="POST" data-netlify="true" id="order-form" class="order-form" style="display: none;">
+  <form name="order" method="POST" data-netlify="true" id="order-form" class="order-form">
+    <input type="hidden" name="form-name" value="order" />
     <h3>Formularz zamówienia</h3>
     <p class="payment-info">Płatność po potwierdzeniu zlecenia</p>
 
@@ -46,10 +47,10 @@
     <label for="comments">Komentarz:</label>
     <textarea id="comments" name="comments" rows="4" placeholder="Dodaj komentarz..."></textarea>
 
-
-
     <button type="submit">Złóż zamówienie</button>
 </form>
+
+
         </div>
     </div>
 
