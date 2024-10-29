@@ -1,6 +1,12 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const shippingCost = 9.99;
 
+// Funkcja do aktualizacji ukrytych pól formularza
+function updateHiddenFields(total) {
+    document.getElementById('cartContent').value = JSON.stringify(cart);
+    document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2);
+}
+
 // Funkcja do wyświetlania zawartości koszyka
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
@@ -39,10 +45,9 @@ function displayCart() {
         const totalAmount = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
         document.getElementById('total-amount').innerText = totalAmount;
         document.getElementById('total-price').style.display = 'block';
-        
+
         // Ustawienie wartości w ukrytych polach formularza
-        document.getElementById('cartContent').value = JSON.stringify(cart);
-        document.getElementById('totalAmount').value = (total + shippingCost).toFixed(2); // Wysyłamy jako liczba
+        updateHiddenFields(total);
 
         // Przygotowanie przycisku do wypełnienia formularza zamówienia
         const fillFormButton = document.createElement('button');
@@ -63,7 +68,7 @@ function removeItem(index) {
 }
 
 // Obsługuje wysyłanie formularza zamówienia
-document.getElementById('order-form').addEventListener('submit', function(event) {
+function handleFormSubmission(event) {
     event.preventDefault(); // Zatrzymuje domyślne działanie formularza
 
     // Potwierdzenie użytkownika o wysyłce formularza
@@ -73,7 +78,7 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     }
 
     // Zbieranie danych formularza
-    const formData = new FormData(this);
+    const formData = new FormData(event.target);
 
     // Zbieranie personalizacji
     cart.forEach((_, index) => {
@@ -81,20 +86,22 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         formData.append(`customText-${index}`, customText); // Dodanie personalizacji do formData
     });
 
+    // Ustawienie wartości w ukrytych polach formularza
+    updateHiddenFields(total);
+
     // Sprawdzenie poprawności danych przed wysłaniem
     console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
 
     // Wysyłanie formularza do Netlify
-    fetch(this.action, {
+    fetch(event.target.action, {
         method: 'POST',
         body: formData,
     })
     .then(response => {
         if (response.ok) {
-            // Po złożeniu zamówienia, resetujemy formularz i ukrywamy go
             alert('Zamówienie zostało złożone pomyślnie!');
-            this.reset(); // Resetuje formularz
-            this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
+            event.target.reset(); // Resetuje formularz
+            event.target.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
             
             // Resetowanie koszyka
             cart = [];
@@ -108,7 +115,8 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         console.error('Błąd podczas wysyłania formularza:', error);
         alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
     });
-});
+}
 
-// Po załadowaniu strony
+// Nasłuchiwanie zdarzeń
+document.getElementById('order-form').addEventListener('submit', handleFormSubmission);
 document.addEventListener('DOMContentLoaded', displayCart);

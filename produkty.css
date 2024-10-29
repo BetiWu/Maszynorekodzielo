@@ -326,6 +326,10 @@ input[type="text"]::placeholder {
 }
 
 .order-form {
+
+    display: none; /* Możesz zmienić na block, aby zobaczyć, czy formularz działa */
+    /* Inne style, np. margines, padding itp. */
+}
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 20px;
