@@ -78,8 +78,13 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         formData.append(`customText-${index}`, customText); 
     });
 
+    // Logowanie zawartości koszyka przed dodaniem do FormData
+    console.log('Zawartość koszyka przed dodaniem do FormData:', JSON.stringify(cart));
+
     // Dodaj dane z ukrytych pól do formData
     formData.append('cartContent', JSON.stringify(cart));
+    console.log('Zawartość FormData po dodaniu cartContent:', [...formData]);
+
     formData.append('totalAmount', total.toFixed(2)); 
 
     // Logowanie danych formularza przed wysłaniem
@@ -88,7 +93,6 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         jsonFormData[key] = value;
     });
     console.log('Dane formularza przed wysłaniem:', jsonFormData);
-    console.log('Zawartość koszyka przed wysłaniem:', JSON.stringify(cart));
 
     // Wysyłanie formularza do Netlify
     fetch(this.action, {
