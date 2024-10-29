@@ -96,6 +96,14 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     // Uaktualnij ukryte pola przed wysyłką
     updateHiddenFields();
 
+    // Dodanie wartości ukrytych pól do FormData
+    formData.append('cartContent', document.getElementById('cartContent').value);
+    formData.append('totalAmount', document.getElementById('totalAmount').value);
+    console.log('Dodano dane koszyka do formularza:', {
+        cartContent: document.getElementById('cartContent').value,
+        totalAmount: document.getElementById('totalAmount').value
+    });
+
     // Sprawdzenie poprawności danych przed wysłaniem
     console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
 
