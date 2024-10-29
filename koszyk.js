@@ -10,6 +10,7 @@ function displayCart() {
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>Koszyk jest pusty.</p>'; // Wiadomość o pustym koszyku
+        document.getElementById('total-price').style.display = 'none'; // Ukrywa całkowitą kwotę
     } else {
         cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
@@ -27,12 +28,15 @@ function displayCart() {
             cartItemsContainer.appendChild(itemElement); // Dodaje element do DOM
             total += item.price; // Aktualizuje całkowity koszt produktów
         });
-    }
 
-    // Ustawianie całkowitej kwoty do zapłaty (suma produktów + koszt przesyłki)
-    const totalAmountElement = document.getElementById('total-amount');
-    const totalWithShipping = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
-    totalAmountElement.innerText = totalWithShipping; // Ustawia kwotę z przesyłką w formacie z przecinkiem
+        // Ustawianie całkowitej kwoty do zapłaty (suma produktów + koszt przesyłki)
+        const totalAmountElement = document.getElementById('total-amount');
+        const totalWithShipping = (total + shippingCost).toFixed(2).replace('.', ',') + ' zł';
+        totalAmountElement.innerText = totalWithShipping; // Ustawia kwotę z przesyłką w formacie z przecinkiem
+        
+        // Pokazuje całkowitą kwotę
+        document.getElementById('total-price').style.display = 'block'; // Wyświetla całkowitą kwotę
+    }
 }
 
 // Funkcja do usuwania produktu z koszyka
