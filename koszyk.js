@@ -72,23 +72,38 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     const formData = new FormData(this);
 
     // Zbieranie personalizacji
-    cart.forEach((item, index) => {
+    cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         formData.append(`customText-${index}`, customText); // Dodanie personalizacji do formData
     });
 
-    // Debugowanie: logowanie danych formularza przed wysłaniem
+    // Sprawdzenie poprawności danych przed wysłaniem
     console.log('Dane formularza przed wysłaniem:', Array.from(formData.entries()));
 
-    // Po złożeniu zamówienia, możesz wysłać formData do Netlify (jeżeli używasz Netlify?)
-    // Do tego skryptu może być konieczne użycie fetch, ale zazwyczaj Netlify to obsługuje automatycznie
-    this.reset(); // Resetuje formularz
-    this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
-
-    // Resetowanie koszyka
-    cart = [];
-    localStorage.removeItem('cart');
-    displayCart();
+    // Wysyłanie formularza do Netlify
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if (response.ok) {
+            // Po złożeniu zamówienia, resetujemy formularz i ukrywamy go
+            alert('Zamówienie zostało złożone pomyślnie!');
+            this.reset(); // Resetuje formularz
+            this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
+            
+            // Resetowanie koszyka
+            cart = [];
+            localStorage.removeItem('cart');
+            displayCart();
+        } else {
+            alert('Wystąpił błąd podczas składania zamówienia.');
+        }
+    })
+    .catch(error => {
+        console.error('Błąd podczas wysyłania formularza:', error);
+        alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
+    });
 });
 
 // Po załadowaniu strony
