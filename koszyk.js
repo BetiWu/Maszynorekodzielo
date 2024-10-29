@@ -62,6 +62,26 @@ function removeItem(index) {
     displayCart(); // Odświeżamy wyświetlanie koszyka
 }
 
+
+document.getElementById('order-form').addEventListener('submit', function(event) {
+    // Nie blokujemy domyślnego zachowania formularza
+    // event.preventDefault();  //Usuń ten wiersz, aby zezwolić na wysyłkę
+
+    // Po wysłaniu danych do Netlify, wyświetl alert
+    alert('Zamówienie zostało złożone!'); // Zamiast przesyłania do Netlify
+    
+    // Czyścimy koszyk, jeśli to konieczne
+    cart = [];
+    localStorage.removeItem('cart');
+    displayCart(); // Odświeżamy wyświetlanie koszyka
+    
+    // Resetujemy formularz i ukrywamy go po chwili
+    setTimeout(() => {
+        this.reset(); // Resetuje formularz
+        this.style.display = 'none'; // Ukrywa formularz po złożeniu zamówienia
+    }, 1000); // Odczekaj 1 sekundę przed ukryciem formularza (możesz zmienić czas)
+});
+
 // Obsługa wysyłania formularza zamówienia
 document.getElementById('order-form').addEventListener('submit', function(event) {
     
