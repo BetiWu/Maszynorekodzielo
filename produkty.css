@@ -318,7 +318,7 @@ textarea:focus {
     }
 
  .sidebar-container {
-        width: 130px; /* Sidebar zajmujący 50px na małych ekranach */
+        width: 140px; /* Sidebar zajmujący 50px na małych ekranach */
         margin-right: 12px; /* Odstęp od kontentu */
 		margin-left: -13px;
     }
@@ -333,7 +333,7 @@ textarea:focus {
     }
 	
 	.category-item {
-        font-size: 12px; /* Ustal mniejszy rozmiar czcionki na małych ekranach */
+        font-size: 17px; /* Ustal mniejszy rozmiar czcionki na małych ekranach */
 	
 	
 	
