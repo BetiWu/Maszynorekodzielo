@@ -34,13 +34,11 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 .container {
     display: flex; /* Użycie rzędu dla sidebaru i kontentu */
     margin: 10px; /* Odstęp dookoła kontenera */
-	
 }
 
 /* Sidebar */
 .sidebar-container {
-    
-    min-width: 200px; /* Minimalna szerokość */
+    width: 200px; /* Ustalamy szerokość sidebaru */
     margin-right: 12px; /* Odstęp od kontentu */
 }
 
@@ -61,9 +59,9 @@ img {
 /* Wyświetlanie produktów */
 .product-display {
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Zmniejszenie minimalnej szerokości do 100px */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Dynamiczne korty */
     gap: 5px; /* Zmniejszenie odstępu między kafelkami */
-	max-width: 100%;
+    max-width: calc(100% - 212px); /* Produkty o szerokości minus sidebar + margines */
 }
 
 .product {
@@ -119,13 +117,14 @@ button:hover {
     }
 }
 
-/* Dostosowanie nawigacji */
+/* Nawigacja */
 .navigation-container {
     display: flex; 
     width: 100%; 
-	align-items: center; 
+    align-items: center; 
     padding: 10px 0; 
     justify-content: space-between; 
+    flex-wrap: wrap; /* Pozwól na przenoszenie do nowej linii */
 }
 
 .nav-link {
@@ -133,7 +132,7 @@ button:hover {
     color: white; 
     font-weight: bold; 
     transition: color 0.3s; 
-	font-size: clamp(3px, 2vw + 1rem, 24px); 
+    font-size: clamp(12px, 2vw + 1rem, 25px); /* Użycie clamp dla responsywności */
 }
 
 .nav-link:hover {
@@ -302,31 +301,22 @@ textarea:focus {
 
 
 
-
-
+/* Media Queries dla urządzeń mobilnych */
 @media (max-width: 600px) {
     .container {
-        flex-direction: row; /* Ustawienie obok siebie na urządzenia mobilne */
+        flex-direction: column; /* Układ w kolumnie na małych ekranach */
     }
 
-    .sidebar-container, .content {
-        width: 50%; /* Tak, aby oba były obok siebie */
-        margin: 0; /* Usuń marginesy, żeby idealnie się zgrały */
+    .sidebar-container {
+        width: 100%; /* Sidebar zajmujący całą szerokość */
+        margin-right: 0; /* Brak marginesu */
     }
-	
-	
 
     .product-display {
-        display: grid; /* Maintain grid for product display */
-        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-        gap: 5px; /* Separator między kafelkami */
-        max-width: 100%; /* Górny limit szerokości dla kafelków */
+        max-width: 100%; /* Produkty w pełnej szerokości */
     }
-}
 
- 
-
-    .cart {
-        width: 90%; /* Większa szerokość koszyka */
+    .nav-link {
+        font-size: 16px; /* Zmniejszenie czcionki w nawigacji na mniejszych ekranach */
     }
 }
