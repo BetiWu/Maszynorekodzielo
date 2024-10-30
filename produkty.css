@@ -308,7 +308,7 @@ textarea:focus {
     }
 
  .sidebar-container {
-        width: 180px; /* Sidebar zajmujący 50px na małych ekranach */
+        width: 130px; /* Sidebar zajmujący 50px na małych ekranach */
         margin-right: 12px; /* Odstęp od kontentu */
 		margin-left: -13px;
     }
@@ -322,7 +322,8 @@ textarea:focus {
         font-size: 16px; /* Zmniejszenie czcionki w nawigacji na mniejszych ekranach */
     }
 	
-	
+	.category-item {
+        font-size: 15px; /* Ustal mniejszy rozmiar czcionki na małych ekranach */
 	
 	
 	
