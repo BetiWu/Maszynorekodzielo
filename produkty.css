@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 }
 
 .container {
-    /* Użycie rzędu dla sidebaru i kontentu */
+  
     margin: 10px; /* Odstęp dookoła kontenera */
 }
 
@@ -138,7 +138,7 @@ button:hover {
     color: white; 
     font-weight: bold; 
     transition: color 0.3s; 
-    font-size: clamp(12px, 2vw + 1rem, 25px); /* Użycie clamp dla responsywności */
+    font-size: clamp(12px, 2vw + 1rem, 22px); /* Użycie clamp dla responsywności */
 }
 
 .nav-link:hover {
@@ -277,18 +277,25 @@ button:hover {
     font-size: 14px; 
 }
 
-@keyframes pulse {
-    100% {
-        opacity: 2;
-        transform: scale(1.2);
-    }
-}
+
 
 #shipping-cost {
     text-align: center; 
-    color: rgba(255, 0, 0, 0.9);
+    color: rgba(144, 238, 144, 0.9);
     animation: pulse 3s infinite; 
+	font-size: 23px; 
 }
+
+.payment-info {
+	text-align: center; 
+    color: rgba(144, 238, 144, 0.9);
+    animation: pulse 3s infinite; 
+	font-size: 15px; 
+}
+	
+}
+
+
 
 /* Style dla formularzy */
 input[type="text"], input[type="email"], textarea {
@@ -329,7 +336,7 @@ textarea:focus {
     }
 
     .nav-link {
-        font-size: 16px; /* Zmniejszenie czcionki w nawigacji na mniejszych ekranach */
+        font-size: 14px; /* Zmniejszenie czcionki w nawigacji na mniejszych ekranach */
     }
 	
 	.category-item {
