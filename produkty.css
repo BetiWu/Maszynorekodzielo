@@ -15,7 +15,7 @@ body {
     background-position: center center; 
     background-attachment: fixed; 
     background-size: cover; 
-    margin: 0; 
+    margin: 5px; 
     text-shadow: 1px 1px 2px black; 
 }
 
@@ -24,37 +24,33 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 }
 
 .title-container {
-    display: flex; 
+    
     justify-content: center; 
     margin: 0; 
     text-align: center; 
+	color: white;
 }
 
 .container {
     display: flex; /* Użycie rzędu dla sidebaru i kontentu */
-    margin: 20px; /* Odstęp dookoła kontenera */
+    margin: 10px; /* Odstęp dookoła kontenera */
+	
 }
 
 /* Sidebar */
 .sidebar-container {
-    flex: 1; /* Elastyczne dopasowanie */
-    min-width: 250px; /* Minimalna szerokość */
-    margin-right: 20px; /* Odstęp od kontentu */
+    
+    min-width: 200px; /* Minimalna szerokość */
+    margin-right: 12px; /* Odstęp od kontentu */
 }
 
 .sidebar {
     background-color: rgba(128, 128, 128, 0.5); 
     border-radius: 8px; 
-    padding: 10px; 
+    padding: 5px; 
 }
 
-/* Kontent z produktami */
-.content {
-    flex: 3; /* Elastyczne dopasowanie */
-    background-color: rgba(128, 128, 128, 0.5); 
-    border-radius: 8px; 
-    padding: 20px; 
-}
+
 
 /* Obrazki */
 img {
@@ -65,24 +61,25 @@ img {
 /* Wyświetlanie produktów */
 .product-display {
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Zmniejszenie minimalnej szerokości do 160px */
-    gap: 10px; /* Odstęp między kafelkami */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Zmniejszenie minimalnej szerokości do 100px */
+    gap: 5px; /* Zmniejszenie odstępu między kafelkami */
+	max-width: 100%;
 }
 
 .product {
-    border: 1px solid rgba(255, 255, 255, 0.3); 
+    background-color: rgba(128, 128, 128, 0.5); 
     border-radius: 5px; 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
     text-align: center; 
-    padding: 5px; 
-    min-height: 200px; /* Zmniejszenie wysokości kafelków */
+    padding: 2.5px; /* Zmniejszono padding */
+    max-height: 185px; 
 }
 
 .product img {
     width: 100%; 
-    height: 100px; /* Ustalamy stałą wysokość dla obrazków */
+    height: 50px; /* Zmniejszenie wysokości obrazków */
     object-fit: cover; 
     border-radius: 5px; 
     cursor: pointer;
@@ -96,6 +93,7 @@ img {
     margin: 0; 
     text-align: center; 
     color: white; 
+	font-size: 12px;
 }
 
 /* Przyciski */
@@ -103,8 +101,7 @@ button {
     background-color: rgba(255, 235, 59, 0.8);
     border: none; 
     color: black; 
-    padding: 10px 15px; 
-    border-radius: 5px; 
+	border-radius: 5px; 
     cursor: pointer; 
 }
 
@@ -126,8 +123,8 @@ button:hover {
 .navigation-container {
     display: flex; 
     width: 100%; 
-    align-items: center; 
-    padding: 20px 0; 
+	align-items: center; 
+    padding: 10px 0; 
     justify-content: space-between; 
 }
 
@@ -136,6 +133,7 @@ button:hover {
     color: white; 
     font-weight: bold; 
     transition: color 0.3s; 
+	font-size: clamp(3px, 2vw + 1rem, 24px); 
 }
 
 .nav-link:hover {
@@ -153,7 +151,7 @@ button:hover {
     padding: 5px; 
     border-radius: 4px; 
     color: white; 
-    font-size: 25px; 
+    font-size: clamp(12px, 1.5vw + 1rem, 25px);
 }
 
 .category-item:hover {
@@ -218,6 +216,7 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+	font-size: 40px;
 }
 
 .carousel-navigation button {
@@ -301,29 +300,31 @@ textarea:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
 }
 
-/* Styl dla urządzeń mobilnych */
+
+
+
+
 @media (max-width: 600px) {
     .container {
-        flex-direction: column; /* Kolumnowe na urządzenia mobilne */
-        width: 95%; /* Szerokość do 95% */
+        flex-direction: row; /* Ustawienie obok siebie na urządzenia mobilne */
     }
 
     .sidebar-container, .content {
-        margin: 10px 0; /* Marginesy w pionie */
-        width: 100%;  /* Szerokość do 100% */
+        width: 50%; /* Tak, aby oba były obok siebie */
+        margin: 0; /* Usuń marginesy, żeby idealnie się zgrały */
     }
+	
+	
 
     .product-display {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Mniejsze kolumny na telefonach */
+        display: grid; /* Maintain grid for product display */
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+        gap: 5px; /* Separator między kafelkami */
+        max-width: 100%; /* Górny limit szerokości dla kafelków */
     }
+}
 
-    .nav-link {
-        font-size: 14px; /* Mniejsza czcionka dla mobilnych */
-    }
-
-    .category-item {
-        font-size: 20px; /* Mniejsza czcionka dla mobilnych */
-    }
+ 
 
     .cart {
         width: 90%; /* Większa szerokość koszyka */
