@@ -7,10 +7,10 @@ const products = {
             price: "10 zł",
             imgSrc: [
                 "bo1.jpg",
-                "bo2.jpg", // zdjęcie 2
+                "bo2.jpg",
                 "bo3.jpg",
-                "bo4.jpg", // zdjęcie 2
-                "bo5.jpg"  // zdjęcie 3
+                "bo4.jpg",
+                "bo5.jpg"
             ]
         },
         {
@@ -19,8 +19,7 @@ const products = {
             price: "120 zł",
             imgSrc: [
                 "bo2.jpg",
-                "bo2.jpg", // zdjęcie 2
-                "bo3.jpg"  // zdjęcie 3
+                "bo3.jpg"
             ]
         },
         {
@@ -29,21 +28,20 @@ const products = {
             price: "120 zł",
             imgSrc: [
                 "bo3.jpg",
-                "bo2.jpg", // zdjęcie 2
-                "bo3.jpg"  // zdjęcie 3
+                "bo2.jpg"
             ]
         },
         {
             name: "Blababa",
-            description: "Elegancka, srebrna choinka.",
+            description: "Elegancka choinka w nowoczesnym stylu.",
             price: "120 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
             ] 
         },
         {
-            name: "drugalinijka",
-            description: "Elegancka, srebrna choinka.",
+            name: "Drugalinijka",
+            description: "Stylowa ozdoba choinkowa.",
             price: "120 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
@@ -61,7 +59,7 @@ const products = {
         },
         {
             name: "Ozdoba Złota",
-            description: "Lśniąca ozdoba.",
+            description: "Lśniąca, złota ozdoba.",
             price: "25 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
@@ -71,7 +69,7 @@ const products = {
     'subcat1-3': [ // Prezentowanie
         {
             name: "Prezent 1",
-            description: "Podarunek idealny.",
+            description: "Podarunek idealny dla bliskiej osoby.",
             price: "80 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
@@ -119,7 +117,6 @@ const products = {
             ]
         }
     ],
-    // Dodaj inne produkty dla pozostałych podkategorii...
 };
 
 let currentIndex;
@@ -127,43 +124,35 @@ let currentImages;
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const shippingCost = 9.99;
 
-
-
+// Funkcje do obsługi modalnego okna ze zdjęciami
 function openImage(product) {
-    currentImages = product.imgSrc; // Wybierz tablicę obrazów z produktu
-    currentIndex = 0; // Zaczynamy od pierwszego obrazka
+    currentImages = product.imgSrc;
+    currentIndex = 0;
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    modalImage.src = currentImages[currentIndex]; // Ustaw zdjęcie
-    modal.style.display = "block"; // Pokaż modal
+    modalImage.src = currentImages[currentIndex];
+    modal.style.display = "block";
 }
 
 function closeModal() {
-    document.getElementById('imageModal').style.display = "none"; // Ukryj modal
+    document.getElementById('imageModal').style.display = "none";
 }
 
 function changeImage(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) {
-        currentIndex = currentImages.length - 1; // Przechodzi do ostatniego zdjęcia
-    } else if (currentIndex >= currentImages.length) {
-        currentIndex = 0; // Przechodzi do pierwszego zdjęcia
-    }
-    document.getElementById('modalImage').src = currentImages[currentIndex]; // Zmień zdjęcie
+    currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+    document.getElementById('modalImage').src = currentImages[currentIndex];
 }
 
 // Funkcja do pokazywania/ukrywania subkategorii
-function toggleSubcategories(id, categoryElement) {
+function toggleSubcategories(id) {
     const allSubcategories = document.querySelectorAll('.subcategory-list');
     const currentSubcategory = document.getElementById(id);
     const isCurrentlyVisible = currentSubcategory.style.display === "block";
 
-    // Ukryj wszystkie inne subkategorie
     allSubcategories.forEach(subcategory => {
         subcategory.style.display = "none";
     });
 
-    // Zwiń lub rozwinięcie podkategorii
     currentSubcategory.style.display = isCurrentlyVisible ? "none" : "block";
 }
 
@@ -175,10 +164,9 @@ function getPrice(priceString) {
 // Funkcja do wyświetlania produktów
 function displayProducts(subcategoryId) {
     const productDisplay = document.getElementById("product-display");
-    productDisplay.innerHTML = ""; // Czyści wcześniejsze produkty
+    productDisplay.innerHTML = "";
     const relevantProducts = products[subcategoryId];
 
-    // Sprawdzenie czy są dostępne produkty
     if (relevantProducts && relevantProducts.length > 0) {
         relevantProducts.forEach(product => {
             const productDiv = document.createElement('div');
@@ -193,32 +181,30 @@ function displayProducts(subcategoryId) {
             productDisplay.appendChild(productDiv);
         });
     } else {
-        // Informacja, że nie ma produktów
         productDisplay.innerHTML = "<p>Brak dostępnych produktów w tej podkategorii.</p>";
     }
 }
 
 // Funkcja do dodawania produktów do koszyka
-function addToCart(productName, price, category) {
-    const productPrice = getPrice(price); // Pobierz cenę w formacie liczbowym
+function addToCart(productName, price) {
+    const productPrice = getPrice(price);
     const quantity = parseInt(prompt(`Ile sztuk ${productName} chcesz dodać do koszyka?`));
 
     if (isNaN(quantity) || quantity <= 0) {
         alert("Proszę wpisać prawidłową liczbę sztuk.");
-        return; 
+        return;
     }
 
     for (let i = 0; i < quantity; i++) {
-        cart.push({ 
-            name: productName, 
-            price: productPrice, 
-            category: category
-        }); 
+        cart.push({
+            name: productName,
+            price: productPrice
+        });
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart)); // Zapisz do localStorage
-    updateCart(); // Zaktualizuj wyświetlane elementy koszyka
-    updateCartCount(); // Zaktualizuj licznik koszyka
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+    updateCartCount();
     alert(`${quantity} sztuk ${productName} zostało dodanych do koszyka!`);
 }
 
@@ -242,35 +228,30 @@ function updateCart() {
 // Funkcja do ładowania koszyka przy załadowaniu strony
 function loadCart() {
     const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-        updateCart(); // Aktualizuje wyświetlane elementy koszyka
-        updateCartCount(); // Upewnij się, że licznik jest aktualny przy załadowaniu
-    } else {
-        cart = []; // Ustaw pusty koszyk, jeśli nic nie jest zapisane
-        updateCartCount(); // Upewnij się, że licznik jest aktualny przy załadowaniu
-    }
+    cart = savedCart ? JSON.parse(savedCart) : [];
+    updateCart();
+    updateCartCount();
 }
 
 // Funkcja do aktualizacji licznika koszyka
 function updateCartCount() {
     const cartCountElement = document.getElementById('cart-count');
-    cartCountElement.innerText = cart.length > 0 ? `${cart.length}` : '0'; // Zaktualizuj wyświetlaną liczbę produktów
+    cartCountElement.innerText = cart.length > 0 ? `${cart.length}` : '0';
 }
 
 // Funkcja do czyszczenia koszyka
 function clearCart() {
     if (confirm("Czy na pewno chcesz wyczyścić koszyk?")) {
-        cart = []; // Resetuje tablicę koszyka do pustej
-        localStorage.removeItem('cart'); // Usuwa dane koszyka z localStorage
-        updateCart(); // Aktualizuje wyświetlane elementy koszyka
-        updateCartCount(); // Aktualizuje licznik koszyka
+        cart.length = 0;
+        localStorage.removeItem('cart');
+        updateCart();
+        updateCartCount();
         alert("Koszyk został wyczyszczony!");
     }
 }
 
 // Ustawienia DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-    loadCart(); // Załaduj koszyk
-    updateCartCount(); // Upewnij się, że licznik jest aktualny
+    loadCart();
+    updateCartCount();
 });

@@ -80,3 +80,26 @@ section:hover {
         opacity: 1;
     }
 }
+
+
+/* Styl dla urządzeń mobilnych */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+
+    #main-title {
+        font-size: 24px; /* Mniejsza czcionka na urządzeniach mobilnych */
+    }
+
+    .footer {
+        font-size: 12px; /* Mniejsza czcionka na urządzeniach mobilnych */
+    }
+}
+
+/* Możesz dodać więcej zapytań dla różnych rozmiarów ekranów */
+@media (min-width: 601px) and (max-width: 1200px) {
+    #main-title {
+        font-size: 30px; /* Średnia czcionka dla tabletów */
+    }
+}
