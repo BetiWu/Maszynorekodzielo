@@ -33,7 +33,12 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 }
 
 .container {
-   /* Użycie rzędu dla sidebaru i kontentu */
+    /* Użycie rzędu dla sidebaru i kontentu */
+    margin: 10px; /* Odstęp dookoła kontenera */
+}
+
+.container-prod {
+    display: flex; /* Użycie rzędu dla sidebaru i kontentu */
     margin: 10px; /* Odstęp dookoła kontenera */
 }
 
