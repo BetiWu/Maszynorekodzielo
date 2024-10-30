@@ -304,19 +304,24 @@ textarea:focus {
 /* Media Queries dla urządzeń mobilnych */
 @media (max-width: 600px) {
     .container {
-        flex-direction: column; /* Układ w kolumnie na małych ekranach */
+        flex-direction: row; /* Zachowaj układ w rzędzie na małych ekranach */
     }
 
-    .sidebar-container {
-        width: 100%; /* Sidebar zajmujący całą szerokość */
-        margin-right: 0; /* Brak marginesu */
+ .sidebar-container {
+        width: 180px; /* Sidebar zajmujący 50px na małych ekranach */
+        margin-right: 12px; /* Odstęp od kontentu */
     }
-
-    .product-display {
-        max-width: 100%; /* Produkty w pełnej szerokości */
+   .product-display {
+        max-width: calc(100% - 62px); /* Produkty zajmują całą szerokość minus szerokość sidebaru + margines */
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Mniejsze kolumny dla mobilnych */
     }
 
     .nav-link {
         font-size: 16px; /* Zmniejszenie czcionki w nawigacji na mniejszych ekranach */
     }
+	
+	
+	
+	
+	
 }
