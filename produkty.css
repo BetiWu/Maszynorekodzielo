@@ -59,9 +59,9 @@ img {
 /* Wyświetlanie produktów */
 .product-display {
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Dynamiczne korty */
-    gap: 5px; /* Zmniejszenie odstępu między kafelkami */
-    max-width: calc(100% - 212px); /* Produkty o szerokości minus sidebar + margines */
+    grid-template-columns: repeat(4, 1fr); /* Cztery kolumny na dużych ekranach */
+    gap: 10px; /* Odstęp między kafelkami */
+    flex: 1; /* Pozwól kontenerowi z produktami zająć dostępne miejsce */
 }
 
 .product {
@@ -310,10 +310,11 @@ textarea:focus {
  .sidebar-container {
         width: 180px; /* Sidebar zajmujący 50px na małych ekranach */
         margin-right: 12px; /* Odstęp od kontentu */
+		margin-left: -10px;
     }
    .product-display {
+        grid-template-columns: repeat(2, 1fr); /* Dwie kolumny dla mobilnych */
         max-width: calc(100% - 62px); /* Produkty zajmują całą szerokość minus szerokość sidebaru + margines */
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Mniejsze kolumny dla mobilnych */
     }
 
     .nav-link {
