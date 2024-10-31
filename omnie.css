@@ -7,8 +7,20 @@ body {
     color: #f5f5f5; /* Jasny tekst dla lepszej czytelności */
     background:
         linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-        url('./image2.jpg');
+        url('./omnie.jpg');
     line-height: 1.6; /* Zwiększenie odstępu między liniami dla lepszej czytelności */
+	
+	font-family: 'Lora', serif;
+    font-weight: bold;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('./ja.jpg'); 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    margin: 5px; 
+    text-shadow: 1px 1px 2px black; 
 }
 
 h1 {
