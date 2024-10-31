@@ -1,0 +1,114 @@
+body {
+    margin: 0; /* Usunięcie domyślnych marginesów */
+    padding: 20px; /* Umożliwia oddzielenie treści od krawędzi */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+        url('./omnie.jpg') no-repeat center center fixed; /* Ustawienie tła */
+    background-size: cover; /* Umożliwia odpowiednie skalowanie tła */
+    font-family: 'Lora', serif;
+    color: #f5f5f5; /* Jasny tekst dla lepszej czytelności */
+    display: flex; /* Umożliwia wyrównanie dzieci w flexboxie */
+    flex-direction: column; /* Umożliwia układanie w kolumnie */
+    align-items: center; /* Wyśrodkowanie wszystkich dzieci */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.container {
+    width: 90%; /* Ustaw na 90% szerokości dla lepszej responsywności */
+    max-width: 800px; /* Maksymalna szerokość kontenera */
+    margin: auto; /* Centrowanie kontenera */
+    padding: 25px; /* Przestrzeń wewnętrzna */
+    background-color: rgba(30, 30, 30, 0.8); /* Tło dla lepszej czytelności */
+    border-radius: 10px; /* Zaokrąglenie rogów kontenera */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Cień dla kontenera */
+    display: flex; /* Umożliwia użycie flexboxa */
+    flex-direction: column; /* Umożliwia układanie elementów w kolumnie */
+    align-items: center; /* Wyśrodkowanie elementów w kontenerze */
+}
+
+.contact-info {
+    margin-top: 20px; /* Odstęp od nagłówka */
+    width: 100%; /* Pełna szerokość */
+    display: flex; /* Umożliwia rozmieszczanie elementów w wierszu */
+    flex-direction: column; /* Układ pionowy */
+    align-items: center; /* Wyśrodkowanie elementów */
+}
+
+.contact-item {
+    display: flex; /* Umożliwia rozmieszczenie ikony i tekstu w poziomie */
+    align-items: center; /* Wyśrodkowanie elementów w pionie */
+    margin: 10px 0; /* Odstęp dookoła elementów */
+    font-size: 1.2em; /* Rozmiar tekstu */
+}
+
+.contact-item i {
+    font-size: 1.5em; /* Rozmiar ikon */
+    color: #ffd700; /* Złoty kolor ikon */
+    margin-right: 15px; /* Odstęp między ikoną a tekstem */
+}
+
+.contact-item a {
+    color: #f5f5f5; /* Kolor tekstu */
+    text-decoration: none; /* Usunięcie podkreślenia */
+    transition: color 0.3s; /* Animacja koloru */
+}
+
+.contact-item a:hover {
+    color: #ffd700; /* Zmiana koloru na hover */
+}
+
+.back-link {
+    margin-top: 20px; /* Odstęp górny dla linku powrotu */
+    color: #ffd700; /* Kolor linku */
+    text-decoration: none; /* Usunięcie podkreślenia */
+    font-weight: bold; /* Pogrubienie */
+    transition: color 0.3s; /* Animacja koloru */
+}
+
+.back-link:hover {
+    color: #ffcc00; /* Zmiana koloru na hover */
+}
+
+h1 {
+    margin-bottom: 1px; /* Zmniejsza odstęp u dołu nagłówka */
+}
+
+
+
+/* Responsywność */
+@media (max-width: 800px) {
+    .container {
+        padding: 15px; /* Mniejsze paddingi na średnich ekranach */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Dostosuj rozmiar nagłówka dla średnich ekranów */
+    }
+
+    .contact-item a {
+        font-size: 1.1em; /* Dostosuj rozmiar tekstu dla średnich ekranów */
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Mniejsze paddingi na małych ekranach */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Dostosuj rozmiar nagłówka na telefonie */
+    }
+
+    .contact-item {
+        flex-direction: column; /* Układ pionowy dla małych ekranów */
+        align-items: center; /* Wyśrodkowanie w pionie */
+    }
+
+    .contact-item a {
+        font-size: 1em; /* Dostosuj rozmiar tekstu na małych ekranach */
+    }
+
+    .back-link {
+        font-size: 1em; /* Dostosuj rozmiar linku powrotu na małych ekranach */
+    }
+}
