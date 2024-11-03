@@ -184,7 +184,7 @@ const products = {
             description: "Pomponowa gwiazda na drzwi 38 cm",
             price: "99 zł",
             imgSrc: [
-                "g1.jpg",
+                "g1.1.jpg",
 				"g2.jpg"
             ]
         }
