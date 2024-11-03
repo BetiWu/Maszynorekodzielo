@@ -120,9 +120,9 @@ button {
     background-color: rgba(255, 235, 59, 0.8);
     border: none; 
     color: white; 
-	border-radius: 7px; 
+	border-radius: 10px; 
     cursor: pointer; 
-	font-size: 16px;
+	font-size: 20px;
 	font-family: 'Lora', serif;
 	text-shadow: 1px 1px 2px black; 
 }
@@ -381,3 +381,15 @@ textarea:focus {
             color: yellow; /* kolor strzałki */
             font-size: 15px; /* zmień ten rozmiar na żądany */
         }
+		
+		/* Przyciski */
+button {
+    background-color: rgba(255, 235, 59, 0.8);
+    border: none; 
+    color: white; 
+	border-radius: 10px; 
+    cursor: pointer; 
+	font-size: 12px;
+	font-family: 'Lora', serif;
+	text-shadow: 1px 1px 2px black; 
+}
