@@ -3,8 +3,8 @@ const products = {
     'subcat1-1': [ // Bombki
         {
             name: "1-warstwowe",
-            description: "Dowolne wzory",
-            price: "10 zł",
+            description: "Dowolny wzór",
+            price: "9.99 zł",
             imgSrc: [
                 "bo1.jpg",
                 "bo2.jpg",
@@ -14,43 +14,50 @@ const products = {
             ]
         },
         {
-            name: "Choinka Srebrna",
-            description: "Elegancka, srebrna choinka.",
-            price: "120 zł",
+            name: "2-warstwowe",
+            description: "Dowolny wzór",
+            price: "14.99 zł",
             imgSrc: [
-                "bo2.jpg",
-                "bo3.jpg"
+                "2.6.jpg",
+				"2.1.jpg",
+				"2.2.jpg",
+				"2.3.jpg",
+				"2.4.jpg",
+				"2.5.jpg",
+				"2.7.jpg",
+				"gosia.jpg"
+                
             ]
         },
         {
-            name: "Bla",
-            description: "Elegancka, srebrna choinka.",
-            price: "120 zł",
+            name: "Dzwoniferki",
+            description: "4 rodzaje",
+            price: "9.99 zł",
             imgSrc: [
-                "bo3.jpg",
+                "dzwoni1.jpg",
                 "bo2.jpg"
             ]
         },
         {
-            name: "Blababa",
-            description: "Elegancka choinka w nowoczesnym stylu.",
+            name: "Kształty",
+            description: "Różne kształty",
             price: "120 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                "3.1.jpg",
+				"2.1.jpg",
+				"2.2.jpg",
+				"2.3.jpg",
+				"2.4.jpg",
+				"2.5.jpg",
+				"2.7.jpg",
+				"gosia.jpg"
             ] 
         },
-        {
-            name: "Drugalinijka",
-            description: "Stylowa ozdoba choinkowa.",
-            price: "120 zł",
-            imgSrc: [
-                "https://via.placeholder.com/150"
-            ] 
-        }
+       
     ],
     'subcat1-2': [ // Ozdoby
         {
-            name: "Ozdoba Srebrna",
+            name: "Coinki",
             description: "Elegancka ozdoba na choinkę.",
             price: "20 zł",
             imgSrc: [

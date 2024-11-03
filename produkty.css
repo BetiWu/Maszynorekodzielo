@@ -32,6 +32,8 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 	color: white;
 }
 
+
+
 .container {
     /* Użycie rzędu dla sidebaru i kontentu */
     margin: 10px; /* Odstęp dookoła kontenera */
@@ -252,6 +254,7 @@ button:hover {
     text-align: center;
 	display: block;
 	flex-direction: column;
+	font-size: 20px; 
 }
 
 .cart h2 {
@@ -277,6 +280,17 @@ button:hover {
     padding: 5px; 
     font-size: 14px; 
 }
+
+.payment-info {
+    color: yellow; /* Ustaw kolor tekstu, możesz zmienić na inny */
+    font-size: 16px; /* Rozmiar czcionki */
+	text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+
+
+
+
 
 @keyframes pulse {
     100% {

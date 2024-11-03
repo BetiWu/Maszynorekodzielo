@@ -31,23 +31,14 @@
                     <li class="category-item" onclick="toggleSubcategories('subcat1', this)">Boże Narodzenie
                         <ul id="subcat1" class="subcategory-list" style="display: none;">
                             <li class="subcategory-item" onclick="displayProducts('subcat1-1'); event.stopPropagation();">Bombki</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat1-2'); event.stopPropagation();">Ozdoby</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat1-3'); event.stopPropagation();">Prezentowanie</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat1-4'); event.stopPropagation();">Światełka</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat1-2'); event.stopPropagation();">Choinki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat1-3'); event.stopPropagation();">Na stół</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat1-4'); event.stopPropagation();">Na pieniążek</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat1-5'); event.stopPropagation();">Dekoracje</li>
                         </ul>
                     </li>
 
-                    <li class="category-item" onclick="toggleSubcategories('subcat2', this)">Ślub
-                        <ul id="subcat2" class="subcategory-list" style="display: none;">
-                            <li class="subcategory-item" onclick="displayProducts('subcat2-1'); event.stopPropagation();">Zaproszenia</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat2-2'); event.stopPropagation();">Dekoracje</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat2-3'); event.stopPropagation();">Upominki</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat2-4'); event.stopPropagation();">Fotobudka</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat2-5'); event.stopPropagation();">Kwiaty</li>
-                        </ul>
-                    </li>
-
+                  
                     <li class="category-item" onclick="toggleSubcategories('subcat3', this)">Wielkanoc
                         <ul id="subcat3" class="subcategory-list" style="display: none;">
                             <li class="subcategory-item" onclick="displayProducts('subcat3-1'); event.stopPropagation();">Jajka</li>
@@ -55,6 +46,16 @@
                             <li class="subcategory-item" onclick="displayProducts('subcat3-3'); event.stopPropagation();">Wielkanocne kosze</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat3-4'); event.stopPropagation();">Ozdoby</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat3-5'); event.stopPropagation();">Uroczystości</li>
+                        </ul>
+                    </li>
+					
+					  <li class="category-item" onclick="toggleSubcategories('subcat2', this)">Ślub
+                        <ul id="subcat2" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat2-1'); event.stopPropagation();">Zaproszenia</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat2-2'); event.stopPropagation();">Dekoracje</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat2-3'); event.stopPropagation();">Upominki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat2-4'); event.stopPropagation();">Fotobudka</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat2-5'); event.stopPropagation();">Kwiaty</li>
                         </ul>
                     </li>
 
@@ -67,8 +68,27 @@
                             <li class="subcategory-item" onclick="displayProducts('subcat4-5'); event.stopPropagation();">Dekoracje</li>
                         </ul>
                     </li>
+					
+					   <li class="category-item" onclick="toggleSubcategories('subcat4', this)">Chrzest
+                        <ul id="subcat4" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat4-1'); event.stopPropagation();">Zaproszenia</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat4-2'); event.stopPropagation();">Dyplomy</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat4-3'); event.stopPropagation();">Ubiór</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat4-4'); event.stopPropagation();">Prezentacje</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat4-5'); event.stopPropagation();">Dekoracje</li>
+                        </ul>
+                    </li>
 
                     <li class="category-item" onclick="toggleSubcategories('subcat5', this)">Dzień Babci<br>Dzień Dziadka
+                        <ul id="subcat5" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat5-1'); event.stopPropagation();">Portfel</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat5-2'); event.stopPropagation();">Kwiaty</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat5-3'); event.stopPropagation();">Czekoladki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat5-4'); event.stopPropagation();">Karteczki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat5-5'); event.stopPropagation();">Patery</li>
+                        </ul>
+                    </li>
+					   <li class="category-item" onclick="toggleSubcategories('subcat5', this)">Dzień Mamy<br>Dzień Taty
                         <ul id="subcat5" class="subcategory-list" style="display: none;">
                             <li class="subcategory-item" onclick="displayProducts('subcat5-1'); event.stopPropagation();">Portfel</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat5-2'); event.stopPropagation();">Kwiaty</li>
@@ -88,23 +108,23 @@
                         </ul>
                     </li>
 
-                    <li class="category-item" onclick="toggleSubcategories('subcat7', this)">Walentynki
-                        <ul id="subcat7" class="subcategory-list" style="display: none;">
-                            <li class="subcategory-item" onclick="displayProducts('subcat7-1'); event.stopPropagation();">Kwiaty</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat7-2'); event.stopPropagation();">Czekoladki</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat7-3'); event.stopPropagation();">Zaręczynowe</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat7-4'); event.stopPropagation();">Serduszka</li>
-                            <li class="subcategory-item" onclick="displayProducts('subcat7-5'); event.stopPropagation();">Biżuteria</li>
-                        </ul>
-                    </li>
-
-                    <li class="category-item" onclick="toggleSubcategories('subcat8', this)">Dzień Mężczyzn
+                                    <li class="category-item" onclick="toggleSubcategories('subcat8', this)">Dzień Mężczyzn
                         <ul id="subcat8" class="subcategory-list" style="display: none;">
                             <li class="subcategory-item" onclick="displayProducts('subcat8-1'); event.stopPropagation();">Krawat</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat8-2'); event.stopPropagation();">Portfel</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat8-3'); event.stopPropagation();">Zegarek</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat8-4'); event.stopPropagation();">Czekoladki</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat8-5'); event.stopPropagation();">Kosmetyki</li>
+                        </ul>
+                    </li>
+					
+					  <li class="category-item" onclick="toggleSubcategories('subcat13', this)">Dzień Nauczyciela
+                        <ul id="subcat13" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-1'); event.stopPropagation();">Obrazy</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-2'); event.stopPropagation();">Plakaty</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-3'); event.stopPropagation();">Ramki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-4'); event.stopPropagation();">Naklejki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-5'); event.stopPropagation();">Sztuka</li>
                         </ul>
                     </li>
 
@@ -115,6 +135,16 @@
                             <li class="subcategory-item" onclick="displayProducts('subcat9-3'); event.stopPropagation();">Balony</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat9-4'); event.stopPropagation();">Ozdoby</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat9-5'); event.stopPropagation();">Prezent</li>
+                        </ul>
+                    </li>
+					
+					   <li class="category-item" onclick="toggleSubcategories('subcat7', this)">Walentynki
+                        <ul id="subcat7" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat7-1'); event.stopPropagation();">Kwiaty</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat7-2'); event.stopPropagation();">Czekoladki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat7-3'); event.stopPropagation();">Zaręczynowe</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat7-4'); event.stopPropagation();">Serduszka</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat7-5'); event.stopPropagation();">Biżuteria</li>
                         </ul>
                     </li>
 
@@ -140,7 +170,17 @@
 
                     <li class="category-item" onclick="toggleSubcategories('subcat12', this)">Dzieci
                         <ul id="subcat12" class="subcategory-list" style="display: none;">
-                            <li class="subcategory-item" onclick="displayProducts('subcat12-1'); event.stopPropagation();">Zabawki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat12-1'); event.stopPropagation();">Narodziny</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat12-2'); event.stopPropagation();">Książki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat12-3'); event.stopPropagation();">Gry rozwojowe</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat12-4'); event.stopPropagation();">Ubrania</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat12-5'); event.stopPropagation();">Akcesoria</li>
+                        </ul>
+                    </li>
+					
+					   <li class="category-item" onclick="toggleSubcategories('subcat12', this)">Rodzina
+                        <ul id="subcat12" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat12-1'); event.stopPropagation();">Narodziny</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat12-2'); event.stopPropagation();">Książki</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat12-3'); event.stopPropagation();">Gry rozwojowe</li>
                             <li class="subcategory-item" onclick="displayProducts('subcat12-4'); event.stopPropagation();">Ubrania</li>
@@ -157,6 +197,29 @@
                             <li class="subcategory-item" onclick="displayProducts('subcat13-5'); event.stopPropagation();">Sztuka</li>
                         </ul>
                     </li>
+					
+					    <li class="category-item" onclick="toggleSubcategories('subcat13', this)">Lampki
+                        <ul id="subcat13" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-1'); event.stopPropagation();">Obrazy</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-2'); event.stopPropagation();">Plakaty</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-3'); event.stopPropagation();">Ramki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-4'); event.stopPropagation();">Naklejki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-5'); event.stopPropagation();">Sztuka</li>
+                        </ul>
+                    </li>
+					
+					    <li class="category-item" onclick="toggleSubcategories('subcat13', this)">Chrobotek
+                        <ul id="subcat13" class="subcategory-list" style="display: none;">
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-1'); event.stopPropagation();">Obrazy</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-2'); event.stopPropagation();">Plakaty</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-3'); event.stopPropagation();">Ramki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-4'); event.stopPropagation();">Naklejki</li>
+                            <li class="subcategory-item" onclick="displayProducts('subcat13-5'); event.stopPropagation();">Sztuka</li>
+                        </ul>
+                    </li>
+					
+					  
+					
 
                     <li class="category-item" onclick="toggleSubcategories('subcat14', this)">Inne
                         <ul id="subcat14" class="subcategory-list" style="display: none;">
