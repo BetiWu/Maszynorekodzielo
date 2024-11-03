@@ -78,9 +78,9 @@ const products = {
             description: "Choinka z własnoręcznie robionymi pomponami, personalizowana ",
             price: "69 zł",
             imgSrc: [
-                "po1.png",
-				"po2.png",
-				"po3.png",
+                "po1.jpg",
+				"po2.jpg",
+				"po3.jpg",
 				"po4.jpg"
 				
 				
@@ -173,8 +173,8 @@ const products = {
             description: "Pomponowy wianek 38 cm",
             price: "119 zł",
             imgSrc: [
-                 "w1.png",
-				"w2.png",
+                 "w1.jpg",
+				"w2.jpg",
 				"w3.jpg"
             ]
         },
@@ -184,8 +184,8 @@ const products = {
             description: "Pomponowa gwiazda na drzwi 38 cm",
             price: "99 zł",
             imgSrc: [
-                "g1.png",
-				"g2.png"
+                "g1.jpg",
+				"g2.jpg"
             ]
         }
 		
