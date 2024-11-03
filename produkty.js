@@ -10,9 +10,31 @@ const products = {
                 "bo2.jpg",
                 "bo3.jpg",
                 "bo4.jpg",
-                "bo5.jpg"
+                "bo5.jpg",
+				"bo6.jpg",
+				"bo7.jpg"
+				
             ]
         },
+		
+		     {
+            name: "Dzwoniferki",
+            description: "4 rodzaje",
+            price: "9.99 zł",
+            imgSrc: [
+                "dzwoni1.jpg",
+                "dzwoni2.jpg",
+				"dzwoni3.jpg",
+				"dzwoni4.jpg",
+				"dzwoni5.jpg",
+                "dzwoni6.jpg",
+				"dzwoni7.jpg",
+				"dzwoni8.jpg",
+				"dzwoni9.jpg",
+				"dzwoni10.jpg"
+            ]
+        },
+		
         {
             name: "2-warstwowe",
             description: "Dowolny wzór",
@@ -25,23 +47,17 @@ const products = {
 				"2.4.jpg",
 				"2.5.jpg",
 				"2.7.jpg",
-				"gosia.jpg"
+				"2.8.jpg",
+				"2.9.jpg",
+				"2.10.jpg"
                 
             ]
         },
+   
         {
-            name: "Dzwoniferki",
-            description: "4 rodzaje",
-            price: "9.99 zł",
-            imgSrc: [
-                "dzwoni1.jpg",
-                "bo2.jpg"
-            ]
-        },
-        {
-            name: "Kształty",
+            name: "Inne",
             description: "Różne kształty",
-            price: "120 zł",
+            price: "19.99 zł",
             imgSrc: [
                 "3.1.jpg",
 				"2.1.jpg",
@@ -55,24 +71,44 @@ const products = {
         },
        
     ],
-    'subcat1-2': [ // Ozdoby
+	
+    'subcat1-2': [ // Choinki
         {
-            name: "Coinki",
-            description: "Elegancka ozdoba na choinkę.",
-            price: "20 zł",
+            name: "POMPinka",
+            description: "28cm(59zł) 38cm(69zł).",
+            price: "69 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                "po1.png",
+				"po2.png",
+				"po3.png",
+				"po4.png",
+				"po5.png",
+				"po6.png",
+				"po7.png"
+				
             ] 
         },
+		
         {
-            name: "Ozdoba Złota",
-            description: "Lśniąca, złota ozdoba.",
-            price: "25 zł",
+            name: "Drewniana malowana",
+            description: "Personalizowana",
+            price: "39 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                 "ch1.jpg",
+				"ch2.jpg",
+				"ch3.jpg",
+				"ch4.jpg",
+				"ch5.jpg",
+				"ch6.jpg",
+				"ch7.jpg",
+				"ch8.jpg"
             ]
         }
     ],
+	
+	
+	
+	
     'subcat1-3': [ // Prezentowanie
         {
             name: "Prezent 1",
