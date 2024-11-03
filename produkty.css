@@ -81,12 +81,13 @@ img {
 .product-display {
     display: grid; 
     grid-template-columns: repeat(4, 1fr); /* Cztery kolumny na dużych ekranach */
-    gap: 10px; /* Odstęp między kafelkami */
+    gap: 5px; /* Odstęp między kafelkami */
     flex: 1; /* Pozwól kontenerowi z produktami zająć dostępne miejsce */
 }
 
 .product {
     background-color: rgba(128, 128, 128, 0.5); 
+	color: blue;
     border-radius: 5px; 
     display: flex; 
     flex-direction: column; 
@@ -94,6 +95,7 @@ img {
     text-align: center; 
     padding: 2.5px; /* Zmniejszono padding */
     max-height: 185px; 
+	
 }
 
 .product img {
@@ -112,7 +114,7 @@ img {
     margin: 0; 
     text-align: center; 
     color: white; 
-	font-size: 12px;
+	font-size: 17px;
 }
 
 /* Przyciski */
@@ -185,7 +187,7 @@ button:hover {
 .subcategory-list {
     list-style-type: none; 
     padding-left: 25px; 
-    padding: 10px; 
+    padding: 8px; 
 }
 
 .subcategory-item {
@@ -392,4 +394,11 @@ button {
 	font-size: 12px;
 	font-family: 'Lora', serif;
 	text-shadow: 1px 1px 2px black; 
+}
+
+.product h2, .product p {
+    margin: 0; 
+    text-align: center; 
+    color: white; 
+	font-size: 14px;
 }
