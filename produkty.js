@@ -87,7 +87,7 @@ const products = {
 		
         {
             name: "Drewniana malowana",
-            description: "Personalizowana",
+            description: "Choinka drewniana własnoręcznie malowana, personalizowana",
             price: "39 zł",
             imgSrc: [
                  "ch1.jpg",
@@ -168,7 +168,7 @@ const products = {
     'subcat1-5': [ // Wianki na drzwi
         {
             name: "Wianek Stajenka",
-            description: "Pomponowy wianek ok 40 cm",
+            description: "Pomponowy wianek 38 cm",
             price: "119 zł",
             imgSrc: [
                  "w1.png",
@@ -179,7 +179,7 @@ const products = {
 		
 		  {
             name: "Wianek Gwiazdka",
-            description: "Pomponowa gwiazda na drzwi ok 40 cm",
+            description: "Pomponowa gwiazda na drzwi 38 cm",
             price: "99 zł",
             imgSrc: [
                 "g1.png",

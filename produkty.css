@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 
 .sidebar {
     background-color: rgba(128, 128, 128, 0.5); 
-    border-radius: 8px; 
+    border-radius: 10px; 
     padding: 5px; 
 }
 
@@ -79,22 +79,26 @@ img {
 
 /* Wyświetlanie produktów */
 .product-display {
-    display: grid; 
+	
+	display: grid; 
     grid-template-columns: repeat(4, 1fr); /* Cztery kolumny na dużych ekranach */
-    gap: 5px; /* Odstęp między kafelkami */
+    gap: 10px; /* Odstęp między kafelkami */
     flex: 1; /* Pozwól kontenerowi z produktami zająć dostępne miejsce */
+	
+
 }
 
+
+
+
 .product {
-    background-color: rgba(128, 128, 128, 0.5); 
-	color: blue;
-    border-radius: 5px; 
-    display: flex; 
+    
+    
     flex-direction: column; 
     align-items: center; 
     text-align: center; 
-    padding: 2.5px; /* Zmniejszono padding */
-    max-height: 185px; 
+   
+    max-height: 150px; 
 	
 }
 
@@ -114,7 +118,7 @@ img {
     margin: 0; 
     text-align: center; 
     color: white; 
-	font-size: 17px;
+	font-size: 15px;
 }
 
 /* Przyciski */
@@ -177,7 +181,7 @@ button:hover {
     padding: 5px; 
     border-radius: 4px; 
     color: white; 
-    font-size: clamp(14px, 1.5vw + 1rem, 25px);
+    font-size: clamp(14px, 1.5vw + 1rem, 20px);
 }
 
 .category-item:hover {
@@ -319,7 +323,7 @@ button:hover {
 
 #shipping-cost {
     text-align: center; 
-    color: rgba(255, 0, 0, 0.9);
+    color: rgba(255, 150, 150, 1);
     animation: pulse 3s infinite; 
 }
 
@@ -357,8 +361,9 @@ textarea:focus {
     }
    .product-display {
         grid-template-columns: repeat(2, 1fr); /* Dwie kolumny dla mobilnych */
-        max-width: calc(100% - 62px); /* Produkty zajmują całą szerokość minus szerokość sidebaru + margines */
+        max-width: calc(100% - 80px); /* Produkty zajmują całą szerokość minus szerokość sidebaru + margines */
 		flex: 1;
+		grid-template-rows: 200px;
     }
 
     .nav-link {
