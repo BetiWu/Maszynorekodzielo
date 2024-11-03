@@ -42,7 +42,7 @@ function displayCart() {
 
         const fillFormButton = document.createElement('button');
         fillFormButton.id = 'fill-form-button';
-        fillFormButton.innerText = 'Wypełnij formularz zamówienia';
+        fillFormButton.innerText = 'ZAMÓW';
         fillFormButton.onclick = function () {
             const orderForm = document.getElementById('order-form');
             orderForm.style.display = orderForm.style.display === 'none' ? 'block' : 'none';

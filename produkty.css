@@ -38,6 +38,14 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
             font-size: 27px; /* zmień ten rozmiar na żądany */
 			
         }
+		
+		
+	#order-button-container {
+    display: flex;                      /* Umożliwia wyśrodkowanie elementów wewnątrz */
+    justify-content: center;            /* Wyśrodkowanie w poziomie */
+    margin-top: 20px;                  /* Odstęp od góry */
+}	
+		
 
 .container {
     /* Użycie rzędu dla sidebaru i kontentu */
@@ -111,9 +119,12 @@ img {
 button {
     background-color: rgba(255, 235, 59, 0.8);
     border: none; 
-    color: black; 
-	border-radius: 5px; 
+    color: white; 
+	border-radius: 7px; 
     cursor: pointer; 
+	font-size: 16px;
+	font-family: 'Lora', serif;
+	text-shadow: 1px 1px 2px black; 
 }
 
 button:hover {

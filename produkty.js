@@ -73,7 +73,7 @@ const products = {
     'subcat1-2': [ // Choinki
         {
             name: "POMPinka",
-            description: "28cm(59zł) 38cm(69zł).",
+            description: "Choinka z własnoręcznie robionymi pomponami, personalizowana ",
             price: "69 zł",
             imgSrc: [
                 "po1.png",
