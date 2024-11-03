@@ -12,8 +12,10 @@ const products = {
                 "bo4.jpg",
                 "bo5.jpg",
 				"bo6.jpg",
-				"bo7.jpg"
-				
+				"bo7.jpg",
+				"bo8.jpg",
+				"bo10.jpg"
+			
             ]
         },
 		
@@ -60,13 +62,9 @@ const products = {
             price: "19.99 zł",
             imgSrc: [
                 "3.1.jpg",
-				"2.1.jpg",
-				"2.2.jpg",
-				"2.3.jpg",
-				"2.4.jpg",
-				"2.5.jpg",
-				"2.7.jpg",
-				"gosia.jpg"
+				"3.2.jpg",
+				"3.3.jpg",
+			
             ] 
         },
        
