@@ -81,10 +81,8 @@ const products = {
                 "po1.png",
 				"po2.png",
 				"po3.png",
-				"po4.png",
-				"po5.png",
-				"po6.png",
-				"po7.png"
+				"po4.jpg"
+				
 				
             ] 
         },
@@ -109,35 +107,76 @@ const products = {
 	
 	
 	
-    'subcat1-3': [ // Prezentowanie
+    'subcat1-3': [ // Na stół
         {
-            name: "Prezent 1",
-            description: "Podarunek idealny dla bliskiej osoby.",
+            name: "Etui sztućce",
+            description: "Gruby filc, dowolny kolor, dowolny napis",
             price: "80 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
             ]
-        }
-    ],
-    'subcat1-4': [ // Światełka
-        {
-            name: "Światełka LED",
-            description: "Magiczne światełka na święta.",
-            price: "30 zł",
+        },
+		
+		 {
+            name: "Mały talerzyk",
+            description: "Pod opłatek",
+            price: "39 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
             ]
         }
+		
+		
+		
+		
     ],
-    'subcat1-5': [ // Dekoracje
+    'subcat1-4': [ // Na pieniążek
         {
-            name: "Dekoracja Stołu",
-            description: "Stylowa dekoracja na stół.",
-            price: "50 zł",
+            name: "Drewniane etui na pieniążek",
+            description: "Drewniane, Dowolny kształt, Dowolny napis",
+            price: "19 zł",
+            imgSrc: [
+                "https://via.placeholder.com/150"
+            ]
+        },
+		
+		   {
+            name: "Filcowe etui na pieniążek",
+            description: "Filcowe, Dowolny kształt, Dowolny napis",
+            price: "13 zł",
             imgSrc: [
                 "https://via.placeholder.com/150"
             ]
         }
+		
+		
+		
+		
+		
+    ],
+    'subcat1-5': [ // Wianki na drzwi
+        {
+            name: "Wianek Stajenka",
+            description: "Pomponowy wianek ok 40 cm",
+            price: "119 zł",
+            imgSrc: [
+                "https://via.placeholder.com/150"
+            ]
+        },
+		
+		  {
+            name: "Wianek Gwiazdka",
+            description: "Pomponowa gwiazda na drzwi ok 40 cm",
+            price: "119 zł",
+            imgSrc: [
+                "https://via.placeholder.com/150"
+            ]
+        }
+		
+		
+		
+		
+		
     ],
     // Ślub
     'subcat2-1': [ // Zaproszenia
