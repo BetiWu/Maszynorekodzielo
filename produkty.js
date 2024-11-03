@@ -171,7 +171,9 @@ const products = {
             description: "Pomponowy wianek ok 40 cm",
             price: "119 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                 "w1.png",
+				"w2.png",
+				"w3.png"
             ]
         },
 		
@@ -180,7 +182,9 @@ const products = {
             description: "Pomponowa gwiazda na drzwi ok 40 cm",
             price: "119 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                "g1.png",
+				"g2.png",
+				"g3.png"
             ]
         }
 		
