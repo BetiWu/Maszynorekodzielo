@@ -173,18 +173,17 @@ const products = {
             imgSrc: [
                  "w1.png",
 				"w2.png",
-				"w3.png"
+				"w3.jpg"
             ]
         },
 		
 		  {
             name: "Wianek Gwiazdka",
             description: "Pomponowa gwiazda na drzwi ok 40 cm",
-            price: "119 zł",
+            price: "99 zł",
             imgSrc: [
                 "g1.png",
-				"g2.png",
-				"g3.png"
+				"g2.png"
             ]
         }
 		
