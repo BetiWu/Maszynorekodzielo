@@ -110,19 +110,22 @@ const products = {
     'subcat1-3': [ // Na stół
         {
             name: "Etui sztućce",
-            description: "Gruby filc, dowolny kolor, dowolny napis",
-            price: "80 zł",
+            description: "Gruby filc, 2 kolory, dowolny napis",
+            price: "9.99 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                "e1.jpg",
+				"e2.jpg",
+				"e3.jpg"
             ]
         },
 		
 		 {
             name: "Mały talerzyk",
-            description: "Pod opłatek",
+            description: "Pod opłatek, trwały niezmywalny grawer",
             price: "39 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                "t1.jpg"
+			
             ]
         }
 		
@@ -132,20 +135,30 @@ const products = {
     ],
     'subcat1-4': [ // Na pieniążek
         {
-            name: "Drewniane etui na pieniążek",
-            description: "Drewniane, Dowolny kształt, Dowolny napis",
-            price: "19 zł",
-            imgSrc: [
-                "https://via.placeholder.com/150"
-            ]
-        },
-		
-		   {
             name: "Filcowe etui na pieniążek",
             description: "Filcowe, Dowolny kształt, Dowolny napis",
             price: "13 zł",
             imgSrc: [
-                "https://via.placeholder.com/150"
+                "poc1.jpg",
+				"poc2.jpg",
+				"poc3.jpg",
+				"poc4.jpg",
+				"poc4.jpg"
+				
+            ]
+        },
+		
+		   {
+            name: "Drewniane etui na pieniążek",
+            description: "Drewniane, Dowolny kształt, Dowolny napis",
+            price: "19 zł",
+            imgSrc: [
+                "poc1.jpg",
+				"poc2.jpg",
+				"poc3.jpg",
+				"poc4.jpg",
+				"poc4.jpg"
+				
             ]
         }
 		
