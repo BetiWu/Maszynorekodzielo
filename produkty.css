@@ -84,6 +84,7 @@ img {
     grid-template-columns: repeat(4, 1fr); /* Cztery kolumny na dużych ekranach */
     gap: 10px; /* Odstęp między kafelkami */
     flex: 1; /* Pozwól kontenerowi z produktami zająć dostępne miejsce */
+	grid-template-rows: 350px;
 	
 
 }

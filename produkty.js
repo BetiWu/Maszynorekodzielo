@@ -67,6 +67,18 @@ const products = {
 			
             ] 
         },
+		
+		  {
+            name: "Test",
+            description: "Różne kształty",
+            price: "19.99 zł",
+            imgSrc: [
+                "3.1.jpg",
+				"3.2.jpg",
+				"3.3.jpg",
+			
+            ] 
+        },
        
     ],
 	
