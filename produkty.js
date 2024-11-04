@@ -2,8 +2,8 @@
 const products = {
     'subcat1-1': [ // Bombki
         {
-            name: "1-warstwowe",
-            description: "Obejrzyj propozycje, dowolne wzory/postaci",
+            name: "Bombki 1-warstwowe",
+            description: "Kliknij na zdjęcie i obejrzyj propozycje, dowolne wzory/postaci",
             price: "9.99 zł",
             imgSrc: [
                 "bo1.jpg",
@@ -20,8 +20,8 @@ const products = {
         },
 		
 		     {
-            name: "Dzwoniferki",
-            description: "4 rodzaje",
+            name: "Bombki Dzwoniferki",
+            description: "Rodzina (mama/babcia/ciocia, tata/dziadek/wujek, syn, córka)",
             price: "9.99 zł",
             imgSrc: [
                 "dzwoni1.jpg",
@@ -38,8 +38,8 @@ const products = {
         },
 		
         {
-            name: "2-warstwowe",
-            description: "Obejrzyj propozycje, dowolne wzory/postaci",
+            name: "Bombki 2-warstwowe",
+            description: "Kliknij na zdjęcie i obejrzyj propozycje, dowolne wzory/postaci",
             price: "14.99 zł",
             imgSrc: [
                 "2.6.jpg",
@@ -57,8 +57,8 @@ const products = {
         },
    
         {
-            name: "Inne",
-            description: "Różne kształty",
+            name: "Bombki Inne",
+            description: "Kliknij na zdjęcie i obejrzyj propozycje, różne kształty",
             price: "19.99 zł",
             imgSrc: [
                 "3.1.jpg",
@@ -74,8 +74,8 @@ const products = {
 	
     'subcat1-2': [ // Choinki
         {
-            name: "POMPinka",
-            description: "Choinka z własnoręcznie robionymi pomponami, personalizowana ",
+            name: "Choinka Pompinka",
+            description: "Choinka z własnoręcznie plecionymi pomponami, personalizowana, wysokość ok 40cm ",
             price: "69 zł",
             imgSrc: [
                 "po1.jpg",
@@ -88,8 +88,8 @@ const products = {
         },
 		
         {
-            name: "Drewniana malowana",
-            description: "Choinka drewniana własnoręcznie malowana, personalizowana",
+            name: "Choinka drewniana malowana",
+            description: "Choinka drewniana własnoręcznie malowana, personalizowana, wysokość ok 25cm",
             price: "39 zł",
             imgSrc: [
                  "ch1.jpg",
@@ -103,8 +103,8 @@ const products = {
 	
     'subcat1-3': [ // Na stół
         {
-            name: "Etui sztućce",
-            description: "Gruby filc, 2 kolory, dowolny napis",
+            name: "Etui na sztućce",
+            description: "Gruby filc, różne kolory, dowolny napis, możliwy też inny kształt",
             price: "9.99 zł",
             imgSrc: [
                 "e1.jpg",
@@ -115,7 +115,7 @@ const products = {
 		
 		 {
             name: "Mały talerzyk",
-            description: "Pod opłatek, trwały niezmywalny grawer",
+            description: "Pod opłatek, trwały niezmywalny grawer, różne wzory",
             price: "39 zł",
             imgSrc: [
                 "t1.jpg"
@@ -130,7 +130,7 @@ const products = {
     'subcat1-4': [ // Na pieniążek
         {
             name: "Filcowe etui na pieniążek",
-            description: "Filcowe, dowolny kształt/postać/napis",
+            description: "Filcowe, dowolny kształt/wzór/postać/napis",
             price: "13 zł",
             imgSrc: [
                 "poc1.jpg",
@@ -193,27 +193,255 @@ const products = {
 		
 		
     ],
-    // Ślub
-    'subcat2-1': [ // Zaproszenia
+   // Wielkanoc - Jajka
+    'subcat3-1': [
+        {
+            name: "Pisanka A",
+            description: "Ręcznie malowane pisanki.",
+            price: "15 zł",
+            imgSrc: ["pisanka1.jpg", "pisanka2.jpg"]
+        },
+        {
+            name: "Pisanka B",
+            description: "Dwie wersje kolorystyczne.",
+            price: "12 zł",
+            imgSrc: ["pisanka3.jpg", "pisanka4.jpg"]
+        }
+    ],
+    // Wielkanoc - Zajączki
+    'subcat3-2': [
+        {
+            name: "Zajączek 1",
+            description: "Urocze zajączki wielkanocne.",
+            price: "12 zł",
+            imgSrc: ["zajac1.jpg", "zajac2.jpg"]
+        },
+        {
+            name: "Zajączek 2",
+            description: "Mały zajączek z czekolady.",
+            price: "8 zł",
+            imgSrc: ["zajac3.jpg"]
+        }
+    ],
+    // Wielkanoc - Kosze
+    'subcat3-3': [
+        {
+            name: "Kosz Wielkanocny",
+            description: "Piękny kosz na jajka.",
+            price: "45 zł",
+            imgSrc: ["kosz1.jpg"]
+        }
+    ],
+    // Ślub - Zaproszenia
+    'subcat2-1': [
         {
             name: "Zaproszenie na ślub",
             description: "Piękne zaproszenie na Twój ślub.",
             price: "5 zł",
-            imgSrc: [
-                "https://via.placeholder.com/150"
-            ]
+            imgSrc: ["zaproszenie1.jpg"]
         }
     ],
-    'subcat2-2': [ // Dekoracje
+    // Ślub - Dekoracje
+    'subcat2-2': [
         {
             name: "Dekoracja na stół",
             description: "Stylowa dekoracja na stół.",
             price: "20 zł",
-            imgSrc: [
-                "https://via.placeholder.com/150"
-            ]
+            imgSrc: ["dekoracja1.jpg"]
         }
     ],
+    // Ślub - Upominki
+    'subcat2-3': [
+        {
+            name: "Stylowy upominek",
+            description: "Unikalny upominek na ślub.",
+            price: "30 zł",
+            imgSrc: ["upominek1.jpg"]
+        }
+    ],
+    // Ślub - Kwiaty
+    'subcat2-4': [
+        {
+            name: "Bukiet ślubny",
+            description: "Piękny bukiet na Twoje wesele.",
+            price: "150 zł",
+            imgSrc: ["bukiet1.jpg"]
+        }
+    ],
+    // Komunia - Zaproszenia
+    'subcat4-1': [
+        {
+            name: "Zaproszenie na komunię",
+            description: "Eleganckie zaproszenie na komunię.",
+            price: "7 zł",
+            imgSrc: ["zaproszenie_komunia.jpg"]
+        }
+    ],
+    // Komunia - Dekoracje
+    'subcat4-2': [
+        {
+            name: "Dekoracja stołu",
+            description: "Stylowe dekoracje na komunię.",
+            price: "50 zł",
+            imgSrc: ["dekoracja_komunia.jpg"]
+        }
+    ],
+    // Chrzest - Zaproszenia
+    'subcat5-1': [
+        {
+            name: "Zaproszenie na chrzest",
+            description: "Eleganckie zaproszenie na chrzest.",
+            price: "5 zł",
+            imgSrc: ["zaproszenie_chrzest.jpg"]
+        }
+    ],
+    // Dzień Babci - Portfel
+    'subcat6-1': [
+        {
+            name: "Portfel dla babci",
+            description: "Elegancki portfel.",
+            price: "99 zł",
+            imgSrc: ["portfel_babcia.jpg"]
+        }
+    ],
+    // Dzień Mamy - Kwiaty
+    'subcat7-1': [
+        {
+            name: "Bukiet dla mamy",
+            description: "Piękny bukiet kwiatów.",
+            price: "129 zł",
+            imgSrc: ["bukiet_mama.jpg"]
+        }
+    ],
+    // Dzień Kobiet - Kwiaty
+    'subcat8-1': [
+        {
+            name: "Kwiaty na Dzień Kobiet",
+            description: "Uroczy bukiet z okazji Dnia Kobiet.",
+            price: "120 zł",
+            imgSrc: ["kwiaty_dzien_kobiet.jpg"]
+        }
+    ],
+    // Dzień Mężczyzn - Krawat
+    'subcat15-1': [
+        {
+            name: "Krawat",
+            description: "Elegancki krawat na każdą okazję.",
+            price: "45 zł",
+            imgSrc: ["krawat.jpg"]
+        }
+    ],
+    // Dzień Nauczyciela - Obrazy
+    'subcat13-1': [
+        {
+            name: "Obraz na Dzień Nauczyciela",
+            description: "Piękny obraz do powieszenia.",
+            price: "200 zł",
+            imgSrc: ["obraz_nauczyciel.jpg"]
+        }
+    ],
+    // Urodziny - Torty
+    'subcat16-2': [
+        {
+            name: "Tort urodzinowy",
+            description: "Pyszny tort na Twoje urodziny.",
+            price: "150 zł",
+            imgSrc: ["tort_urodziny.jpg"]
+        }
+    ],
+    // Walentynki - Kwiaty
+    'subcat17-1': [
+        {
+            name: "Bukiet na Walentynki",
+            description: "Uroczy bukiet dla Twojej drugiej połówki.",
+            price: "120 zł",
+            imgSrc: ["bukiet_walentynki.jpg"]
+        }
+    ],
+    // Breloki
+    'subcat10-1': [
+        {
+            name: "Brelok skórzany",
+            description: "Elegancki brelok skórzany.",
+            price: "120 zł",
+            imgSrc: ["brelok_skórzany.jpg"]
+        }
+    ],
+    // Magnesy
+    'subcat18-1': [
+        {
+            name: "Magnes na lodówkę",
+            description: "Zabawny magnes na lodówkę.",
+            price: "15 zł",
+            imgSrc: ["magnes.jpg"]
+        }
+    ],
+    // Zwierzęta - Karma dla psów
+    'subcat11-1': [
+        {
+            name: "Karma dla psów",
+            description: "Zdrowa karma dla psów.",
+            price: "120 zł",
+            imgSrc: ["karma_dla_psów.jpg"]
+        }
+    ],
+    // Dzieci - Książki
+    'subcat19-2': [
+        {
+            name: "Książki dla dzieci",
+            description: "Zestaw książek dla dzieci.",
+            price: "200 zł",
+            imgSrc: ["ksiazki_dzieci.jpg"]
+        }
+    ],
+    // Rodzina - Gry rozwojowe
+    'subcat20-3': [
+        {
+            name: "Gry rozwojowe",
+            description: "Zestaw gier dla całej rodziny.",
+            price: "150 zł",
+            imgSrc: ["gry_rodzinna.jpg"]
+        }
+    ],
+    // Wall ART - Obrazy
+    'subcat21-1': [
+        {
+            name: "Obraz do salonu",
+            description: "Piękny obraz do powieszenia w salonie.",
+            price: "250 zł",
+            imgSrc: ["obraz_salon.jpg"]
+        }
+    ],
+    // Lampki
+    'subcat22-1': [
+        {
+            name: "Lampka nocna",
+            description: "Urocza lampka nocna do pokoju.",
+            price: "80 zł",
+            imgSrc: ["lampka_nocna.jpg"]
+        }
+    ],
+	
+	    // Chrobotek
+    'subcat9-1': [
+        {
+            name: "Chrobotek",
+            description: "Urocza lampka nocna do pokoju.",
+            price: "80 zł",
+            imgSrc: ["lampka_nocna.jpg"]
+        }
+    ],
+	
+	
+    // Inne - Handmade
+    'subcat14-1': [
+        {
+            name: "Handmade Biżuteria",
+            description: "Ręcznie robiona biżuteria.",
+            price: "25 zł",
+            imgSrc: ["bizuteria_handmade.jpg"]
+        }
+    ]
 };
 
 let currentIndex;

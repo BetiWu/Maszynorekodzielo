@@ -119,11 +119,20 @@ img {
     transform: scale(1.05); 
 }
 
-.product h2, .product p {
+.product h2{
+margin: 0; 
+    text-align: center; 
+    color: yellow;	
+	font-size: 15px;
+	text-shadow: 2px 1px 3px black; 
+
+}
+
+ .product p {
     margin: 0; 
     text-align: center; 
-    color: white; 
-	font-size: 15px;
+    color: white;	
+	font-size: 13px;
 }
 
 /* Przyciski */
@@ -368,7 +377,7 @@ textarea:focus {
         grid-template-columns: repeat(2, 1fr); /* Dwie kolumny dla mobilnych */
         max-width: calc(100% - 80px); /* Produkty zajmują całą szerokość minus szerokość sidebaru + margines */
 		flex: 1;
-		grid-template-rows: repeat(3, 200px);
+		grid-template-rows: repeat(3, 220px);
     }
 
     .nav-link {
@@ -410,9 +419,17 @@ button {
 	text-shadow: 1px 1px 2px black; 
 }
 
-.product h2, .product p {
+.product h2 {
+	 margin: 0; 
+    text-align: center; 
+    color: yellow; 
+	font-size: 8px;
+}
+
+
+ .product p {
     margin: 0; 
     text-align: center; 
     color: white; 
-	font-size: 14px;
+	font-size: 7px;
 }
