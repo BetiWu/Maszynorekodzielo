@@ -3,7 +3,7 @@ const products = {
     'subcat1-1': [ // Bombki
         {
             name: "1-warstwowe",
-            description: "Dowolny wzór",
+            description: "Obejrzyj propozycje, dowolne wzory/postaci",
             price: "9.99 zł",
             imgSrc: [
                 "bo1.jpg",
@@ -39,7 +39,7 @@ const products = {
 		
         {
             name: "2-warstwowe",
-            description: "Dowolny wzór",
+            description: "Obejrzyj propozycje, dowolne wzory/postaci",
             price: "14.99 zł",
             imgSrc: [
                 "2.6.jpg",
@@ -93,13 +93,7 @@ const products = {
             price: "39 zł",
             imgSrc: [
                  "ch1.jpg",
-				"ch2.jpg",
-				"ch3.jpg",
-				"ch4.jpg",
-				"ch5.jpg",
-				"ch6.jpg",
-				"ch7.jpg",
-				"ch8.jpg"
+				"ch2.jpg"
             ]
         }
     ],
@@ -136,7 +130,7 @@ const products = {
     'subcat1-4': [ // Na pieniążek
         {
             name: "Filcowe etui na pieniążek",
-            description: "Filcowe, Dowolny kształt, Dowolny napis",
+            description: "Filcowe, dowolny kształt/postać/napis",
             price: "13 zł",
             imgSrc: [
                 "poc1.jpg",
@@ -150,14 +144,19 @@ const products = {
 		
 		   {
             name: "Drewniane etui na pieniążek",
-            description: "Drewniane, Dowolny kształt, Dowolny napis",
-            price: "19 zł",
+            description: "Drewniane, dowolny wzór/postać/napis",
+            price: "17 zł",
             imgSrc: [
-                "poc1.jpg",
-				"poc2.jpg",
-				"poc3.jpg",
-				"poc4.jpg",
-				"poc4.jpg"
+                "bon3.jpg",
+				"bon1.jpg",
+				"bon2.jpg",
+				"bon4.jpg",
+				"bon5.jpg",
+				"bon6.jpg",
+				"bon7.jpg",
+				"bon8.jpg",
+				"bon9.jpg",
+				"bon10.jpg"
 				
             ]
         }
@@ -279,7 +278,7 @@ function displayProducts(subcategoryId) {
             productDisplay.appendChild(productDiv);
         });
     } else {
-        productDisplay.innerHTML = "<p>Brak dostępnych produktów w tej podkategorii.</p>";
+        productDisplay.innerHTML = "<p>Szczegóły wkrótce..</p>";
     }
 }
 

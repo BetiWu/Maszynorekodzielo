@@ -89,6 +89,10 @@ img {
 
 }
 
+.product-display p {
+    color: white; /* Ustaw kolor tekstu na biały */
+}
+
 
 
 
@@ -383,6 +387,10 @@ textarea:focus {
   	color: white;
 	font-size: 5px;
 	
+}
+
+.product-display p {
+    color: white; /* Ustaw kolor tekstu na biały */
 }
 
 .arrow {
