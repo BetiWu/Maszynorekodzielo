@@ -125,10 +125,11 @@ const products = {
 		
 			 {
             name: "Świecznik",
-            description: "Pod opłatek, trwały niezmywalny grawer, różne wzory",
-            price: "39 zł",
+            description: "Ku pamięci tych, których już nie ma, personalizowany",
+            price: "29 zł",
             imgSrc: [
-                "images/stol/t1.jpg"
+                "images/swiecznik/s1.jpg",
+				"images/swiecznik/s2.jpg"
 			
             ]
         }
@@ -325,10 +326,15 @@ const products = {
     'subcat2-2': [
             {
             name: "Statuetka ślubna",
-            description: "Personalizowana, elegancki dodatek na kopertę ",
-            price: "17 zł",
+            description: "Personalizowana, elegancki dodatek do koperty ",
+            price: "69 zł",
             imgSrc: [
-			"zapro1.jpg"
+			"images/slub/par1.jpg",
+			"images/slub/par2.jpg",
+			"images/slub/par3.jpg",
+			"images/slub/par4.jpg"
+			
+			
 			]
         }
     ],
@@ -373,7 +379,7 @@ const products = {
 	    'subcat4-2': [
         {
             name: "Zaproszenie na komunię",
-            description: "Drewniane zaproszenie na chrzest",
+            description: "Drewniane zaproszenie na komunię",
             price: "17 zł",
             imgSrc: [
 			"images/komunia/komuniazapro.jpg",
@@ -392,8 +398,9 @@ const products = {
             description: "Eleganckie etui na pieniądze z życzeniami",
             price: "5 zł",
             imgSrc: [
-			"images/komunia/zaprochrzest2.jpg",
-			"images/komunia/zaprochrzest3.jpg"
+			"images/komunia/k1.jpg",
+			"images/komunia/k2.jpg",
+			"images/komunia/k3.jpg",
 			
 			]
         }
@@ -411,7 +418,25 @@ const products = {
 			"images/komunia/roz1.jpg"
 			
 			]
+        },
+		
+		
+	
+        {
+            name: "Aniołek",
+            description: "Personalizowany aniołek",
+            price: "13 zł",
+            imgSrc: [
+			"images/komunia/aniolek1.jpg",
+			"images/komunia/aniolek1.jpg"
+			
+			]
         }
+		
+		
+		
+		
+		
     ],
 	
 	
@@ -505,6 +530,7 @@ const products = {
             price: "49 zł",
             imgSrc:  [
 			"images/urodziny/kart2warstw1.jpg",
+			"images/urodziny/kart2warstw0.jpg",
 			"images/urodziny/kart2warstw2.jpg",
 			"images/urodziny/kart2warstw3.jpg",
 			"images/urodziny/kart2warstw4.jpg",
@@ -590,7 +616,26 @@ const products = {
             imgSrc: [
 			"images/urodziny/garaz1.jpg",
 			"images/urodziny/garaz2.jpg",
-			"images/urodziny/garaz3.jpg"
+			"images/urodziny/garaz3.jpg",
+			"images/urodziny/garaz4.jpg"
+			
+			]
+        },
+		
+		      {
+            name: "Podkładki",
+            description: "Cieńkie podkładki,dowolna personalizacacja, grawer, grafika",
+            price: "9 zł",
+             imgSrc: [
+			"images/podkladki/p1.jpg",
+			"images/podkladki/p2.jpg",
+			"images/podkladki/p3.jpg",
+			"images/podkladki/p4.jpg",
+			"images/podkladki/p5.jpg",
+			"images/podkladki/p6.jpg",
+			"images/podkladki/p7.jpg",
+			"images/podkladki/p8.jpg",
+			"images/podkladki/p9.jpg"
 			
 			]
         },
@@ -883,26 +928,21 @@ const products = {
 			"images/breloki/br0.jpg",
 			"images/breloki/br1.jpg",
 			"images/breloki/br2.jpg",
+			"images/breloki/br3.jpg",
 			"images/breloki/br4.jpg",
 			"images/breloki/br5.jpg",
 			"images/breloki/br6.jpg",
 			"images/breloki/br7.jpg",
-			"images/breloki/br8.jpg"
+			"images/breloki/br8.jpg",
+			"images/breloki/br9.jpg",
+			"images/breloki/br10.jpg"
 			
 			
 			
 			]
-        }
-    ],
-	
-	
-	
-	
-	
-	
-    // Magnesy
-    'subcat18-1': [
-        {
+        },
+		
+		 {
             name: "Magnes na lodówkę",
             description: "Magnes na lodówkę z dowolną postacią lub napisem",
             price: "15 zł",
@@ -920,6 +960,28 @@ const products = {
 			"images/magnesy/m11.jpg"
 			
 			
+			]
+			
+			
+        }
+    ],
+	
+	
+	
+	
+	
+	
+    // Magnesy
+    'subcat18-1': [
+        {
+            name: "Religijne",
+            description: "Obrazy religijne",
+            price: "89 zł",
+              imgSrc: [
+			"images/religijne/o2.jpg",
+			"images/religijne/o1.jpg",
+			"images/religijne/o3.jpg",
+			"images/religijne/o4.jpg"
 			]
 			
 			
@@ -1163,7 +1225,24 @@ const products = {
 			"images/lampki/l7.jpg",
 			
 			]
+        },
+		
+		  {
+            name: "Zegary",
+            description: "Zegar wowolnie personalizowany, dowolna grafika",
+            price: "69 zł",
+            imgSrc: [
+			"images/lampki/z1.jpg",
+			"images/lampki/z2.jpg",
+			"images/lampki/z3.jpg",
+			"images/lampki/z4.jpg"
+			
+			]
         }
+		
+		
+		
+		
     ],
 	
 	
@@ -1224,15 +1303,26 @@ const products = {
 	
 	
 	
-   /* Inne - Handmade
-  /  'subcat14-1': [
+   //Inne - Handmade
+  'subcat14-1': [
         {
-            name: "Handmade Biżuteria",
-            description: "Ręcznie robiona biżuteria.",
-            price: "25 zł",
-            imgSrc: ["bizuteria_handmade.jpg"]
+            name: "Podkładki",
+            description: "Cieńkie podkładki,dowolna personalizacacja, grawer, grafika",
+            price: "9 zł",
+             imgSrc: [
+			"images/podkladki/p1.jpg",
+			"images/podkladki/p2.jpg",
+			"images/podkladki/p3.jpg",
+			"images/podkladki/p4.jpg",
+			"images/podkladki/p5.jpg",
+			"images/podkladki/p6.jpg",
+			"images/podkladki/p7.jpg",
+			"images/podkladki/p8.jpg",
+			"images/podkladki/p9.jpg"
+			
+			]
         }
-    ]*/
+    ]
 };
 
 let currentIndex;
