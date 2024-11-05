@@ -477,7 +477,7 @@ const products = {
     // Urodziny 
     'subcat16-1': [
         {
-            name: "Tort urodzinowy",
+            name: "Kartka",
             description: "Pyszny tort na Twoje urodziny.",
             price: "150 zł",
             imgSrc: ["tort_urodziny.jpg"]
@@ -486,7 +486,7 @@ const products = {
 	
 	    'subcat16-2': [
         {
-            name: "Tort urodzinowy",
+            name: "Aniołek w ramce",
             description: "Pyszny tort na Twoje urodziny.",
             price: "150 zł",
             imgSrc: ["tort_urodziny.jpg"]
@@ -495,20 +495,50 @@ const products = {
 	
 	    'subcat16-3': [
         {
-            name: "Tort urodzinowy",
-            description: "Pyszny tort na Twoje urodziny.",
-            price: "150 zł",
-            imgSrc: ["tort_urodziny.jpg"]
+            name: "Statuetki urodzinowe",
+            description: "Kliknij w zdjęcie obejrzyj wzory, dowolna: postać, grawer",
+            price: "89 zł",
+            imgSrc: [
+			"images/urodziny/s1.jpg",
+			"images/urodziny/s2.jpg",
+			"images/urodziny/s3.jpg",
+			"images/urodziny/s4.jpg",
+			"images/urodziny/s5.jpg",
+			"images/urodziny/s6.jpg"
+			
+			]
         }
     ],
 	
 	    'subcat16-4': [
         {
-            name: "Tort urodzinowy",
-            description: "Pyszny tort na Twoje urodziny.",
-            price: "150 zł",
-            imgSrc: ["tort_urodziny.jpg"]
+            name: "Skrzynki urodzinowe",
+            description: "Grawerowana skrzynka urodzinowa, na zewnatrz i w środku życzenia",
+            price: "49 zł",
+              imgSrc: [
+			
+			"images/urodziny/sk1.jpg",
+			"images/urodziny/sk2.jpg",
+			"images/urodziny/sk3.jpg",
+			"images/urodziny/sk4.jpg"
+			
+			]
+        },
+		
+		        {
+            name: "3D Skrzynka urodzinowa kolorowa",
+            description: "Napisy, postać literki 3d, klejone, malowane ręcznie, życzenia w środku",
+            price: "69 zł",
+              imgSrc: [
+			"images/urodziny/sk3d0.jpg",
+			"images/urodziny/sk3d1.jpg",
+			"images/urodziny/sk3d2.jpg"
+			
+			]
         }
+		
+		
+		
     ],
 	
 	    'subcat16-5': [
@@ -541,8 +571,8 @@ const products = {
 		
 			 {
             name: "Winny stoliczek",
-            description: "Świetny prezent dla fana wina, stoliczek z dowolnym grawerem,",
-            price: "49 zł",
+            description: "Świetny prezent dla smakosza wina, stoliczek z dowolnym grawerem,",
+            price: "119 zł",
             imgSrc: [
 			"images/urodziny/i1.jpg",
 			
