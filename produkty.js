@@ -6,15 +6,15 @@ const products = {
             description: "Kliknij na zdjęcie i obejrzyj propozycje, dowolne wzory/postaci",
             price: "9.99 zł",
             imgSrc: [
-                "bo1.jpg",
-                "bo2.jpg",
-                "bo3.jpg",
-                "bo4.jpg",
-                "bo5.jpg",
-				"bo6.jpg",
-				"bo7.jpg",
-				"bo8.jpg",
-				"bo10.jpg"
+                "images/1/bombki/bo1.jpg",
+                "images/1/bombki/bo2.jpg",
+                "images/1/bombki/bo3.jpg",
+                "images/1/bombki/bo4.jpg",
+                "images/1/bombki/bo5.jpg",
+				"images/1/bombki/bo6.jpg",
+				"images/1/bombki/bo7.jpg",
+				"images/1/bombki/bo8.jpg",
+				"images/1/bombki/bo10.jpg"
 			
             ]
         },
@@ -24,16 +24,16 @@ const products = {
             description: "Rodzina (mama/babcia/ciocia, tata/dziadek/wujek, syn, córka)",
             price: "9.99 zł",
             imgSrc: [
-                "dzwoni1.jpg",
-                "dzwoni2.jpg",
-				"dzwoni3.jpg",
-				"dzwoni4.jpg",
-				"dzwoni5.jpg",
-                "dzwoni6.jpg",
-				"dzwoni7.jpg",
-				"dzwoni8.jpg",
-				"dzwoni9.jpg",
-				"dzwoni10.jpg"
+                "images/1/dzwoni/dzwoni1.jpg",
+                "images/1/dzwoni/dzwoni2.jpg",
+				"images/1/dzwoni/dzwoni3.jpg",
+				"images/1/dzwoni/dzwoni4.jpg",
+				"images/1/dzwoni/dzwoni5.jpg",
+                "images/1/dzwoni/dzwoni6.jpg",
+				"images/1/dzwoni/dzwoni7.jpg",
+				"images/1/dzwoni/dzwoni8.jpg",
+				"images/1/dzwoni/dzwoni9.jpg",
+				"images/1/dzwoni/dzwoni10.jpg"
             ]
         },
 		
@@ -42,28 +42,28 @@ const products = {
             description: "Kliknij na zdjęcie i obejrzyj propozycje, dowolne wzory/postaci",
             price: "14.99 zł",
             imgSrc: [
-                "2.6.jpg",
-				"2.1.jpg",
-				"2.2.jpg",
-				"2.3.jpg",
-				"2.4.jpg",
-				"2.5.jpg",
-				"2.7.jpg",
-				"2.8.jpg",
-				"2.9.jpg",
-				"2.10.jpg"
+                "images/1/2warst/2.6.jpg",
+				"images/1/2warst/2.1.jpg",
+				"images/1/2warst/2.2.jpg",
+				"images/1/2warst/2.3.jpg",
+				"images/1/2warst/2.4.jpg",
+				"images/1/2warst/2.5.jpg",
+				"images/1/2warst/2.7.jpg",
+				"images/1/2warst/2.8.jpg",
+				"images/1/2warst/2.9.jpg",
+				"images/1/2warst/2.10.jpg"
                 
             ]
         },
    
         {
             name: "Bombki Inne",
-            description: "Kliknij na zdjęcie i obejrzyj propozycje, różne kształty",
+            description: "Kliknij na zdjęcie i obejrzyj propozycje, 2-warstowowe różne kształty",
             price: "19.99 zł",
             imgSrc: [
-                "3.1.jpg",
-				"3.2.jpg",
-				"3.3.jpg",
+                "images/1/BoInne/3.1.jpg",
+				"images/1/BoInne/3.2.jpg",
+				"images/1/BoInne/3.3.jpg",
 			
             ] 
         },
@@ -78,10 +78,10 @@ const products = {
             description: "Choinka z własnoręcznie plecionymi pomponami, personalizowana, wysokość ok 40cm ",
             price: "69 zł",
             imgSrc: [
-                "po1.jpg",
-				"po2.jpg",
-				"po3.jpg",
-				"po4.jpg"
+                "images/2/choinki/po1.jpg",
+				"images/2/choinki/po2.jpg",
+				"images/2/choinki/po3.jpg",
+				"images/2/choinki/po4.jpg"
 				
 				
             ] 
@@ -92,8 +92,8 @@ const products = {
             description: "Choinka drewniana własnoręcznie malowana, personalizowana, wysokość ok 25cm",
             price: "39 zł",
             imgSrc: [
-                 "ch1.jpg",
-				"ch2.jpg"
+                "images/2/choinki/ch1.jpg",
+				"images/2/choinki/ch2.jpg"
             ]
         }
     ],
@@ -107,9 +107,9 @@ const products = {
             description: "Gruby filc, różne kolory, dowolny napis, możliwy też inny kształt",
             price: "9.99 zł",
             imgSrc: [
-                "e1.jpg",
-				"e2.jpg",
-				"e3.jpg"
+                "images/3/stol/e1.jpg",
+				"images/3/stol/e2.jpg",
+				"images/3/stol/e3.jpg"
             ]
         },
 		
@@ -118,7 +118,7 @@ const products = {
             description: "Pod opłatek, trwały niezmywalny grawer, różne wzory",
             price: "39 zł",
             imgSrc: [
-                "t1.jpg"
+                "images/3/stol/t1.jpg"
 			
             ]
         }
@@ -133,11 +133,11 @@ const products = {
             description: "Filcowe, dowolny kształt/wzór/postać/napis",
             price: "13 zł",
             imgSrc: [
-                "poc1.jpg",
-				"poc2.jpg",
-				"poc3.jpg",
-				"poc4.jpg",
-				"poc4.jpg"
+                "images/4/pieniadz/poc1.jpg",
+				"images/4/pieniadz/poc2.jpg",
+				"images/4/pieniadz/poc3.jpg",
+				"images/4/pieniadz/poc4.jpg",
+				"images/4/pieniadz/poc4.jpg"
 				
             ]
         },
@@ -147,16 +147,16 @@ const products = {
             description: "Drewniane, dowolny wzór/postać/napis",
             price: "17 zł",
             imgSrc: [
-                "bon3.jpg",
-				"bon1.jpg",
-				"bon2.jpg",
-				"bon4.jpg",
-				"bon5.jpg",
-				"bon6.jpg",
-				"bon7.jpg",
-				"bon8.jpg",
-				"bon9.jpg",
-				"bon10.jpg"
+                "images/4/pieniadz/bon3.jpg",
+				"images/4/pieniadz/bon1.jpg",
+				"images/4/pieniadz/bon2.jpg",
+				"images/4/pieniadz/bon4.jpg",
+				"images/4/pieniadz/bon5.jpg",
+				"images/4/pieniadz/bon6.jpg",
+				"images/4/pieniadz/bon7.jpg",
+				"images/4/pieniadz/bon8.jpg",
+				"images/4/pieniadz/bon9.jpg",
+				"images/4/pieniadz/bon10.jpg"
 				
             ]
         }
@@ -172,9 +172,9 @@ const products = {
             description: "Pomponowy wianek 38 cm",
             price: "119 zł",
             imgSrc: [
-                 "w1.jpg",
-				"w2.jpg",
-				"w3.jpg"
+                 "images/5/drzwi/w1.jpg",
+				"images/5/drzwi/w2.jpg",
+				"images/5/drzwi/w3.jpg"
             ]
         },
 		
@@ -183,8 +183,8 @@ const products = {
             description: "Pomponowa gwiazda na drzwi 38 cm",
             price: "99 zł",
             imgSrc: [
-                "g1.1.jpg",
-				"g2.jpg"
+                "images/5/drzwi/g1.1.jpg",
+				"images/5/drzwi/g2.jpg"
             ]
         }
 		
@@ -196,47 +196,110 @@ const products = {
    // Wielkanoc - Jajka
     'subcat3-1': [
         {
-            name: "Pisanka A",
-            description: "Ręcznie malowane pisanki.",
-            price: "15 zł",
-            imgSrc: ["pisanka1.jpg", "pisanka2.jpg"]
+            name: "Cekinowe jajko",
+            description: "Ręcznie ozdobione cekinami, na tronie, możliwa personalizacja/grawer",
+            price: "39 zł",
+            imgSrc: [
+			"images/6/jajka/ozd1.jpg", 
+			"images/6/jajka/ozd2.jpg", 
+			"images/6/jajka/ozd3.jpg", 
+			"images/6/jajka/ozd4.jpg"
+			
+					
+			]
         },
+			
+		
+		
         {
-            name: "Pisanka B",
-            description: "Dwie wersje kolorystyczne.",
-            price: "12 zł",
-            imgSrc: ["pisanka3.jpg", "pisanka4.jpg"]
+            name: "Jajko imienne",
+            description: "Rodzina (mama/babcia/ciocia, tata/dziadek/wujek, syn, córka)",
+            price: "15 zł",
+            imgSrc: [
+			"images/6/jajka/imienne1.jpg", 
+			"images/6/jajka/imienne2.jpg",
+			"images/6/jajka/imienne3.jpg", 
+			"images/6/jajka/imienne4.jpg",
+			"images/6/jajka/imienne5.jpg", 
+			"images/6/jajka/imienne6.jpg",
+			"images/6/jajka/imienne7.jpg", 
+			"images/6/jajka/imienne8.jpg",
+			"images/6/jajka/imienne9.jpg"
+			
+			]
         }
+		
     ],
-    // Wielkanoc - Zajączki
+    // Wielkanoc - Zajączek
     'subcat3-2': [
         {
-            name: "Zajączek 1",
-            description: "Urocze zajączki wielkanocne.",
-            price: "12 zł",
-            imgSrc: ["zajac1.jpg", "zajac2.jpg"]
+            name: "Zajączkowe etui na sztućce",
+            description: "Filcowe, dowolny kształt/wzór/napis. Dostępne 2 kolory wielkanocne: żółty i zielony",
+            price: "9 zł",
+            imgSrc: [
+			"images/7/zajaczek/zaj1.jpg", 
+			"images/7/zajaczek/zaj2.jpg",
+			"images/7/zajaczek/zaj3.jpg",
+			"images/7/zajaczek/zaj4.jpg"
+			
+			]
         },
+		
+		
         {
-            name: "Zajączek 2",
-            description: "Mały zajączek z czekolady.",
-            price: "8 zł",
-            imgSrc: ["zajac3.jpg"]
+            name: "Zajączek witrażowy",
+            description: "2-warstwowy, dostępne różne wzory,dowolny kolor tła, możliwość graweru na podstawce",
+            price: "29 zł",
+            imgSrc: [
+			"images/7/zajaczek/stroik1.jpg",
+			"images/7/zajaczek/stroik2.jpg"
+			
+			
+			]
         }
     ],
-    // Wielkanoc - Kosze
+	
+	
+    // Wielkanoc bon
     'subcat3-3': [
         {
-            name: "Kosz Wielkanocny",
-            description: "Piękny kosz na jajka.",
-            price: "45 zł",
-            imgSrc: ["kosz1.jpg"]
+            name: "Bon Wielkanocny",
+            description: "Personalizowany bon wielkanocny, kliknij w zdjęcie, dostępne różne wzory",
+            price: "15 zł",
+            imgSrc: [
+			"images/8/bon/wbon1.jpg",
+			"images/8/bon/wbon2.jpg",
+			"images/8/bon/wbon3.jpg",
+			"images/8/bon/wbon4.jpg"
+			
+			]
         }
     ],
+	
+	
+	// wianek
+    'subcat3-4': [
+        {
+            name: "Wianek Wielkanocny",
+            description: "Personalizowany wianek na drzwi, z ręcznie wykonanymi kwiatami i sznurkiem makramy",
+            price: "49 zł",
+            imgSrc: [
+			"images/9/wian/wian1.jpg",
+			"images/9/wian/wian2.jpg",
+			"images/9/wian/wian3.jpg"
+			
+			]
+        }
+    ],
+	
+	
+	
+	
     // Ślub - Zaproszenia
     'subcat2-1': [
         {
             name: "Zaproszenie na ślub",
-            description: "Piękne zaproszenie na Twój ślub.",
+            description: "W pełni personalizowane, dowolne kształty, grafika i życzenia",
             price: "5 zł",
             imgSrc: ["zaproszenie1.jpg"]
         }
@@ -304,15 +367,81 @@ const products = {
             imgSrc: ["portfel_babcia.jpg"]
         }
     ],
-    // Dzień Mamy - Kwiaty
+    // Dzień Mamy i Taty statuetka
     'subcat7-1': [
         {
-            name: "Bukiet dla mamy",
-            description: "Piękny bukiet kwiatów.",
-            price: "129 zł",
-            imgSrc: ["bukiet_mama.jpg"]
+            name: "Statuetka dla Taty/Mamy",
+            description: "W pełni personalizowane, różne wzory",
+            price: "39 zł",
+            imgSrc: [
+			"images/mamytaty/1/tat1.jpg",
+			"images/mamytaty/1/tat2.jpg",
+			"images/mamytaty/1/tat3.jpg",
+			"images/mamytaty/1/tat4.jpg",
+			"images/mamytaty/1/tat5.jpg"
+			]
+        },
+   
+	//brelok
+        {
+            name: "Brelok super Taty lub Mamy",
+            description: "W pełni personalizowane, różne wzory",
+            price: "15 zł",
+            imgSrc: [
+			"images/mamytaty/1/bre1.jpg",
+			"images/mamytaty/1/bre2.jpg"
+		]
         }
     ],
+	
+	
+	
+	
+	
+	    // Dzień Mamy i Taty
+    'subcat7-2': [
+        {
+            name: "Kartka XXL z balonami",
+            description: "Płyta 3mm grawerowana, Kartka z balonami XXL, dla Mamy/Taty, w pełni personalizowana",
+            price: "99 zł",
+             imgSrc: [
+			"images/mamytaty/1/mxxl1.jpg",
+			"images/mamytaty/1/mxxl2.jpg",
+			"images/mamytaty/1/mxxl3.jpg",
+			"images/mamytaty/1/mxxl4.jpg",
+			"images/mamytaty/1/mxxl5.jpg"
+			]
+        }
+    ],
+	
+		    // Dzień Mamy i Taty
+    'subcat7-3': [
+        {
+            name: "Laurka z filcowymi kwiatami",
+            description: "Larka na sklejce 3mm, z filcowymi kwiatami i życzeniami z tyłu, w pełni personalizowana",
+            price: "69 zł",
+            imgSrc: [
+			"images/mamytaty/1/l1.jpg",
+			"images/mamytaty/1/l2.jpg",
+			"images/mamytaty/1/l3.jpg",
+			"images/mamytaty/1/l4.jpg",
+			"images/mamytaty/1/l5.jpg",
+			"images/mamytaty/1/l6.jpg",
+			"images/mamytaty/1/l7.jpg"
+			]
+        }
+    ],
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     // Dzień Kobiet - Kwiaty
     'subcat8-1': [
         {
