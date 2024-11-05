@@ -121,6 +121,16 @@ const products = {
                 "images/stol/t1.jpg"
 			
             ]
+        },
+		
+			 {
+            name: "Świecznik",
+            description: "Pod opłatek, trwały niezmywalny grawer, różne wzory",
+            price: "39 zł",
+            imgSrc: [
+                "images/stol/t1.jpg"
+			
+            ]
         }
 		
 		
@@ -477,19 +487,50 @@ const products = {
     // Urodziny 
     'subcat16-1': [
         {
-            name: "Kartka",
-            description: "Pyszny tort na Twoje urodziny.",
-            price: "150 zł",
-            imgSrc: ["tort_urodziny.jpg"]
+            name: "Kartka urodzinowa stojąca",
+            description: "Drewniana kartka urodzinowa na podstawce, możliwy grawer życzeń z tyłu",
+            price: "39 zł",
+            imgSrc:  [
+			"images/urodziny/kart1.jpg",
+			"images/urodziny/kart2.jpg",
+			"images/urodziny/kart3.jpg",
+			"images/urodziny/kart4.jpg",
+			
+			]
+        },
+		
+		      {
+            name: "Kartka drewniana otwierana",
+            description: "2 warstwowa drewniana kartka urodzinowa z życzeniami w środku",
+            price: "49 zł",
+            imgSrc:  [
+			"images/urodziny/kart2warstw1.jpg",
+			"images/urodziny/kart2warstw2.jpg",
+			"images/urodziny/kart2warstw3.jpg",
+			"images/urodziny/kart2warstw4.jpg",
+			
+			]
         }
     ],
+	
+	
+	
+	
+	
+	
 	
 	    'subcat16-2': [
         {
             name: "Aniołek w ramce",
-            description: "Pyszny tort na Twoje urodziny.",
-            price: "150 zł",
-            imgSrc: ["tort_urodziny.jpg"]
+            description: "Aniołek stróż w ramce, stojący, życzenia urodzinowe grawerowane z tyłu",
+            price: "59 zł",
+            imgSrc: [
+			"images/urodziny/aniol1.jpg",
+			"images/urodziny/aniol2.jpg",
+			"images/urodziny/aniol3.jpg",
+			"images/urodziny/aniol4.jpg"
+			
+			]
         }
     ],
 	
@@ -670,7 +711,7 @@ const products = {
 	
 	
 	
-    // Dzień Kobiet - Kwiaty
+    /* Dzień Kobiet - Kwiaty
     'subcat8-1': [
         {
             name: "Kwiaty na Dzień Kobiet",
@@ -687,7 +728,7 @@ const products = {
             price: "45 zł",
             imgSrc: ["krawat.jpg"]
         }
-    ],
+    ],*/
 	
 	
 	
@@ -734,15 +775,104 @@ const products = {
 	
 	
 	
-    // Walentynki - Kwiaty
+    // Walentynki 
     'subcat17-1': [
         {
-            name: "Bukiet na Walentynki",
-            description: "Uroczy bukiet dla Twojej drugiej połówki.",
-            price: "120 zł",
-            imgSrc: ["bukiet_walentynki.jpg"]
+            name: "Kartka serduszko",
+            description: "Personalizowana z wierszem w środku, ażurowe wieczko, 2 warstwowa",
+            price: "49 zł",
+             imgSrc: [
+			"images/walentynki/kar3.jpg",
+			"images/walentynki/kar2.jpg",
+			"images/walentynki/kar4.jpg",
+			"images/walentynki/kar1.jpg",
+			]
         }
     ],
+	
+	
+	    'subcat17-2': [
+        {
+            name: "Taca pełna miłości",
+            description: "Drewniana seduszkowa taca na słodkości, upominek, kwiat i coś % lub sok ",
+            price: "69 zł",
+                imgSrc: [
+			"images/walentynki/taca1.jpg",
+			"images/walentynki/taca2.jpg",
+			"images/walentynki/taca3.jpg"
+			]
+        }
+    ],
+	
+	    'subcat17-3': [
+        {
+            name: "Statuetki",
+            description: "Statuetka każdego dnia przypominająca o Waszej miłości",
+            price: "89 zł",
+            imgSrc: [
+			"images/walentynki/para1.jpg",
+			"images/walentynki/para2.jpg",
+			"images/walentynki/para3.jpg",
+			"images/walentynki/para4.jpg"
+			]
+        }
+    ],
+	
+		    'subcat17-4': [
+        {
+            name: "Miłosne puzzle",
+            description: "Oryginalnie przypomnij o  miłości, każdy puzzel personalizowany, z tyłu z puzzlami, Wasze imiona ",
+            price: "89 zł",
+            imgSrc: [
+			"images/walentynki/puzz1.jpg",
+			"images/walentynki/puzz2.jpg",
+			"images/walentynki/puzz3.jpg",
+			"images/walentynki/puzz4.jpg",
+			"images/walentynki/puzz4.jpg"
+			]
+        }
+    ],
+	
+			    'subcat17-5': [
+        {
+            name: "Świecznik",
+            description: "Oryginalnie przypomnij o  miłości, każdy puzzel personalizowany, z tyłu z puzzlami, Wasze imiona ",
+            price: "89 zł",
+            imgSrc: [
+			"images/walentynki/sw3.jpg",
+			"images/walentynki/sw2.jpg",
+			"images/walentynki/sw1.jpg"
+			]
+        }
+    ],
+	
+			    'subcat17-6': [
+        {
+            name: "Kotek",
+            description: "Uroczy drobiazg, grawerowany kotek wyznający miłość, personalizowany",
+            price: "89 zł",
+            imgSrc: [
+			"images/walentynki/kot1.jpg",
+			"images/walentynki/kot2.jpg"
+			]
+        },
+		
+		       {
+            name: "Etui na pieniążek",
+            description: "Bardziej elegancka i romatyczna forma przekazania prezentu niż przelew",
+            price: "15 zł",
+            imgSrc: [
+			"images/walentynki/pien1.jpg",
+			"images/walentynki/pien2.jpg"
+			]
+        }
+    ],
+	
+	
+	
+	
+	
+	
     // Breloki
     'subcat10-1': [
         {
@@ -753,11 +883,11 @@ const products = {
 			"images/breloki/br0.jpg",
 			"images/breloki/br1.jpg",
 			"images/breloki/br2.jpg",
-		
 			"images/breloki/br4.jpg",
 			"images/breloki/br5.jpg",
 			"images/breloki/br6.jpg",
-			"images/breloki/br7.jpg"
+			"images/breloki/br7.jpg",
+			"images/breloki/br8.jpg"
 			
 			
 			
@@ -774,20 +904,86 @@ const products = {
     'subcat18-1': [
         {
             name: "Magnes na lodówkę",
-            description: "Zabawny magnes na lodówkę.",
+            description: "Magnes na lodówkę z dowolną postacią lub napisem",
             price: "15 zł",
-            imgSrc: ["magnes.jpg"]
+              imgSrc: [
+			"images/magnesy/m1.jpg",
+			"images/magnesy/m2.jpg",
+			"images/magnesy/m3.jpg",
+			"images/magnesy/m4.jpg",
+			"images/magnesy/m5.jpg",
+			"images/magnesy/m6.jpg",
+			"images/magnesy/m7.jpg",
+			"images/magnesy/m8.jpg",
+			"images/magnesy/m9.jpg",
+			"images/magnesy/m10.jpg",
+			"images/magnesy/m11.jpg"
+			
+			
+			]
+			
+			
         }
     ],
-    // Zwierzęta - Karma dla psów
+	
+	
+	
+	
+	
+	
+    // Zwierzęta 
     'subcat11-1': [
         {
-            name: "Karma dla psów",
-            description: "Zdrowa karma dla psów.",
-            price: "120 zł",
-            imgSrc: ["karma_dla_psów.jpg"]
+            name: "Magnesy",
+            description: "Magnes na lodówkę z dowolną postacią lub napisem",
+            price: "15 zł",
+              imgSrc: [
+			"images/magnesy/m1.jpg",
+			"images/magnesy/m2.jpg",
+			"images/magnesy/m3.jpg",
+			"images/magnesy/m4.jpg",
+			"images/magnesy/m5.jpg",
+			"images/magnesy/m6.jpg",
+			"images/magnesy/m7.jpg",
+			"images/magnesy/m8.jpg",
+			"images/magnesy/m9.jpg",
+			"images/magnesy/m10.jpg"
+			]
         }
     ],
+	
+	    'subcat11-2': [
+        {
+            name: "Obrazy",
+            description: "Klejony do ściany, rozmiar 40 cm, dowolne wzory, możliwa też opcja 2 warstwowa z plecami/tyłem",
+            price: "89 zł",
+              imgSrc: [
+			"images/zwierzeta/kon1.jpg",
+			"images/zwierzeta/kot1.jpg",
+			"images/zwierzeta/wilk1.jpg",
+			"images/zwierzeta/lew1.jpg"
+			
+			]
+        }
+    ],
+	
+	 'subcat11-3': [
+        {
+            name: "Adresówka",
+            description: "Identyfikator z imieniem pupula, z tyłu nr telefonu, materiał filc lub drewno, wzór dowolny",
+            price: "15 zł",
+              imgSrc: [
+			"images/zwierzeta/zw2.jpg",
+			"images/zwierzeta/zw3.jpg",
+			"images/zwierzeta/zw4.jpg",
+			"images/zwierzeta/zw5.jpg"
+			
+			]
+        }
+    ],
+	
+	
+	
 	
 	// Dzieci xxl
     'subcat19-1': [
@@ -821,11 +1017,16 @@ const products = {
 		
 		   {
             name: "Lampka nocna",
-            description: "Daje delikatne światło, idealna np na urodzinki, dowolna kolorystyka i grafika,  ",
-            price: "200 zł",
-            imgSrc: [
-			"ksiazki_dzieci.jpg"
-			
+            description: "Daje delikatne światło, idealna np na urodzinki, dowolna kolorystyka i grafika ",
+            price: "89 zł",
+           imgSrc: [
+			"images/lampki/l1.jpg",
+			"images/lampki/l2.jpg",
+			"images/lampki/l3.jpg",
+			"images/lampki/l4.jpg",
+			"images/lampki/l5.jpg",
+			"images/lampki/l6.jpg",
+			"images/lampki/l7.jpg",
 			
 			]
         },		
@@ -864,33 +1065,109 @@ const products = {
 	
 	
 	
-    // Rodzina - Gry rozwojowe
-    'subcat20-3': [
+    // Rodzina 
+    'subcat20-1': [
         {
-            name: "Gry rozwojowe",
-            description: "Zestaw gier dla całej rodziny.",
-            price: "150 zł",
-            imgSrc: ["gry_rodzinna.jpg"]
+            name: "Misie",
+            description: "Ramka z misiową rodziną, klejona do ściany, dowolna konfiguracja",
+            price: "79 zł",
+            imgSrc: [
+			"images/rodzina/ro1.jpg"
+			
+			]
         }
     ],
+	
+	
+	    'subcat20-2': [
+        {
+            name: "Serca",
+            description: "Ozdoba: serce z imionami członków rodziny, klejona do ściany, ok 40cm",
+            price: "89 zł",
+              imgSrc: [
+			"images/rodzina/serca1.jpg",
+			"images/rodzina/serca2.jpg",
+			"images/rodzina/serca3.jpg",
+			"images/rodzina/serca4.jpg",
+			"images/rodzina/serca5.jpg"
+			
+			
+			]
+        }
+    ],
+	
+	    'subcat20-3': [
+        {
+            name: "Drzewo rodzinne",
+            description: "Drzewo genealogiczne z imionami członków rodziny",
+            price: "89 zł",
+              imgSrc: [
+		
+			"images/rodzina/drz2.jpg"
+			
+			
+			]
+        }
+    ],
+	
+	    'subcat20-4': [
+        {
+            name: "Obraz",
+            description: "Zestaw gier dla całej rodziny.",
+            price: "150 zł",
+              imgSrc: [
+			"images/rodzina/patrol2.jpg",
+			"images/rodzina/patrol1.jpg"
+			
+			
+			]
+        }
+    ],
+	
+	
+	
+	
+	
+	
     // Wall ART - Obrazy
     'subcat21-1': [
         {
             name: "Obraz do salonu",
             description: "Piękny obraz do powieszenia w salonie.",
             price: "250 zł",
-            imgSrc: ["obraz_salon.jpg"]
+                 imgSrc: [
+			"images/rodzina/patrol2.jpg",
+			"images/rodzina/patrol1.jpg"
+			
+			
+			]
         }
     ],
-    // Lampki
+	
+	
+	
+	
+    // Lampki i zegary
     'subcat22-1': [
         {
             name: "Lampka nocna",
-            description: "Urocza lampka nocna do pokoju.",
+            description: "Daje delikatne światło, idealna np na urodzinki, dowolna kolorystyka i grafika",
             price: "80 zł",
-            imgSrc: ["lampka_nocna.jpg"]
+            imgSrc: [
+			"images/lampki/l1.jpg",
+			"images/lampki/l2.jpg",
+			"images/lampki/l3.jpg",
+			"images/lampki/l4.jpg",
+			"images/lampki/l5.jpg",
+			"images/lampki/l6.jpg",
+			"images/lampki/l7.jpg",
+			
+			]
         }
     ],
+	
+	
+	
 	
 	    // Chrobotek
     'subcat9-1': [
@@ -947,15 +1224,15 @@ const products = {
 	
 	
 	
-    // Inne - Handmade
-    'subcat14-1': [
+   /* Inne - Handmade
+  /  'subcat14-1': [
         {
             name: "Handmade Biżuteria",
             description: "Ręcznie robiona biżuteria.",
             price: "25 zł",
             imgSrc: ["bizuteria_handmade.jpg"]
         }
-    ]
+    ]*/
 };
 
 let currentIndex;
