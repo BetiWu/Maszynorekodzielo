@@ -61,11 +61,11 @@ function removeItem(index) {
 document.getElementById('order-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Uaktualnij wartości ukrytych pól przed wysłaniem formularza
+    // Walidacja i przygotowanie danych
     const hiddenCartContent = document.getElementById('cartContent');
     const totalAmountField = document.getElementById('totalAmount');
 
-    // Tworzenie opisu koszyka
+    // Opis koszyka
     hiddenCartContent.value = cart.map((item, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         return `${item.name} - ${item.price.toFixed(2).replace('.', ',')} zł${customText ? ` (Personalizacja: ${customText})` : ''}`;
@@ -78,19 +78,12 @@ document.getElementById('order-form').addEventListener('submit', function (event
         return;
     }
 
-    const formData = new FormData(this);
-
     // Zbieranie personalizacji
+    const formData = new FormData(this);
     cart.forEach((_, index) => {
         const customText = document.getElementById(`customText-${index}`)?.value || '';
         formData.append(`customText-${index}`, customText);
     });
-
-    // Logowanie zawartości FormData przed wysłaniem
-    console.log('Zawartość FormData przed wysłaniem:');
-    for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-    }
 
     // Wysyłanie formularza do Netlify
     fetch(this.action, {
@@ -98,17 +91,15 @@ document.getElementById('order-form').addEventListener('submit', function (event
         body: formData,
     })
         .then(response => {
-            console.log('Odpowiedź serwera:', response);
             if (response.ok) {
                 alert('Zamówienie zostało złożone pomyślnie!');
-                this.reset();
-                this.style.display = 'none';
+                this.reset(); // Resetowanie formularza po pomyślnym złożeniu zamówienia
+                this.style.display = 'none'; // Ukrycie formularza
                 cart = [];
                 localStorage.removeItem('cart');
                 displayCart();
             } else {
                 return response.text().then(text => {
-                    console.error('Błąd odpowiedzi:', text);
                     alert('Wystąpił błąd podczas składania zamówienia: ' + text);
                 });
             }
