@@ -4,7 +4,7 @@ const products = {
         {
             name: "Bombki 1-warstwowe",
             description: "Kliknij na zdjęcie i obejrzyj propozycje, dowolne wzory/postaci",
-            price: "9.99 zł",
+            price: "10 zł",
             imgSrc: [
                 "images/bomb/bombki/bo1.jpg",
                 "images/bomb/bombki/bo2.jpg",
@@ -22,7 +22,7 @@ const products = {
 		     {
             name: "Bombki Dzwoniferki",
             description: "Rodzina (mama/babcia/ciocia, tata/dziadek/wujek, syn, córka)",
-            price: "9.99 zł",
+            price: "10 zł",
             imgSrc: [
                 "images/bomb/dzwoni/dzwoni1.jpg",
                 "images/bomb/dzwoni/dzwoni2.jpg",
@@ -40,7 +40,7 @@ const products = {
         {
             name: "Bombki 2-warstwowe",
             description: "Kliknij na zdjęcie i obejrzyj propozycje, dowolne wzory/postaci",
-            price: "14.99 zł",
+            price: "15 zł",
             imgSrc: [
                 "images/bomb/2warst/2.6.jpg",
 				"images/bomb/2warst/2.1.jpg",
@@ -59,7 +59,7 @@ const products = {
         {
             name: "Bombki Inne",
             description: "Kliknij na zdjęcie i obejrzyj propozycje, 2-warstowowe różne kształty",
-            price: "19.99 zł",
+            price: "19 zł",
             imgSrc: [
                 "images/bomb/BoInne/3.1.jpg",
 				"images/bomb/BoInne/3.2.jpg",
@@ -1240,7 +1240,7 @@ const products = {
 	*/
 	
 	
-	
+	/*
 	
     // Wall ART - Obrazy
     'subcat21-1': [
@@ -1257,7 +1257,7 @@ const products = {
         }
     ],
 	
-	
+	*/
 	
 	
     // Lampki i zegary

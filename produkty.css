@@ -70,6 +70,27 @@ h1, h2, h3, h4, h5, h6, p, .nav-link, .category-item, .subcategory-item {
 }
 
 
+button[type="submit"] {
+    background-color: #FF5733; /* Kolor tła */
+    color: white; /* Kolor tekstu */
+    border: none; /* Bez obramowania */
+    padding: 10px 20px; /* Odstępy wewnętrzne */
+    font-size: 20px; /* Rozmiar czcionki */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    cursor: pointer; /* Kursor w kształcie wskazującym */
+    transition: background-color 0.3s; /* Animacja przejścia kolorów */
+}
+
+button[type="submit"]:hover {
+    background-color: #C70039; /* Zmiana koloru tła na hover */
+}
+
+
+
+
+
+
+
 
 /* Obrazki */
 img {
@@ -123,7 +144,7 @@ img {
 margin: 0; 
     text-align: center; 
     color: yellow;	
-	font-size: 15px;
+	font-size: 18px;
 	text-shadow: 2px 1px 3px black; 
 
 }
@@ -132,7 +153,7 @@ margin: 0;
     margin: 0; 
     text-align: center; 
     color: white;	
-	font-size: 13px;
+	font-size: 14px;
 }
 
 /* Przyciski */
@@ -142,8 +163,10 @@ button {
     color: white; 
 	border-radius: 10px; 
     cursor: pointer; 
-	font-size: 20px;
+	font-size: 16px;
 	font-family: 'Lora', serif;
+	
+	font-weight: bold;
 	text-shadow: 1px 1px 2px black; 
 }
 
@@ -199,7 +222,7 @@ button:hover {
 }
 
 .category-item:hover {
-    color: #ffeb3b; 
+   color:rgba(255, 255, 0, 0.9);
 }
 
 .subcategory-list {
@@ -214,7 +237,7 @@ button:hover {
 }
 
 .subcategory-item:hover {
-    color: yellow; 
+    color:rgba(255, 255, 0, 0.8);
 }
 
 /* Modal */
