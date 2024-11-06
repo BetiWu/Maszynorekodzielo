@@ -310,7 +310,7 @@ const products = {
     'subcat2-1': [
         {
             name: "Zaproszenie ślubne",
-            description: "W pełni personalizowane( przy większej ilośći zniżka)",
+            description: "Kliknij w zdjęcie obejrzyj wzory, w pełni personalizowane( przy większej ilośći zniżka), mogę zaprojektować pod konkretny pomysł",
             price: "17 zł",
             imgSrc: [
 			"images/slub/zapro1.jpg",
@@ -427,8 +427,7 @@ const products = {
             description: "Personalizowany aniołek",
             price: "13 zł",
             imgSrc: [
-			"images/komunia/aniolek1.jpg",
-			"images/komunia/aniolek1.jpg"
+			"images/komunia/anio1.jpg"
 			
 			]
         }
@@ -458,6 +457,8 @@ const products = {
         }
     ],
 	
+	/*
+	
 	//zaproszenia
 	
 	    'subcat5-2': [
@@ -485,7 +486,7 @@ const products = {
         }
 		
 		
-		
+	
 		
 		
 		
@@ -499,14 +500,16 @@ const products = {
             description: "Eleganckie etui na pieniądze z życzeniami",
             price: "5 zł",
             imgSrc: [
-			"images/chrzest/zaprochrzest1.jpg"
+			"images/komunia/k1.jpg",
+			"images/komunia/k2.jpg",
+			"images/komunia/k3.jpg",
 			
 			
 			]
         }
     ],
 	
-	
+		*/
 	
 	
     // Urodziny 
@@ -614,31 +617,15 @@ const products = {
             description: "Zabawna tabliczka garażowa, w pełni personalizowana, dowolna grafika",
             price: "49 zł",
             imgSrc: [
-			"images/urodziny/garaz1.jpg",
+			"images/urodziny/garaz4.jpg",
 			"images/urodziny/garaz2.jpg",
 			"images/urodziny/garaz3.jpg",
-			"images/urodziny/garaz4.jpg"
+			"images/urodziny/garaz1.jpg"
 			
 			]
         },
 		
-		      {
-            name: "Podkładki",
-            description: "Cieńkie podkładki,dowolna personalizacacja, grawer, grafika",
-            price: "9 zł",
-             imgSrc: [
-			"images/podkladki/p1.jpg",
-			"images/podkladki/p2.jpg",
-			"images/podkladki/p3.jpg",
-			"images/podkladki/p4.jpg",
-			"images/podkladki/p5.jpg",
-			"images/podkladki/p6.jpg",
-			"images/podkladki/p7.jpg",
-			"images/podkladki/p8.jpg",
-			"images/podkladki/p9.jpg"
-			
-			]
-        },
+	
 		
 	 {
             name: "Koszulka dla fana piłki nożnej",
@@ -665,6 +652,24 @@ const products = {
 			]
         },
 		
+			      {
+            name: "Podkładki",
+            description: "Cieńkie podkładki,dowolna personalizacacja, grawer, grafika",
+            price: "9 zł",
+             imgSrc: [
+			"images/podkladki/p1.jpg",
+			"images/podkladki/p2.jpg",
+			"images/podkladki/p3.jpg",
+			"images/podkladki/p4.jpg",
+			"images/podkladki/p5.jpg",
+			"images/podkladki/p6.jpg",
+			"images/podkladki/p7.jpg",
+			"images/podkladki/p8.jpg",
+			"images/podkladki/p9.jpg"
+			
+			]
+        },
+		
 		
 		
     ],
@@ -672,15 +677,56 @@ const products = {
 	
 	
 	
-	    // Dzień Babci - Portfel
+	    // Dzień Babci
     'subcat6-1': [
         {
-            name: "Portfel dla babci",
-            description: "Elegancki portfel.",
-            price: "99 zł",
-            imgSrc: ["portfel_babcia.jpg"]
+            name: "Statuetka dla Babci/Dziadka",
+            description: "Do postawienia na komodzie przypominająca o wyjątkowości roli Babci/Dziadka",
+            price: "49 zł",
+                 imgSrc: [
+			"images/babdziad/st1.jpg",
+			"images/babdziad/st2.jpg",
+			"images/babdziad/st2.jpg"
+			]
         }
     ],
+	
+	  'subcat6-2': [
+        {
+            name: "Drzewko rodzinne",
+            description: "Kliknij na zdjęcie i obejrzyj wzory, drzewko z imionami filcowym/drewnianymi serduszkami",
+            price: "89 zł",
+                      imgSrc: [
+			"images/babdziad/drz1.jpg",
+			"images/babdziad/drz2.jpg",
+			"images/babdziad/drz3.jpg",
+			"images/babdziad/drz4.jpg"
+			]
+        },
+		
+		 {
+            name: "Tablicza dla Babci/Dziadka",
+            description: "Kliknij na zdjęcie i obejrzyj wzory, tabliczka z serduszkami/imionami wnuków, możliwość dowolnej personalizacji",
+            price: "49 zł",
+                       imgSrc: [
+			"images/babdziad/1.jpg",
+			"images/babdziad/2.jpg",
+			"images/babdziad/3.jpg",
+			"images/babdziad/4.jpg",
+			"images/babdziad/5.jpg",
+			"images/babdziad/6.jpg",
+			"images/babdziad/7.jpg"
+			]
+		 }
+		
+    ],
+	
+	
+	
+	
+	
+	
+	
     // Dzień Mamy i Taty statuetka
     'subcat7-1': [
         {
@@ -688,11 +734,11 @@ const products = {
             description: "W pełni personalizowane, różne wzory",
             price: "39 zł",
             imgSrc: [
-			"images/mamytaty/1/tat1.jpg",
+			"images/mamytaty/1/tat5.jpg",
 			"images/mamytaty/1/tat2.jpg",
 			"images/mamytaty/1/tat3.jpg",
 			"images/mamytaty/1/tat4.jpg",
-			"images/mamytaty/1/tat5.jpg"
+			"images/mamytaty/1/tat1.jpg"
 			]
         },
    
@@ -895,7 +941,7 @@ const products = {
         {
             name: "Kotek",
             description: "Uroczy drobiazg, grawerowany kotek wyznający miłość, personalizowany",
-            price: "89 zł",
+            price: "19 zł",
             imgSrc: [
 			"images/walentynki/kot1.jpg",
 			"images/walentynki/kot2.jpg"
@@ -974,9 +1020,9 @@ const products = {
     // Magnesy
     'subcat18-1': [
         {
-            name: "Religijne",
-            description: "Obrazy religijne",
-            price: "89 zł",
+            name: "Wizerunki duchowe",
+            description: "Kliknij w zdjęcie wybierz wzór, wysokość ok 40 cm",
+            price: "99 zł",
               imgSrc: [
 			"images/religijne/o2.jpg",
 			"images/religijne/o1.jpg",
@@ -1032,11 +1078,11 @@ const products = {
 	 'subcat11-3': [
         {
             name: "Adresówka",
-            description: "Identyfikator z imieniem pupula, z tyłu nr telefonu, materiał filc lub drewno, wzór dowolny",
+            description: "Identyfikator z imieniem pupila, z tyłu nr telefonu, materiał filc lub drewno, wzór dowolny",
             price: "15 zł",
               imgSrc: [
-			"images/zwierzeta/zw2.jpg",
 			"images/zwierzeta/zw3.jpg",
+			"images/zwierzeta/zw2.jpg",
 			"images/zwierzeta/zw4.jpg",
 			"images/zwierzeta/zw5.jpg"
 			
@@ -1097,6 +1143,7 @@ const products = {
             description: "Napis długość 40 cm, ze sklejki 3mm, w warstwy,klejone dościany, dowolne kolory",
             price: "39 zł",
             imgSrc: [
+			"images/dzieci/napis0.jpg",
 			"images/dzieci/napis1.jpg",
 			"images/dzieci/napis2.jpg",
 			"images/dzieci/napis3.jpg"
@@ -1172,6 +1219,10 @@ const products = {
         }
     ],
 	
+	
+	/*
+	
+	
 	    'subcat20-4': [
         {
             name: "Obraz",
@@ -1186,7 +1237,7 @@ const products = {
         }
     ],
 	
-	
+	*/
 	
 	
 	
@@ -1214,7 +1265,7 @@ const products = {
         {
             name: "Lampka nocna",
             description: "Daje delikatne światło, idealna np na urodzinki, dowolna kolorystyka i grafika",
-            price: "80 zł",
+            price: "69 zł",
             imgSrc: [
 			"images/lampki/l1.jpg",
 			"images/lampki/l2.jpg",
@@ -1227,9 +1278,14 @@ const products = {
 			]
         },
 		
+		
+	  ],	
+		
+		
+		'subcat22-2': [
 		  {
             name: "Zegary",
-            description: "Zegar wowolnie personalizowany, dowolna grafika",
+            description: "Zegar dowolnie personalizowany, dowolna grafika",
             price: "69 zł",
             imgSrc: [
 			"images/lampki/z1.jpg",
@@ -1240,9 +1296,7 @@ const products = {
 			]
         }
 		
-		
-		
-		
+			
     ],
 	
 	
