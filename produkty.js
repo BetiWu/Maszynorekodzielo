@@ -396,7 +396,7 @@ const products = {
         {
             name: "Kartki drewniane",
             description: "Eleganckie etui na pieniądze z życzeniami",
-            price: "5 zł",
+            price: "49 zł",
             imgSrc: [
 			"images/komunia/k1.jpg",
 			"images/komunia/k2.jpg",
