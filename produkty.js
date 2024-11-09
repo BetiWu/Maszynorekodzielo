@@ -960,7 +960,7 @@ const products = {
         {
             name: "Brelok imienny",
             description: "Kliknij i obejrzyj zdjęcia, breloki: drewniane, filc, skóra, dowolny kształt, postać, grawer",
-            price: "120 zł",
+            price: "15 zł",
             imgSrc: [
 			"images/breloki/br0.jpg",
 			"images/breloki/br1.jpg",
