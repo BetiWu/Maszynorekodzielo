@@ -208,7 +208,7 @@ const products = {
     'subcat3-1': [
         {
             name: "Cekinowe jajko",
-            description: "Ręcznie ozdobione cekinami, na tronie, możliwa personalizacja/grawer",
+            description: "Ręcznie ozdobione cekinami, na podstawce, możliwa personalizacja/grawer",
             price: "39 zł",
             imgSrc: [
 			"images/jajka/ozd1.jpg", 
@@ -628,11 +628,7 @@ const products = {
             price: "49 zł",
             imgSrc: [
 			"images/urodziny/koszulka1.jpg",
-			"images/urodziny/koszulka2.jpg",
-			"images/urodziny/koszulka3.jpg",
-			"images/urodziny/koszulka4.jpg",
-			"images/urodziny/koszulka5.jpg",
-			"images/urodziny/koszulka6.jpg"
+			"images/urodziny/koszulka2.jpg"
 			
 			]
         },
@@ -649,7 +645,7 @@ const products = {
 		
 			      {
             name: "Podkładki",
-            description: "Cieńkie podkładki,dowolna personalizacacja, grawer, grafika",
+            description: "Cieńkie korkowe podkładki,dowolna personalizacacja, grawer, grafika",
             price: "9 zł",
              imgSrc: [
 			"images/podkladki/p1.jpg",
@@ -1356,7 +1352,7 @@ const products = {
   'subcat14-1': [
         {
             name: "Podkładki",
-            description: "Cieńkie podkładki,dowolna personalizacacja, grawer, grafika",
+            description: "Cieńkie korkowe podkładki,dowolna personalizacacja, grawer, grafika",
             price: "9 zł",
              imgSrc: [
 			"images/podkladki/p1.jpg",
