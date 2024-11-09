@@ -672,7 +672,7 @@ const products = {
     'subcat6-1': [
         {
             name: "Statuetka dla Babci/Dziadka",
-            description: "Do postawienia na komodzie przypominająca o wyjątkowości roli Babci/Dziadka",
+            description: "Na podstawce, przypominająca o wyjątkowości roli Babci/Dziadka",
             price: "49 zł",
                  imgSrc: [
 			"images/babdziad/st1.jpg",
@@ -697,7 +697,7 @@ const products = {
 		
 		 {
             name: "Tablicza dla Babci/Dziadka",
-            description: "Kliknij na zdjęcie i obejrzyj wzory, tabliczka z serduszkami/imionami wnuków, możliwość dowolnej personalizacji",
+            description: "Kliknij na zdjęcie i obejrzyj wzory, tabliczka z serduszkami/imionami wnuków, możliwość dowolnej personalizacji tekstu",
             price: "49 zł",
                        imgSrc: [
 			"images/babdziad/1.jpg",
@@ -1104,7 +1104,7 @@ const products = {
     'subcat19-2': [
         {
             name: "Miś Staś",
-            description: "Duży, klejony do ściany, idealny np na urodziny, dowolna cyferka, dowolna postać z bajki, imię dziecka ",
+            description: "Duży, klejony do ściany, idealny np. na urodziny, dowolna cyferka, dowolna postać z bajki, imię dziecka ",
             price: "89 zł",
             imgSrc: [
 			"images/dzieci/mis1.jpg",
@@ -1116,7 +1116,7 @@ const products = {
 		
 		   {
             name: "Lampka nocna",
-            description: "Daje delikatne światło, idealna np na urodzinki, dowolna kolorystyka i grafika ",
+            description: "Daje delikatne światło, idealna np. na urodziny, dowolna kolorystyka i grafika ",
             price: "89 zł",
            imgSrc: [
 			"images/lampki/l1.jpg",
@@ -1149,7 +1149,7 @@ const products = {
     'subcat19-3': [
         {
             name: "Psi Patrol",
-            description: "Idealny np na urodziny, dowolna cyferka, dowolna postać z bajki, imię dziecka ",
+            description: "Idealny np. na urodziny, dowolna cyferka, dowolna postać z bajki, imię dziecka ",
             price: "49 zł",
             imgSrc: [
 			"images/dzieci/patrol2.jpg",
@@ -1255,7 +1255,7 @@ const products = {
     'subcat22-1': [
         {
             name: "Lampka nocna",
-            description: "Daje delikatne światło, idealna np na urodzinki, dowolna kolorystyka i grafika",
+            description: "Daje delikatne światło, idealna np. na urodziny, dowolna kolorystyka i grafika",
             price: "69 zł",
             imgSrc: [
 			"images/lampki/l1.jpg",
