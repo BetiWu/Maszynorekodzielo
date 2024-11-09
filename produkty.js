@@ -21,7 +21,7 @@ const products = {
 		
 		     {
             name: "Bombki Dzwoniferki",
-            description: "Rodzina (mama/babcia/ciocia, tata/dziadek/wujek, syn, córka)",
+            description: "Rodzina (mama/babcia/ciocia/córka, tata/dziadek/wujek/syn)",
             price: "10 zł",
             imgSrc: [
                 "images/bomb/dzwoni/dzwoni1.jpg",
@@ -224,7 +224,7 @@ const products = {
 		
         {
             name: "Jajko imienne",
-            description: "Rodzina (mama/babcia/ciocia, tata/dziadek/wujek, syn, córka)",
+            description: "Rodzina (mama/babcia/ciocia/córka, tata/dziadek/wujek/syn)",
             price: "15 zł",
             imgSrc: [
 			"images/jajka/imienne1.jpg", 
@@ -395,7 +395,7 @@ const products = {
 	 'subcat4-3': [
         {
             name: "Kartki drewniane",
-            description: "Eleganckie etui na pieniądze z życzeniami",
+            description: "2 warstwowa w pełni personalizowana kartka z życzeniami",
             price: "49 zł",
             imgSrc: [
 			"images/komunia/k1.jpg",
