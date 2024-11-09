@@ -75,7 +75,7 @@ const products = {
     'subcat1-2': [ // Choinki
         {
             name: "Choinka Pompinka",
-            description: "Choinka z własnoręcznie plecionymi pomponami, personalizowana, wysokość ok 40cm ",
+            description: "Choinka z własnoręcznie plecionymi pomponami, personalizowana, wysokość ok. 40cm ",
             price: "69 zł",
             imgSrc: [
                 "images/choinki/po1.jpg",
@@ -573,8 +573,7 @@ const products = {
 			"images/urodziny/s2.jpg",
 			"images/urodziny/s3.jpg",
 			"images/urodziny/s4.jpg",
-			"images/urodziny/s5.jpg",
-			"images/urodziny/s6.jpg"
+			"images/urodziny/s5.jpg"
 			
 			]
         }
@@ -589,8 +588,7 @@ const products = {
 			
 			"images/urodziny/sk1.jpg",
 			"images/urodziny/sk2.jpg",
-			"images/urodziny/sk3.jpg",
-			"images/urodziny/sk4.jpg"
+			"images/urodziny/sk3.jpg"
 			
 			]
         },
@@ -600,10 +598,7 @@ const products = {
             description: "Napisy, postać literki 3d, klejone, malowane ręcznie, życzenia w środku",
             price: "69 zł",
               imgSrc: [
-			"images/urodziny/sk3d0.jpg",
-			"images/urodziny/sk3d1.jpg",
-			"images/urodziny/sk3d2.jpg"
-			
+			"images/urodziny/sk3d0.jpg"
 			]
         }
 		
