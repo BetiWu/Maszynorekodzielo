@@ -71,8 +71,21 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '587161057178727');
 fbq('track', 'PageView');
+
+// Funkcja do przesyłania danych użytkownika
+function trackUserData(userName, userSurname, userEmail) {
+  fbq('track', 'CompleteRegistration', {
+    content_name: userName + ' ' + userSurname, // Pełne imię i nazwisko
+    content_category: 'User Data', // Kategoria
+    email: userEmail // Adres e-mail (nie jest zalecane przesyłanie)
+  });
+}
+
+// Przykład użycia funkcji
+trackUserData('Jan', 'Kowalski', 'jan.kowalski@example.com');  // Zamień na dynamiczne wartości
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=587161057178727&ev=PageView&noscript=1"
