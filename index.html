@@ -26,6 +26,8 @@ font-family: 'Lora', serif;
 	<meta name="description" content="Sklep z rękodziełem we Wrocławiu! Oferujemy wyjątkowe grawerowane wyroby rękodzielnicze, ręcznie robione prezenty, laserowe wycinanie sklejki oraz grawerowanie. Gwarantujemy unikalne projekty, które wyróżnią się na tle innych - odkryj rękodzieło i rekodzielo z pasją!">
 	
 		<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V28FV0PE1C"></script>
 <script>
@@ -33,7 +35,29 @@ font-family: 'Lora', serif;
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-V28FV0PE1C');
+  // Konfigurowanie Google Analytics
+  gtag('config', 'G-V28FV0PE1C', {
+    'user_id': 'UNIQUE_USER_ID'  // Dostosuj do swojego systemu logowania
+  });
+
+  // Funkcja do śledzenia kliknięć przycisku
+  function trackButtonClick() {
+    gtag('event', 'click', {
+      'event_category': 'button',
+      'event_label': 'myButton',
+      'value': 1
+    });
+  }
+  
+  // Funkcja do śledzenia zmiany strony w SPA
+  function trackPageView(url) {
+    gtag('config', 'G-V28FV0PE1C', {
+      'page_path': url
+    });
+  }
+
+  // Przykład wywołania po zmianie strony
+  // trackPageView(window.location.pathname + window.location.search);  // Odkomentuj i użyj w odpowiednim miejscu
 </script>
 	
 	

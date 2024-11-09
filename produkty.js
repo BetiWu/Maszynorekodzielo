@@ -1012,7 +1012,7 @@ const products = {
     'subcat18-1': [
         {
             name: "Wizerunki duchowe",
-            description: "Kliknij w zdjęcie wybierz wzór, wysokość ok 40 cm",
+            description: "Kliknij w zdjęcie wybierz wzór, wysokość ok. 40 cm",
             price: "99 zł",
               imgSrc: [
 			"images/religijne/o2.jpg",
@@ -1073,9 +1073,7 @@ const products = {
             price: "15 zł",
               imgSrc: [
 			"images/zwierzeta/zw3.jpg",
-			"images/zwierzeta/zw2.jpg",
-			"images/zwierzeta/zw4.jpg",
-			"images/zwierzeta/zw5.jpg"
+			"images/zwierzeta/zw2.jpg"
 			
 			]
         }
