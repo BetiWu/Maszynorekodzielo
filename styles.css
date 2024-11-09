@@ -169,6 +169,11 @@
     .footer {
         font-size: 12px; /* Mniejsza czcionka na urządzeniach mobilnych */
     }
+	
+	.hover-text {
+        display: inline; /* Wyświetlamy tekst na urządzeniach mobilnych */
+		margin-top: -10px;
+    }
 }
 
 /* Możesz dodać więcej zapytań dla różnych rozmiarów ekranów */
