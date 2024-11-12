@@ -1022,6 +1022,17 @@ const products = {
 			]
 			
 			
+        },
+		
+			{
+            name: "Pachnąca zawieszka do auta",
+            description: "Zawieszka drewniana, z filcowym wkładem, pachnąca",
+            price: "25 zł",
+            imgSrc: [
+			"images/zawieszka/4.jpg",
+			"images/zawieszka/5.jpg"
+			
+			]
         }
     ],
 	
@@ -1364,7 +1375,22 @@ const products = {
 			"images/podkladki/p9.jpg"
 			
 			]
+        },
+		
+		{
+            name: "Pachnąca zawieszka do auta",
+            description: "Zawieszka drewniana, z filcowym wkładem, pachnąca",
+            price: "25 zł",
+            imgSrc: [
+			"images/zawieszka/1.jpg",
+			"images/zawieszka/2.jpg",
+			"images/zawieszka/3.jpg",
+			"images/zawieszka/4.jpg",
+			"images/zawieszka/5.jpg"
+			
+			]
         }
+		
     ]
 };
 
